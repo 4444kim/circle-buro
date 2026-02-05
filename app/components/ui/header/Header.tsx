@@ -1,0 +1,59 @@
+import Image from "next/image";
+import Link from "next/link";
+import styles from "./Header.module.scss";
+
+export default function Header() {
+  return (
+    <header className={styles.header}>
+      <div className={styles.inner}>
+        <Link href="/" className={styles.logoBlock}>
+          <Image
+            src="/Logo.svg"
+            alt="CIRCLE creative buro"
+            width={48}
+            height={48}
+            className={styles.logoImage}
+          />
+        </Link>
+
+        <nav className={styles.nav}>
+          <ul className={styles.navList}>
+            <li>
+              <Link href="/about" className={styles.navLink}>
+                О нас
+              </Link>
+            </li>
+            <li>
+              <Link href="/services" className={styles.navLink}>
+                Услуги
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className={styles.navLink}>
+                Проекты
+              </Link>
+            </li>
+            <li>
+              <Link href="#" className={styles.navLink}>
+                Шоу кейсы
+              </Link>
+            </li>
+          </ul>
+        </nav>
+
+        <div className={styles.actions}>
+          <select
+            className={styles.langSelect}
+            defaultValue="ru"
+            aria-label="Язык"
+          >
+            <option value="ru">РУС</option>
+          </select>
+          <Link href="/contact" className={styles.ctaButton}>
+            Связаться с нами
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+}

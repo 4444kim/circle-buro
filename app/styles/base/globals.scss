@@ -1,0 +1,54 @@
+@use "../shared/variables" as *;
+@import "../shared/fonts";
+@import "./reset.scss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+  color: #393939;
+  background-color: #f1f3ff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+// Improve touch targets for mobile
+@media (max-width: 768px) {
+  button,
+  a,
+  input,
+  select,
+  textarea {
+    min-height: 44px;
+  }
+}
+
+// Reduce motion for accessibility
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+// Focus visible for accessibility
+:focus-visible {
+  outline: 2px solid #fa4c19;
+  outline-offset: 2px;
+}
+
+// Selection styling
+::selection {
+  background: rgba(250, 76, 25, 0.2);
+  color: #393939;
+}
