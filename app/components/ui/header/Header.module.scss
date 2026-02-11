@@ -1,8 +1,9 @@
 .header {
   position: fixed;
   top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  margin: 0 auto;
   z-index: 50;
   width: 95%;
   max-width: 1880px;
@@ -26,7 +27,7 @@
   }
 
   @media (max-width: 768px) {
-    padding: 8px 16px;
+    padding: 0px 20px;
   }
 }
 
@@ -86,6 +87,24 @@
   flex-shrink: 0;
 }
 
+.burgerButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
 .langSelect {
   display: none;
   padding: 8px 12px;
@@ -96,12 +115,14 @@
   border-radius: 26px;
   cursor: pointer;
   font-family: inherit;
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     display: block;
   }
 }
 
 .ctaButton {
+  display: flex;
+  align-items: center;
   padding: 12px 24px;
   font-size: 16px;
   font-weight: 500;
@@ -119,7 +140,8 @@
   }
 
   @media (max-width: 768px) {
-    padding: 10px 16px;
-    font-size: 14px;
+    display: none;
   }
 }
+
+/** mobile menu styles moved to app/components/ui/mobileBar/MobileMenu.module.scss */

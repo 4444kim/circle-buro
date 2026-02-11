@@ -1,8 +1,16 @@
+ "use client";
+
+ "use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import styles from "./Header.module.scss";
+import { MobileMenu } from "../mobileBar/MobileMenu";
 
 export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -29,12 +37,12 @@ export default function Header() {
               </Link>
             </li>
             <li>
-              <Link href="#" className={styles.navLink}>
+              <Link href="/projects" className={styles.navLink}>
                 Проекты
               </Link>
             </li>
             <li>
-              <Link href="#" className={styles.navLink}>
+              <Link href="/show-cases" className={styles.navLink}>
                 Шоу кейсы
               </Link>
             </li>
@@ -52,8 +60,23 @@ export default function Header() {
           <Link href="/contact" className={styles.ctaButton}>
             Связаться с нами
           </Link>
+          <button
+            type="button"
+            className={styles.burgerButton}
+            aria-label="Открыть меню"
+            onClick={() => setIsMenuOpen(true)}
+          >
+            <Image
+              src="/burger-menu.svg"
+              alt="Меню"
+              width={32}
+              height={32}
+            />
+          </button>
         </div>
       </div>
+
+      <MobileMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)} />
     </header>
   );
 }
