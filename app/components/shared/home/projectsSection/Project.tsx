@@ -5,17 +5,57 @@ import Image from "next/image";
 import styles from "./Project.module.scss";
 
 const PROJECTS = [
-  { name: "Stepe coffee", image: "/home/projects/project1.png" },
-  { name: "Galeriya", image: "/home/projects/project2.png" },
-  { name: "CAMPIT", image: "/home/projects/project3.png" },
-  { name: "SANY", image: "/home/projects/project4.png" },
-  { name: "DIVE", image: "/home/projects/project5.png" },
-  { name: "Senen", image: "/home/projects/project6.png" },
-  { name: "CITIX", image: "/home/projects/project7.png" },
-  { name: "Home Bank", image: "/home/projects/project8.png" },
+  {
+    name: "Stepe coffee",
+    label: "Stepe coffee",
+    src: "/projects-video/project1.mp4",
+    isVideo: true,
+  },
+  {
+    name: "Galeriya",
+    label: "Galeriya",
+    src: "/projects-video/project2.mp4",
+    isVideo: true,
+  },
+  {
+    name: "CAMPIT",
+    label: "CAMPIT",
+    src: "/projects-video/project3.mp4",
+    isVideo: true,
+  },
+  {
+    name: "SANY",
+    label: "SANY",
+    src: "/projects-video/project4.png",
+    isVideo: false,
+  },
+  {
+    name: "DIVE",
+    label: "DIVE",
+    src: "/projects-video/project5.mp4",
+    isVideo: true,
+  },
+  {
+    name: "Senen",
+    label: "Senen",
+    src: "/projects-video/project6.png",
+    isVideo: false,
+  },
+  {
+    name: "CITIX",
+    label: "CITIX",
+    src: "/projects-video/project7.mp4",
+    isVideo: true,
+  },
+  {
+    name: "Home Bank",
+    label: "Home Bank",
+    src: "/projects-video/project8.mp4",
+    isVideo: true,
+  },
 ];
 
-export default function Project() {
+export default function ProjectSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const prevSlide = () => {
@@ -34,44 +74,110 @@ export default function Project() {
     <section className={styles.projects} id="projects">
       <div className={styles.inner}>
         <h2 className={styles.title}>наши проекты</h2>
+        
+        
 
-        {/* Desktop/Tablet Grid */}
         <div className={styles.grid}>
           {PROJECTS.map((project) => (
             <article key={project.name} className={styles.card}>
-              <Image
-                src={project.image}
-                alt={project.name}
-                fill
-                className={styles.image}
-              />
+              <div className={styles.cardMedia}>
+                {project.isVideo ? (
+                  <video
+                    className={styles.cardMediaContent}
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    preload="metadata"
+                  >
+                    <source src={project.src} type="video/mp4" />
+                  </video>
+                ) : (
+                  <Image
+                    src={project.src}
+                    alt={project.name}
+                    fill
+                    className={styles.cardMediaContent}
+                  />
+                )}
+
+                <div className={styles.cardOverlay}>
+                  <div className={styles.cardHeader}>
+                    <button className={styles.cardTag}>{project.label}</button>
+                    <button
+                      type="button"
+                      className={styles.cardIconBtn}
+                      aria-label={`Перейти к проекту ${project.name}`}
+                    >
+                      <Image
+                        src="/projects-video/icons/arrow-up-right-video.svg"
+                        alt=""
+                        width={8}
+                        height={8}
+                      />
+                    </button>
+                  </div>
+
+                  <div className={styles.cardFooter}>
+                    <button type="button" className={styles.nextButton}>
+                      <span>Next</span>
+                      <Image
+                        src="/projects-video/icons/arrow-right-video.svg"
+                        alt=""
+                        width={16}
+                        height={16}
+                        className={styles.nextIcon}
+                      />
+                    </button>
+                  </div>
+                </div>
+              </div>
             </article>
           ))}
         </div>
 
-        {/* Mobile Slider */}
         <div className={styles.slider}>
-          <button className={styles.arrowBtn} onClick={prevSlide} aria-label="Previous">
+          <button
+            className={styles.arrowBtn}
+            onClick={prevSlide}
+            aria-label="Previous"
+          >
             <Image src="/calendar/Left 2.svg" alt="" width={24} height={24} />
           </button>
 
           <div className={styles.slideWrapper}>
             <article className={styles.slide}>
-              <Image
-                src={PROJECTS[currentSlide].image}
-                alt={PROJECTS[currentSlide].name}
-                fill
-                className={styles.image}
-              />
+              {PROJECTS[currentSlide].isVideo ? (
+                <video
+                  className={styles.image}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                >
+                  <source src={PROJECTS[currentSlide].src} type="video/mp4" />
+                </video>
+              ) : (
+                <Image
+                  src={PROJECTS[currentSlide].src}
+                  alt={PROJECTS[currentSlide].name}
+                  fill
+                  className={styles.image}
+                />
+              )}
             </article>
           </div>
 
-          <button className={styles.arrowBtn} onClick={nextSlide} aria-label="Next">
+          <button
+            className={styles.arrowBtn}
+            onClick={nextSlide}
+            aria-label="Next"
+          >
             <Image src="/calendar/Right 2.svg" alt="" width={24} height={24} />
           </button>
         </div>
 
-        {/* Dots */}
         <div className={styles.dots}>
           {PROJECTS.map((_, index) => (
             <button

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import styles from "./Services.module.scss";
+import Link from "next/link";
 
 const SERVICES = [
   {
@@ -54,9 +55,9 @@ export default function Services() {
           ))}
         </div>
 
-        <button type="button" className={styles.btn}>
+        <Link href="/services" className={styles.btn}>
           ПОДРОБНЕЕ <span className={styles.arrow}>→</span>
-        </button>
+        </Link>
       </div>
     </section>
   );

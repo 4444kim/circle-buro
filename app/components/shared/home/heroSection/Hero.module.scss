@@ -2,9 +2,9 @@
 @use "../../../../styles/shared/mixins" as *;
 
 .hero {
+  @include hero-height;
   position: relative;
   width: 100%;
-  @include hero-height;
   overflow: hidden;
 }
 

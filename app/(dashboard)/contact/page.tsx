@@ -5,7 +5,7 @@ import { useState } from "react";
 import styles from "./contact.module.scss";
 import Calendar from "@/app/components/ui/calendar/calendar";
 
-export default function Contact() {
+export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",

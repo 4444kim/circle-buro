@@ -1,0 +1,66 @@
+@use "../../../../styles/shared/mixins" as *;
+
+.page {
+  width: 100%;
+}
+
+.tabsBar {
+  position: sticky;
+  top: 80px;
+  z-index: 30;
+}
+
+.tabsNav {
+  @include container;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabsList {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+
+  @include mobile-down {
+    gap: 24px;
+    overflow-x: auto;
+    padding-bottom: 4px;
+  }
+}
+
+.tabLink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 32px;
+  font-size: 18px;
+  font-weight: 400;
+  color: #393939;
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+
+  &:hover {
+    color: #1f2933;
+  }
+}
+
+.tabLinkActive {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid #ffffff;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 4px 52.9px rgba(255, 235, 220, 1);
+  color: #fffcf0;
+}
+
+.content {
+  position: relative;
+}
+

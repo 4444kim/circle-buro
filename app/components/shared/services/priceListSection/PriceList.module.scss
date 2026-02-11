@@ -92,6 +92,10 @@
   gap: 8px;
   font-size: clamp(14px, 1.5vw, 16px);
   color: #393939;
+  max-width: 300px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  text-overflow: ellipsis;
 }
 
 .serviceName {
