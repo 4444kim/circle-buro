@@ -1,6 +1,6 @@
 @use "../shared/variables" as *;
-@import "../shared/fonts";
-@import "./reset.scss";
+@use "../shared/fonts";
+@use "./reset.scss";
 
 html {
   scroll-behavior: smooth;
@@ -16,6 +16,13 @@ body {
   max-width: 1920px;
   margin: 0 auto;
   overflow-x: hidden;
+}
+
+// Remove default mobile tap highlight (blue flash) on interactive elements
+button,
+a,
+select {
+  -webkit-tap-highlight-color: transparent;
 }
 
 // Improve touch targets for mobile

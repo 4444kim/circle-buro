@@ -1,3 +1,7 @@
+// Breakpoints
+$bp-tablet: 1024px;
+$bp-mobile: 768px;
+
 @mixin container {
   width: min(100% - 2 * clamp(1rem, 4vw, 3rem), 1440px);
   margin-inline: auto;
@@ -29,10 +33,6 @@
   gap: $gap;
 }
 
-// Breakpoints
-$bp-tablet: 1024px;
-$bp-mobile: 768px;
-
 @mixin tablet-down {
   @media (max-width: $bp-tablet) {
     @content;
@@ -43,4 +43,10 @@ $bp-mobile: 768px;
   @media (max-width: $bp-mobile) {
     @content;
   }
+}
+
+@mixin backdrop-blur($blur: 4px, $bg: rgba(255, 255, 255, 0.25)) {
+  background: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
 }
