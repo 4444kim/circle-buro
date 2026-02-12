@@ -11,7 +11,7 @@
 .inner {
   position: relative;
   z-index: 2;
-  @include container;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;

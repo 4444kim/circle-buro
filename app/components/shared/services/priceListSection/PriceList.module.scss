@@ -16,12 +16,12 @@
 }
 
 .bgImage {
-  @include hero-bg-image;
+  @include section-bg-image;
   z-index: 0;
 }
 
 .container {
-  @include container;
+  width: 100%;
   position: relative;
   z-index: 1;
 }

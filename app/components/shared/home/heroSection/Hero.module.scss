@@ -1,8 +1,7 @@
-@use "../../../../styles/shared/variables" as *;
 @use "../../../../styles/shared/mixins" as *;
 
 .hero {
-  @include hero-height;
+  @include section-height;
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -15,7 +14,7 @@
 }
 
 .heroImage {
-  @include hero-bg-image;
+  @include section-bg-image;
 }
 
 @include mobile-down {

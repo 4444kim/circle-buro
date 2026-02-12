@@ -1,7 +1,7 @@
 @use "../../../../../styles/shared/mixins.scss" as *;
 
 .section {
-  @include hero-height;
+  @include section-height;
   position: relative;
   top: -60px;
   width: 100%;
@@ -28,6 +28,14 @@
   position: relative;
   overflow: hidden;
   border-radius: 24px;
+
+  @include tablet-down {
+    min-height: 800px;
+  }
+
+  @include mobile-down {
+    min-height: 700px;
+  }
 }
 
 .image,
@@ -47,4 +55,3 @@
 .video {
   background: #000;
 }
-

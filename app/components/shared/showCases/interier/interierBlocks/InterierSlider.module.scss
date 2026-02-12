@@ -3,7 +3,7 @@
 $arrow-blue: #003bd8;
 
 .slider {
-  @include hero-height;
+  @include section-height;
   position: relative;
   top: -60px;
   width: 100%;
@@ -19,7 +19,8 @@ $arrow-blue: #003bd8;
   }
 
   @include mobile-down {
-    padding: 16px 48px 40px;
+    padding: 0px 10px;
+    @include section-height-mobile;
   }
 }
 
@@ -32,6 +33,10 @@ $arrow-blue: #003bd8;
   align-items: center;
   justify-content: center;
   gap: 40px;
+
+  @include mobile-down {
+    gap: 20px;
+  }
 }
 
 .arrowButton {
@@ -86,6 +91,13 @@ $arrow-blue: #003bd8;
 .arrowIcon {
   min-width: 40px;
   min-height: 50px;
+
+  @include mobile-down {
+    min-width: 20px;
+    min-height: 20px;
+    max-width: 25px;
+    max-height: 25px;
+  }
 }
 
 .dots {
@@ -97,6 +109,10 @@ $arrow-blue: #003bd8;
   align-items: center;
   justify-content: center;
   gap: 8px;
+
+  @include mobile-down {
+    gap: 4px;
+  }
 }
 
 .dot {
@@ -108,6 +124,13 @@ $arrow-blue: #003bd8;
   cursor: pointer;
   background: #ffffff;
   opacity: 0.9;
+
+  @include mobile-down {
+    width: 10px;
+    height: 10px;
+    min-height: 10px;
+    max-height: 10px;
+  }
 }
 
 .activeDot {

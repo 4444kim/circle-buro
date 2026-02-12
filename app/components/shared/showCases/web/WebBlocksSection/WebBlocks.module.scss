@@ -16,12 +16,13 @@
 
   @include mobile-down {
     border-radius: 0px;
+    top: -80px;
   }
 }
 
 /* Каждая строка — как одна секция Design: hero-height, два блока по горизонтали */
 .row {
-  @include hero-height;
+  @include section-height;
   display: flex;
   gap: 10px;
   overflow: hidden;
@@ -31,6 +32,10 @@
     height: auto;
     min-height: auto;
     max-height: none;
+  }
+
+  @include mobile-down {
+    gap: 20px;
   }
 }
 

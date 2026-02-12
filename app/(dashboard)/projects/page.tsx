@@ -1,12 +1,11 @@
 import ProjectSection from "@/app/components/shared/home/projectsSection/Project";
 import styles from "./project.module.scss";
+import { PROJECTS } from "@/app/lib/constants";
 
-function ProjectsPage() {
+export default function ProjectsPage() {
   return (
     <div className={styles.projectWrapper}>
-      <ProjectSection />
+      <ProjectSection PROJECTS={PROJECTS} />
     </div>
   );
 }
-
-export default ProjectsPage;

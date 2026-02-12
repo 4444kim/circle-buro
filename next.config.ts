@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   // Image optimization
   images: {
     formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
 
@@ -14,9 +14,9 @@ const nextConfig: NextConfig = {
   // Strict mode for better debugging
   reactStrictMode: true,
 
-  // Experimental features
+  // Experimental features (optimizeCss requires critters: pnpm add critters)
   experimental: {
-    optimizeCss: true,
+    optimizeCss: false,
   },
 };
 

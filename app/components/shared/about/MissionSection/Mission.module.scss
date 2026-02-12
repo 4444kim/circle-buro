@@ -3,7 +3,7 @@
 .mission {
   position: relative;
   width: 100%;
-  @include hero-height;
+  @include section-height;
   border-radius: 48px;
   overflow: hidden;
 
@@ -30,7 +30,7 @@
 }
 
 .bgImage {
-  @include hero-bg-image;
+  @include section-bg-image;
   z-index: 0;
 }
 

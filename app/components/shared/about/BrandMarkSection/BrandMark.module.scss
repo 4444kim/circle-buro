@@ -3,7 +3,7 @@
 .brandMark {
   position: relative;
   width: 100%;
-  @include hero-height;
+  @include section-height;
   overflow: hidden;
   border-radius: 48px;
   margin-bottom: -40px;
@@ -11,7 +11,7 @@
 }
 
 .bgImage {
-  @include hero-bg-image;
+  @include section-bg-image;
   z-index: 0;
 }
 

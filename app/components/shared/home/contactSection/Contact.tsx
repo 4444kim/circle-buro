@@ -5,7 +5,7 @@ import { useState } from "react";
 import styles from "./Contact.module.scss";
 import Calendar from "@/app/components/ui/calendar/calendar";
 
-export default function Contact() {
+export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -22,7 +22,7 @@ export default function Contact() {
   const handleDateSelect = (date: Date, time: string) => {
     const formattedDate = date.toLocaleDateString("ru-RU", {
       day: "2-digit",
-      month: "2-digit", 
+      month: "2-digit",
       year: "numeric",
     });
     setFormData((prev) => ({ ...prev, date: formattedDate, time }));

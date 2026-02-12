@@ -1,36 +1,24 @@
-// Breakpoints
-$bp-tablet: 1024px;
-$bp-mobile: 768px;
+@use "./variables" as *;
 
-@mixin container {
-  width: min(100% - 2 * clamp(1rem, 4vw, 3rem), 1440px);
-  margin-inline: auto;
-}
-
-// Hero section height - consistent across all pages
-@mixin hero-height {
+// Section height - consistent across all pages
+@mixin section-height {
   height: 100vh;
-  max-height: 850px;
+  max-height: 880px;
   min-height: 600px;
 }
 
-// Hero background image - fills container
-@mixin hero-bg-image {
+@mixin section-height-mobile {
+  height: 50vh;
+  min-height: auto;
+  max-height: none;
+}
+
+// Section background image - fills container
+@mixin section-bg-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-@mixin section-spacing {
-  padding-block: 80px;
-}
-
-@mixin flex-row-between($gap: 24px) {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: $gap;
 }
 
 @mixin tablet-down {
@@ -43,10 +31,4 @@ $bp-mobile: 768px;
   @media (max-width: $bp-mobile) {
     @content;
   }
-}
-
-@mixin backdrop-blur($blur: 4px, $bg: rgba(255, 255, 255, 0.25)) {
-  background: $bg;
-  backdrop-filter: blur($blur);
-  -webkit-backdrop-filter: blur($blur);
 }

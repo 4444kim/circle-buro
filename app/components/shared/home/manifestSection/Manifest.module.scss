@@ -3,7 +3,7 @@
 .manifest {
   position: relative;
   width: 100%;
-  @include hero-height;
+  @include section-height;
   overflow: hidden;
   border-radius: 48px;
   margin: 40px 0;
@@ -21,7 +21,7 @@
 }
 
 .bgImage {
-  @include hero-bg-image;
+    @include section-bg-image;
 }
 
 .content {

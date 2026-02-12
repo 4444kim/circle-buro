@@ -3,60 +3,23 @@
 import { useState } from "react";
 import Image from "next/image";
 import styles from "./Project.module.scss";
+import Link from "next/link";
+import { PROJECTS as PROJECTS_DATA } from "@/app/lib/constants";
 
-const PROJECTS = [
-  {
-    name: "Stepe coffee",
-    label: "Stepe coffee",
-    src: "/projects-video/project1.mp4",
-    isVideo: true,
-  },
-  {
-    name: "Galeriya",
-    label: "Galeriya",
-    src: "/projects-video/project2.mp4",
-    isVideo: true,
-  },
-  {
-    name: "CAMPIT",
-    label: "CAMPIT",
-    src: "/projects-video/project3.mp4",
-    isVideo: true,
-  },
-  {
-    name: "SANY",
-    label: "SANY",
-    src: "/projects-video/project4.png",
-    isVideo: false,
-  },
-  {
-    name: "DIVE",
-    label: "DIVE",
-    src: "/projects-video/project5.mp4",
-    isVideo: true,
-  },
-  {
-    name: "Senen",
-    label: "Senen",
-    src: "/projects-video/project6.png",
-    isVideo: false,
-  },
-  {
-    name: "CITIX",
-    label: "CITIX",
-    src: "/projects-video/project7.mp4",
-    isVideo: true,
-  },
-  {
-    name: "Home Bank",
-    label: "Home Bank",
-    src: "/projects-video/project8.mp4",
-    isVideo: true,
-  },
-];
+type Project = {
+  slug: string;
+  name: string;
+  label: string;
+  src: string;
+  isVideo: boolean;
+};
 
-export default function ProjectSection() {
-  const [currentSlide, setCurrentSlide] = useState(0);
+export default function ProjectSection({
+  PROJECTS = PROJECTS_DATA,
+}: {
+  PROJECTS?: Project[];
+}) {
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   const prevSlide = () => {
     setCurrentSlide((prev) => (prev === 0 ? PROJECTS.length - 1 : prev - 1));
@@ -74,12 +37,15 @@ export default function ProjectSection() {
     <section className={styles.projects} id="projects">
       <div className={styles.inner}>
         <h2 className={styles.title}>наши проекты</h2>
-        
-        
 
         <div className={styles.grid}>
           {PROJECTS.map((project) => (
-            <article key={project.name} className={styles.card}>
+            <Link
+              key={project.slug}
+              href={`/projects/${project.slug}`}
+              className={styles.card}
+              aria-label={`Перейти к проекту ${project.name}`}
+            >
               <div className={styles.cardMedia}>
                 {project.isVideo ? (
                   <video
@@ -97,6 +63,7 @@ export default function ProjectSection() {
                     src={project.src}
                     alt={project.name}
                     fill
+                    sizes="(max-width: 1023px) 50vw, 25vw"
                     className={styles.cardMediaContent}
                   />
                 )}
@@ -119,7 +86,7 @@ export default function ProjectSection() {
                   </div>
 
                   <div className={styles.cardFooter}>
-                    <button type="button" className={styles.nextButton}>
+                    <span className={styles.nextButton}>
                       <span>Next</span>
                       <Image
                         src="/projects-video/icons/arrow-right-video.svg"
@@ -128,11 +95,11 @@ export default function ProjectSection() {
                         height={16}
                         className={styles.nextIcon}
                       />
-                    </button>
+                    </span>
                   </div>
                 </div>
               </div>
-            </article>
+            </Link>
           ))}
         </div>
 
@@ -163,6 +130,7 @@ export default function ProjectSection() {
                   src={PROJECTS[currentSlide].src}
                   alt={PROJECTS[currentSlide].name}
                   fill
+                  sizes="(max-width: 767px) 100vw, 220px"
                   className={styles.image}
                 />
               )}
