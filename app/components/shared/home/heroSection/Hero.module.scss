@@ -5,6 +5,10 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+
+  @include mobile-down {
+    @include section-height-mobile;
+  }
 }
 
 .heroInner {
@@ -15,12 +19,4 @@
 
 .heroImage {
   @include section-bg-image;
-}
-
-@include mobile-down {
-  .hero {
-    height: 50vh;
-    min-height: 300px;
-    max-height: 400px;
-  }
 }

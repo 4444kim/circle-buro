@@ -6,7 +6,7 @@ import CampitProject from "@/app/components/shared/projects/campit";
 import SteppeCoffeeProject from "@/app/components/shared/projects/steppe-coffee";
 import SenenProject from "@/app/components/shared/projects/senen";
 import SanyProject from "@/app/components/shared/projects/sany";
-import DiveProject from "@/app/components/shared/projects/davi";
+import DiveProject from "@/app/components/shared/projects/dive";
 import CitixProject from "@/app/components/shared/projects/citix";
 import HomeBankProject from "@/app/components/shared/projects/homeBank";
 

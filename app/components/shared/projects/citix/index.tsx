@@ -1,132 +1,66 @@
 import Image from "next/image";
 
-import styles from "./steppe-coffe.module.scss";
+import styles from "./citix.module.scss";
 
 export default function SteppeCoffeeProject() {
   return (
-    <main className={styles.steppeCoffeePage}>
+    <main className={styles.citixPage}>
       {/* SECTION 1 – HERO */}
       <section className={`${styles.section}`}>
         <div className={styles.heroInner}>
           <Image
-            src="/projects-pages/steppe-coffee/hero.png"
-            alt="Steppe Coffee hero"
-            fill
+            src="/projects-pages/citix/hero.png"
+            alt="Citix hero"
+            width={520}
+            height={920}
             className={styles.sectionBg}
             priority
           />
         </div>
       </section>
 
-      <div className={styles.sectionsWrapper}>
-        {/* <section className={`${styles.section} ${styles.section2}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
+      <section className={styles.section2}>
+        <div>
+          <span>Citix</span>
+          <p>
+            Circle работал с Citix в рамках разработки моушн-дизайна для
+            маркетинговых и коммуникационных задач бренда. Проект был направлен
+            на визуализацию ключевых идей и технологических решений компании
+            через динамичные анимационные форматы.
+          </p>
+        </div>
 
-        {/* <section className={`${styles.section} ${styles.section3}`}>
-        <Image
-          src="/project-pages/steppe-cofee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
+        <div>
+          <Image
+            src="/projects-pages/citix/citix-logo.png"
+            alt="Citix logo"
+            width={520}
+            height={920}
+            className={styles.sectionBg}
+          />
+        </div>
+      </section>
 
-        {/* <section className={`${styles.section} ${styles.section4}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
+      <section className={styles.section3}>
+        <div>
+          <span>Итоги</span>
+          <p>
+            В результате Citix получил моушн-контент, который органично
+            встроился в коммуникационную стратегию бренда и усилил визуальное
+            представление его технологических решений.
+          </p>
+        </div>
 
-        {/* <section className={`${styles.section} ${styles.section5}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section6}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section7}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section8}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section9}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section10}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section11}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section12}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section13}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-      </div>
+        <div>
+          <Image
+            src="/projects-pages/citix/citix-logo.png"
+            alt="Citix logo"
+            width={520}
+            height={920}
+            className={styles.sectionBg}
+          />
+        </div>
+      </section>
     </main>
   );
 }

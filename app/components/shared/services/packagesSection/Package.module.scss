@@ -4,20 +4,19 @@
   position: relative;
   width: 100%;
   min-height: 100vh;
-  padding: 40px 0 80px;
+  padding: 40px 80px;
 
   @include tablet-down {
-    padding: 32px 0 60px;
+    padding: 32px 60px;
   }
 
   @include mobile-down {
-    padding: 24px 0 40px;
+    padding: 24px 10px;
   }
 }
 
 .bgImage {
-  object-fit: cover;
-  object-position: center;
+  @include section-bg-image;
   z-index: 0;
 }
 

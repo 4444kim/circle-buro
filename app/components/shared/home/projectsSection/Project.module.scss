@@ -1,7 +1,6 @@
 @use "../../../../styles/shared/mixins" as *;
 
 .projects {
-  @include section-spacing;
   padding-inline: clamp(1rem, 4vw, 3rem);
 }
 

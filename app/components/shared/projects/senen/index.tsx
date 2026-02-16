@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-import styles from "./steppe-coffe.module.scss";
+import styles from "./senen.module.scss";
 
-export default function SteppeCoffeeProject() {
+export default function SenenProject() {
   return (
-    <main className={styles.steppeCoffeePage}>
+    <main className={styles.senenPage}>
       {/* SECTION 1 – HERO */}
       <section className={`${styles.section}`}>
         <div className={styles.heroInner}>
@@ -18,115 +18,92 @@ export default function SteppeCoffeeProject() {
         </div>
       </section>
 
-      <div className={styles.sectionsWrapper}>
-        {/* <section className={`${styles.section} ${styles.section2}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
+      <section className={styles.section2}>
+        <div>
+          <span>Senen</span>
+          <p>
+            Senen – компания, специализирующаяся на производстве корпоративных
+            подарочных боксов и персонализированных подарочных решений для
+            бизнеса. Circle подключился к проекту с задачей системно оформить
+            визуальную часть продукта и сопутствующие материалы, которые
+            используются в работе с корпоративными клиентами. Важно было
+            сохранить характер бренда и одновременно сделать коммуникацию более
+            понятной и структурированной.
+          </p>
+        </div>
+        <div>
+          <Image
+            src="/projects-pages/senen/senen-logo.png"
+            alt="Senen logo"
+            fill
+            className={styles.sectionBg}
+          />
+        </div>
+      </section>
 
-        {/* <section className={`${styles.section} ${styles.section3}`}>
+      <section className={styles.section3}>
         <Image
-          src="/project-pages/steppe-cofee/bg-sections.png"
-          alt=""
+          src="/projects-pages/senen/senen-logo.png"
+          alt="Senen logo"
           fill
           className={styles.sectionBg}
         />
-      </section> */}
+      </section>
 
-        {/* <section className={`${styles.section} ${styles.section4}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
+      <section className={styles.section4}>
+        <p>
+          Senen – компания, специализирующаяся на производстве корпоративных
+          подарочных боксов и персонализированных подарочных решений для
+          бизнеса. Circle подключился к проекту с задачей системно оформить
+          визуальную часть продукта и сопутствующие материалы, которые
+          используются в работе с корпоративными клиентами. Важно было сохранить
+          характер бренда и одновременно сделать коммуникацию более понятной и
+          структурированной.
+        </p>
+        <p>
+          Следующим этапом стала разработка дизайна коммерческого предложения.
+          Документ был выстроен так, чтобы четко и последовательно доносить
+          ценность продукта, отражая стиль и позиционирование бренда.
+        </p>
+      </section>
 
-        {/* <section className={`${styles.section} ${styles.section5}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
+      <section className={styles.section5}>
+        <div>
+          <Image
+            src="/projects-pages/senen/senen-logo.png"
+            alt="Senen logo"
+            fill
+            className={styles.sectionBg}
+          />
+        </div>
+        <p>
+          Дополнительно Circle разработал визуальные решения для элементов
+          упаковки. В проект вошли открытки, обертки, а также этикетки для чая и
+          шоколада. Все элементы были выполнены в едином визуальном ключе и
+          согласованы между собой, чтобы упаковка воспринималась как цельный
+          продукт.
+        </p>
+      </section>
 
-        {/* <section className={`${styles.section} ${styles.section6}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
+      <section className={styles.section6}>
+        <div>
+          <Image
+            src="/projects-pages/senen/senen-logo.png"
+            alt="Senen logo"
+            fill
+            className={styles.sectionBg}
+          />
+        </div>
+      </section>
 
-        {/* <section className={`${styles.section} ${styles.section7}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section8}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section9}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section10}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section11}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section12}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-
-        {/* <section className={`${styles.section} ${styles.section13}`}>
-        <Image
-          src="/projects-pages/steppe-coffee/bg-sections.png"
-          alt=""
-          fill
-          className={styles.sectionBg}
-        />
-      </section> */}
-      </div>
+      <section className={styles.section7}>
+        <span>Итоги</span>
+        <p>
+          В результате Senen получил структурированный набор визуальных и
+          печатных материалов, усиливающих продукт и поддерживающих бренд на
+          всех этапах взаимодействия с корпоративными клиентами.
+        </p>
+      </section>
     </main>
   );
 }
