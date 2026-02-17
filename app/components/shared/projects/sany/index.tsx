@@ -107,7 +107,7 @@ export default function SanyProject() {
         <section className={styles.section5}>
           <div className={styles.section5BannerWrap}>
             <Image
-              src="/projects-pages/sany/section4.png"
+              src="/projects-pages/sany/sany-section3.png"
               alt="Sany новогодний баннер"
               width={700}
               height={520}

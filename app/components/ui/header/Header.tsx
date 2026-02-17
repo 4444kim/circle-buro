@@ -18,8 +18,8 @@ export default function Header() {
             <Image
               src="/Logo.svg"
               alt="CIRCLE creative buro"
-              width={48}
-              height={48}
+              width={110}
+              height={50}
               className={styles.logoImage}
             />
           </Link>

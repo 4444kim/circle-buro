@@ -2,13 +2,13 @@
 
 .section {
   position: relative;
-  top: -60px;
   width: 100%;
   overflow: hidden;
   border-radius: 48px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
+  margin: 40px 0;
 
   @include tablet-down {
     border-radius: 32px;
@@ -24,7 +24,7 @@
 .row {
   @include section-height;
   display: flex;
-  gap: 10px;
+  gap: 20px;
   overflow: hidden;
 
   @include tablet-down {
