@@ -26,6 +26,12 @@
   background-position: center;
   border-radius: 48px;
   margin-top: 40px;
+
+  @include mobile-down {
+    padding: 24px 20px 40px;
+    border-radius: 24px 24px 0 0;
+    margin-top: 24px;
+  }
 }
 
 .section2 {
@@ -63,6 +69,30 @@
       object-fit: cover;
     }
   }
+
+  @include mobile-down {
+    flex-direction: column;
+    padding: 0;
+
+    .section2Text,
+    .section2video {
+      width: 100%;
+      min-width: unset;
+      max-height: unset;
+    }
+
+    .section2Text span {
+      font-size: 28px;
+    }
+
+    .section2Text p {
+      font-size: 16px;
+    }
+
+    .section2video video {
+      border-radius: 24px;
+    }
+  }
 }
 
 .section3 {
@@ -94,6 +124,24 @@
       align-items: center;
       gap: 10px;
       padding: 60px 27.5px;
+    }
+  }
+
+  @include mobile-down {
+    flex-direction: column;
+    margin-top: 32px;
+    padding: 0;
+
+    .section3container {
+      width: 100%;
+
+      span {
+        font-size: 36px;
+      }
+
+      .section3ImgWrap {
+        padding: 32px 20px;
+      }
     }
   }
 }
@@ -141,13 +189,42 @@
       object-fit: cover;
     }
   }
+
+  @include mobile-down {
+    grid-template-columns: 1fr;
+    padding: 32px 0 0;
+    gap: 20px;
+
+    .section4PhoneWrap img {
+      border-radius: 24px;
+    }
+
+    .section4TextBlock {
+      padding: 24px 20px;
+      font-size: 16px;
+    }
+
+    .section4ImgWrap img {
+      border-radius: 24px;
+    }
+  }
 }
 
 // SECTION 5 — одна картинка
 .section5 {
   margin-top: 40px;
-  .section5Img {
+
+  .section5ImgWrap img {
     object-fit: cover;
+    border-radius: 40px;
+  }
+
+  @include mobile-down {
+    margin-top: 32px;
+
+    .section5ImgWrap img {
+      border-radius: 24px;
+    }
   }
 }
 
@@ -166,6 +243,20 @@
 
   .section6ImgWrap img {
     border-radius: 40px;
+  }
+
+  @include mobile-down {
+    flex-direction: column;
+    margin-top: 32px;
+    gap: 16px;
+
+    .section6ImgWrap {
+      width: 100%;
+    }
+
+    .section6ImgWrap img {
+      border-radius: 24px;
+    }
   }
 }
 
@@ -201,6 +292,27 @@
       height: 100%;
     }
   }
+
+  @include mobile-down {
+    flex-direction: column;
+    margin-top: 40px;
+    padding: 0;
+    gap: 24px;
+
+    .section7Card,
+    .section7PhoneWrap {
+      width: 100%;
+    }
+
+    .section7Card .section7Text {
+      padding: 24px 20px;
+      font-size: 16px;
+    }
+
+    .section7PhoneWrap .phoneInner {
+      min-height: 400px;
+    }
+  }
 }
 
 // SECTION 8 — текст + картинка
@@ -232,6 +344,30 @@
   .section8Chart {
     width: 70%;
   }
+
+  @include mobile-down {
+    flex-direction: column;
+    margin-top: 40px;
+    padding: 0;
+    gap: 24px;
+
+    .section8Text,
+    .section8Chart {
+      width: 100%;
+    }
+
+    .section8Text {
+      padding: 32px 20px;
+
+      span {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+  }
 }
 
 // SECTION 9 — флаер + текст
@@ -255,6 +391,23 @@
     font-size: 20px;
     padding: 40px 24px;
   }
+
+  @include mobile-down {
+    flex-direction: column;
+    margin-top: 32px;
+    padding: 0;
+    gap: 20px;
+
+    .section9ImgWrap,
+    .section9Text {
+      width: 100%;
+    }
+
+    .section9Text {
+      padding: 24px 20px;
+      font-size: 16px;
+    }
+  }
 }
 
 // SECTION 10 — текст + постер
@@ -277,6 +430,23 @@
     width: 60%;
     font-size: 20px;
     padding: 40px 24px;
+  }
+
+  @include mobile-down {
+    flex-direction: column;
+    margin-top: 32px;
+    padding: 0;
+    gap: 20px;
+
+    .section10ImgWrap,
+    .section10Text {
+      width: 100%;
+    }
+
+    .section10Text {
+      padding: 24px 20px;
+      font-size: 16px;
+    }
   }
 }
 
@@ -306,6 +476,23 @@
     object-fit: cover;
     border-radius: 40px;
   }
+
+  @include mobile-down {
+    flex-direction: column;
+    margin-top: 32px;
+    padding: 0;
+    gap: 16px;
+
+    .section11Img1Wrap,
+    .section11Img2Wrap {
+      width: 100%;
+    }
+
+    .section11Img1Wrap img,
+    .section11Img2Wrap img {
+      border-radius: 24px;
+    }
+  }
 }
 
 .section12 {
@@ -317,6 +504,7 @@
   justify-content: center;
   flex-direction: column;
   gap: 16px;
+  text-align: center;
 
   span {
     font-size: 40px;
@@ -325,12 +513,34 @@
   p {
     font-size: 20px;
   }
+
+  @include mobile-down {
+    margin: 32px 0 0;
+    padding: 32px 20px;
+
+    span {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+  }
 }
 
-// SECTION 12 — иллюстрация кофейни
+// SECTION 13 — иллюстрация кофейни
 .section13 {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  overflow: hidden;
   border-radius: 40px;
+
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @include mobile-down {
+    border-radius: 24px;
+  }
 }

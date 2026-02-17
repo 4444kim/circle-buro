@@ -43,6 +43,8 @@
 
   @include mobile-down {
     padding: 24px 20px 40px;
+    border-radius: 24px 24px 0 0;
+    margin-top: 24px;
   }
 }
 
@@ -94,6 +96,22 @@
     .section2video {
       width: 100%;
     }
+
+    .section2video {
+      min-height: 300px;
+    }
+
+    .section2Text span {
+      font-size: 28px;
+    }
+
+    .section2Text p {
+      font-size: 16px;
+    }
+
+    .section2video video {
+      border-radius: 24px;
+    }
   }
 }
 
@@ -139,6 +157,19 @@
     .section3VideoWrap,
     .section3Text {
       width: 100%;
+    }
+
+    .section3VideoWrap {
+      min-height: 300px;
+    }
+
+    .section3VideoWrap video {
+      border-radius: 24px;
+    }
+
+    .section3Text p {
+      padding: 24px 20px;
+      font-size: 16px;
     }
   }
 }
@@ -189,6 +220,22 @@
     .section4Text,
     .section4VideoWrap {
       width: 100%;
+    }
+
+    .section4VideoWrap {
+      min-height: 300px;
+    }
+
+    .section4VideoWrap video {
+      border-radius: 24px;
+    }
+
+    .section4Text span {
+      font-size: 28px;
+    }
+
+    .section4Text p {
+      font-size: 16px;
     }
   }
 }

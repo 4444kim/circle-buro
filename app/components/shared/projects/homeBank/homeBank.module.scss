@@ -83,6 +83,18 @@
     .section2Text {
       width: 100%;
     }
+
+    .section2Text span {
+      font-size: 28px;
+    }
+
+    .section2Text p {
+      font-size: 16px;
+    }
+
+    .section2ImgWrap img {
+      border-radius: 24px;
+    }
   }
 }
 
@@ -110,6 +122,10 @@
 
     .section3ImgWrap {
       width: 100%;
+    }
+
+    .section3ImgWrap img {
+      border-radius: 24px;
     }
   }
 }
@@ -152,6 +168,15 @@
     .section4ImgWrap {
       width: 100%;
     }
+
+    .section4Text p {
+      padding: 24px 20px;
+      font-size: 16px;
+    }
+
+    .section4ImgWrap img {
+      border-radius: 24px;
+    }
   }
 }
 
@@ -192,6 +217,15 @@
     .section5ImgWrap,
     .section5Text {
       width: 100%;
+    }
+
+    .section5Text p {
+      padding: 24px 20px;
+      font-size: 16px;
+    }
+
+    .section5ImgWrap img {
+      border-radius: 24px;
     }
   }
 }
@@ -234,6 +268,15 @@
     .section6ImgWrap {
       width: 100%;
     }
+
+    .section6Text p {
+      padding: 24px 20px;
+      font-size: 16px;
+    }
+
+    .section6ImgWrap img {
+      border-radius: 24px;
+    }
   }
 }
 
@@ -274,6 +317,15 @@
     .section7ImgWrap,
     .section7Text {
       width: 100%;
+    }
+
+    .section7Text p {
+      padding: 24px 20px;
+      font-size: 16px;
+    }
+
+    .section7ImgWrap img {
+      border-radius: 24px;
     }
   }
 }
@@ -316,6 +368,15 @@
     .section8ImgWrap {
       width: 100%;
     }
+
+    .section8Text p {
+      padding: 24px 20px;
+      font-size: 16px;
+    }
+
+    .section8ImgWrap img {
+      border-radius: 24px;
+    }
   }
 }
 
@@ -349,6 +410,10 @@
     .section10ImgWrap {
       width: 100%;
     }
+
+    .section10ImgWrap img {
+      border-radius: 24px;
+    }
   }
 }
 
@@ -374,5 +439,14 @@
 
   @include mobile-down {
     margin: 0 5%;
+    padding: 32px 20px;
+
+    span {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 16px;
+    }
   }
 }

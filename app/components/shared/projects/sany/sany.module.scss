@@ -13,6 +13,7 @@ $sany-accent: #fa4c19;
     height: 50vh;
     min-height: 300px;
     max-height: 400px;
+    border-radius: 0 0 24px 24px;
   }
 
   .heroInner {
@@ -29,9 +30,15 @@ $sany-accent: #fa4c19;
 
 .sectionsWrapper {
   margin: 80px 0 40px 0;
+  padding: 0 80px;
   display: flex;
   flex-direction: column;
   gap: 40px;
+
+  @include mobile-down {
+    margin: 24px 0 24px 0;
+    padding: 0 20px;
+  }
 }
 
 // SECTION 2 — текст слева (белая карточка), фото справа
@@ -80,6 +87,14 @@ $sany-accent: #fa4c19;
     .section2ImgWrap {
       width: 100%;
     }
+
+    .section2Text span {
+      font-size: 28px;
+    }
+
+    .section2Text p {
+      font-size: 16px;
+    }
   }
 }
 
@@ -102,7 +117,11 @@ $sany-accent: #fa4c19;
       background: linear-gradient(180deg, #e8eaf0 0%, #dde0e8 100%);
       position: relative;
 
-      height: clamp(320px, 52vw, 680px);
+      height: clamp(280px, 52vw, 680px);
+
+      @include mobile-down {
+        height: clamp(240px, 60vw, 400px);
+      }
 
       .sliderTrack {
         display: flex;
@@ -133,6 +152,11 @@ $sany-accent: #fa4c19;
         height: 40px;
         border-radius: 50%;
         border: 2px solid #fa4c19;
+
+        @include mobile-down {
+          width: 24px;
+          height: 24px;
+        }
         background: transparent;
         cursor: pointer;
         transition: all 0.2s ease;
@@ -154,6 +178,10 @@ $sany-accent: #fa4c19;
   display: flex;
   justify-content: center;
   padding: 0 10%;
+
+  @include mobile-down {
+    padding: 0;
+  }
 }
 
 .section4Card {
@@ -163,6 +191,15 @@ $sany-accent: #fa4c19;
 
   p {
     font-size: 20px;
+  }
+
+  @include mobile-down {
+    max-width: 100%;
+    padding: 24px 20px;
+
+    p {
+      font-size: 16px;
+    }
   }
 }
 
@@ -206,6 +243,11 @@ $sany-accent: #fa4c19;
     .section5BannerWrap,
     .section5Text {
       width: 100%;
+    }
+
+    .section5Text p {
+      padding: 24px 20px;
+      font-size: 16px;
     }
   }
 }
@@ -262,6 +304,14 @@ $sany-accent: #fa4c19;
     .section6Text,
     .section6ImgWrap {
       width: 100%;
+    }
+
+    .section6Text span {
+      font-size: 28px;
+    }
+
+    .section6Text p {
+      font-size: 16px;
     }
   }
 }

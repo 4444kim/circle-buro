@@ -24,6 +24,12 @@
     object-position: center;
     border-radius: 40px;
   }
+
+  @include mobile-down {
+    .heroImage {
+      border-radius: 24px;
+    }
+  }
 }
 
 .sectionsWrapper {
@@ -35,6 +41,7 @@
 
   @include mobile-down {
     padding: 24px 20px 40px;
+    margin-top: 24px;
   }
 }
 
@@ -94,6 +101,18 @@
     .section2VideoWrap {
       width: 100%;
     }
+
+    .section2Text span {
+      font-size: 28px;
+    }
+
+    .section2Text p {
+      font-size: 16px;
+    }
+
+    .section2VideoWrap video {
+      border-radius: 24px;
+    }
   }
 }
 
@@ -119,6 +138,16 @@
         display: block;
         vertical-align: bottom;
       }
+    }
+  }
+
+  @include mobile-down {
+    .photosContainer {
+      gap: 16px;
+    }
+
+    .photosContainer .photo {
+      flex: 0 0 calc((100% - 16px) / 2.1);
     }
   }
 }
@@ -164,6 +193,15 @@
     .section4Text {
       width: 100%;
     }
+
+    .section4Text p {
+      padding: 24px 20px;
+      font-size: 16px;
+    }
+
+    .section4ImgWrap img {
+      border-radius: 24px;
+    }
   }
 }
 
@@ -199,6 +237,11 @@
     .section5Chart {
       width: 100%;
     }
+
+    .section5Text p {
+      padding: 24px 20px;
+      font-size: 16px;
+    }
   }
 }
 
@@ -216,6 +259,12 @@
       height: auto;
       display: block;
       object-fit: cover;
+    }
+  }
+
+  @include mobile-down {
+    .section6ImgWrap img {
+      border-radius: 24px;
     }
   }
 }
@@ -242,5 +291,14 @@
 
   @include mobile-down {
     margin: 0 5%;
+    padding: 32px 20px;
+
+    span {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 16px;
+    }
   }
 }
