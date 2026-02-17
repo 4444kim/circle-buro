@@ -46,7 +46,7 @@
   gap: 24px;
 
   .section2Text {
-    width: 50%;
+    width: 60%;
     @include text-container-blur;
     display: flex;
     flex-direction: column;
@@ -64,7 +64,7 @@
   }
 
   .section2ImgWrap {
-    width: 50%;
+    width: 40%;
     border-radius: 24px;
     overflow: hidden;
 
@@ -106,17 +106,14 @@
 
 // SECTION 4 — текст по центру
 .section4 {
-  @include text-container-blur;
-  margin: 0 20%;
-  padding: 40px 24px;
-
+  display: flex;
+  flex-direction: row;
+  gap: 24px;
   p {
+    width: 50%;
     font-size: 20px;
-    line-height: 1.5;
-  }
-
-  @include mobile-down {
-    margin: 0 5%;
+    @include text-container-blur;
+    padding: 40px 24px;
   }
 }
 
