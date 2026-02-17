@@ -2,30 +2,33 @@
 
 .card {
   width: 100%;
-  padding: 40px;
+  padding: 44px;
   @include text-container-blur;
   border-radius: 28px;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 34px;
 }
 
 .header {
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 
   h2 {
-    font-size: clamp(24px, 3vw, 44px);
+    font-size: clamp(30px, 3.2vw, 56px);
+    font-weight: 500;
+    letter-spacing: 0.02em;
   }
 
   span {
     font-size: 20px;
+    opacity: 0.8;
   }
 }
 
-.main {
+.top {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,27 +36,30 @@
   flex-wrap: wrap;
 }
 
-.chart {
-  width: min(260px, 50vw);
+.donut {
+  width: min(360px, 70vw);
   aspect-ratio: 1;
+  display: grid;
+  place-items: center;
 }
 
 .total {
-  font-size: 42px;
-  font-weight: 600;
+  font-size: 52px;
+  font-weight: 500;
   fill: #2d2d2d;
 }
 
 .subLabel {
-  font-size: 18px;
+  font-size: 20px;
   fill: #2d2d2d;
-  opacity: 0.7;
+  opacity: 0.78;
 }
 
 .legend {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 24px;
+  min-width: 220px;
 }
 
 .item {
@@ -62,11 +68,13 @@
   gap: 14px;
 
   b {
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: 600;
   }
 
   span {
     font-size: 18px;
+    opacity: 0.85;
   }
 }
 
@@ -74,4 +82,108 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
+}
+
+.dotOrange {
+  background: radial-gradient(circle at 30% 30%, #ffb1a8, #ff6a5a);
+}
+
+.dotPurple {
+  background: #ac8eef;
+}
+
+.bars {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.barRow {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.barHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+
+  span {
+    font-size: 28px;
+    font-weight: 500;
+  }
+
+  b {
+    font-size: 26px;
+    font-weight: 600;
+  }
+}
+
+.barTrack {
+  width: 100%;
+  height: 16px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.35);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  display: flex;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.barPurple {
+  height: 100%;
+  background: #ac8eef;
+}
+
+.barOrange {
+  height: 100%;
+  background: linear-gradient(90deg, #ffb1a8, #ff6a5a);
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.statRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  span {
+    font-size: 26px;
+    font-weight: 500;
+  }
+}
+
+.statRight {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  b {
+    font-size: 26px;
+    font-weight: 600;
+  }
+
+  em {
+    font-style: normal;
+    font-size: 18px;
+    opacity: 0.8;
+  }
+}
+
+.pos {
+  color: #2aa96b;
+}
+
+.neg {
+  color: #6d7f8b;
 }

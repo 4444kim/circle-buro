@@ -1,23 +1,16 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 
 import ChartDive from "@/app/components/ui/chart-dive/ChartDive";
 import styles from "./dive.module.scss";
 
-const SLIDER_SLIDES = [
-  { src: "/projects-pages/dive/section2/slide1.png", alt: "Dive — слайд 1" },
-  { src: "/projects-pages/dive/section2/slide2.png", alt: "Dive — слайд 2" },
-  { src: "/projects-pages/dive/section2/slide3.png", alt: "Dive — слайд 3" },
-  { src: "/projects-pages/dive/section2/slide4.png", alt: "Dive — слайд 4" },
-  { src: "/projects-pages/dive/section2/slide5.png", alt: "Dive — слайд 5" },
-  { src: "/projects-pages/dive/section2/slide6.png", alt: "Dive — слайд 6" },
+const SECTION3_PHOTOS = [
+  { src: "/projects-pages/dive/section2/slide1.png", alt: "Dive — фото 1" },
+  { src: "/projects-pages/dive/section2/slide2.png", alt: "Dive — фото 2" },
+  { src: "/projects-pages/dive/section2/slide3.png", alt: "Dive — фото 3" },
+  { src: "/projects-pages/dive/section2/slide4.png", alt: "Dive — фото 4" },
 ];
 
 export default function DiveProject() {
-  const [sliderIndex, setSliderIndex] = useState(0);
-
   return (
     <>
       {/* SECTION 1 – HERO */}
@@ -37,15 +30,17 @@ export default function DiveProject() {
         {/* SECTION 2 – текст слева, видео справа */}
         <section className={styles.section2}>
           <div className={styles.section2Text}>
-            <span>Dive</span>
-            <p>
-              Dive – бренд кассетных бескассетных жалюзи, для которого мы
-              выстраивали присутствие в социальных сетях с нуля. Проект
-              стартовал в конце декабря, и ключевая задача на первом этапе
-              заключалась в запуске аккаунта, формировании базовой аудитории и
-              тестировании спроса через контент и рекламу.
-            </p>
-            <p>
+            <div className={styles.section2TextBlock}>
+              <span>Dive</span>
+              <p>
+                Dive – бренд кассетных бескассетных жалюзи, для которого мы
+                выстраивали присутствие в социальных сетях с нуля. Проект
+                стартовал в конце декабря, и ключевая задача на первом этапе
+                заключалась в запуске аккаунта, формировании базовой аудитории и
+                тестировании спроса через контент и рекламу.
+              </p>
+            </div>
+            <p className={styles.section2TextBlock2}>
               Мы сразу сделали ставку на простую и понятную подачу: объяснение
               продукта, живые лица, короткие форматы и фокус на пользе для
               клиента. Это позволило начать набор просмотров и первых
@@ -64,51 +59,33 @@ export default function DiveProject() {
           </div>
         </section>
 
-        {/* SECTION 3 – слайдер */}
+        {/* SECTION 3 – контейнер с 4 фото (3 полностью + 4-е на 10%) */}
         <section className={styles.section3}>
-          <div className={styles.sliderContainer}>
-            <div className={styles.sliderViewport}>
-              <div
-                className={styles.sliderTrack}
-                style={{ transform: `translateX(-${sliderIndex * 100}%)` }}
-              >
-                {SLIDER_SLIDES.map((slide, index) => (
-                  <div key={index} className={styles.slide}>
-                    <Image
-                      src={slide.src}
-                      alt={slide.alt}
-                      fill
-                      sizes="(min-width: 1024px) 1200px, 100vw"
-                      className={styles.slideImage}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className={styles.dots}>
-              {SLIDER_SLIDES.map((_, index) => (
-                <button
-                  key={index}
-                  className={`${styles.dot} ${
-                    index === sliderIndex ? styles.active : ""
-                  }`}
-                  onClick={() => setSliderIndex(index)}
-                  aria-label={`slide ${index + 1}`}
+          <div className={styles.photosContainer}>
+            {SECTION3_PHOTOS.map((photo, index) => (
+              <div key={index} className={styles.photo}>
+                <Image
+                  src={photo.src}
+                  alt={photo.alt}
+                  width={600}
+                  height={400}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
         </section>
 
         {/* SECTION 4 – изображение слева, текст справа */}
         <section className={styles.section4}>
           <div className={styles.section4ImgWrap}>
-            <Image
-              src="/projects-pages/dive/section3.png"
-              alt="Dive контент"
-              width={800}
-              height={600}
-              style={{ width: "100%", height: "auto" }}
+            <video
+              src="/projects-pages/dive/secction2.mp4"
+              playsInline
+              muted
+              loop
+              autoPlay
+              style={{ width: "100%", height: "100%" }}
             />
           </div>
           <div className={styles.section4Text}>
@@ -124,11 +101,11 @@ export default function DiveProject() {
               В процессе работы мы выстроили регулярный контент и планирование
               публикаций. Контент сочетал образовательные видео, презентацию
               продукта и простые объяснения процесса заказа и установки. Это
-              позволило охватывать не только подписчиков, но и холодную аудиторию,
-              которая ранее не была знакома с брендом. Дополнительно была запущена
-              таргетированная реклама. Она дала не только рост показателей, но и
-              прямой отклик в виде входящих запросов и подписок из рекламных
-              объявлений.
+              позволило охватывать не только подписчиков, но и холодную
+              аудиторию, которая ранее не была знакома с брендом. Дополнительно
+              была запущена таргетированная реклама. Она дала не только рост
+              показателей, но и прямой отклик в виде входящих запросов и
+              подписок из рекламных объявлений.
             </p>
           </div>
         </section>
@@ -137,21 +114,30 @@ export default function DiveProject() {
         <section className={styles.section5}>
           <div className={styles.section5Text}>
             <p>
-              Дополнительно была запущена таргетированная реклама. Она дала не
-              только рост показателей, но и прямой отклик в виде входящих
-              запросов и подписок из рекламных объявлений.
+              К моменту завершения этапа работ аккаунт показал измеримый
+              результат. За последние 30 дней профиль набрал 12 029 просмотров,
+              при этом около 89% аудитории составили непoдписчики, что говорит о
+              сильной работе на охват. Охваченные аккаунты превысили 5 600, а
+              основная доля просмотров пришлась именно на Reels, что подтвердило
+              корректность выбранной контент-стратегии .
             </p>
           </div>
           <div className={styles.section5Chart}>
             <ChartDive
-              title="ПРОСМОТРЫ"
+              title="Просмотры"
               period="28 ноя - 27 дек"
               total={12029}
-              subLabel="56,4% от рекламы"
-              percentMain={88.8}
-              percentSubscribers={11.2}
-              labelMain="Неподписчики"
+              adsPercent={56.4}
+              subscribersPercent={11.2}
+              labelNonSubscribers="Неподписчики"
+              percentNonSubscribers={88.8}
               labelSubscribers="Подписчики"
+              percentSubscribers={11.2}
+              reelsPercent={60.8}
+              storiesPercent={39.2}
+              reached={5622}
+              reachedChange={594.1}
+              interactions={170}
             />
           </div>
         </section>
@@ -160,7 +146,7 @@ export default function DiveProject() {
         <section className={styles.section6}>
           <div className={styles.section6ImgWrap}>
             <Image
-              src="/projects-pages/dive/section2/slide6.png"
+              src="/projects-pages/dive/section3.png"
               alt="Dive"
               width={1200}
               height={675}

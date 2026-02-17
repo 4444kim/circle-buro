@@ -5,6 +5,7 @@
   position: relative;
   width: 100%;
   overflow: hidden;
+  margin-top: 100px;
 
   @include mobile-down {
     height: 50vh;
@@ -21,14 +22,13 @@
   .heroImage {
     object-fit: cover;
     object-position: center;
+    border-radius: 40px;
   }
 }
 
 .sectionsWrapper {
   background-color: #f1f3ff;
-  margin-top: 40px;
-  padding: 40px 80px 80px;
-  border-radius: 48px 48px 0 0;
+  margin: 40px 0;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -46,12 +46,10 @@
   gap: 24px;
 
   .section2Text {
-    width: 50%;
-    @include text-container-blur;
+    width: 65%;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    padding: 60px 24px;
 
     span {
       font-size: 40px;
@@ -61,10 +59,23 @@
       font-size: 20px;
       line-height: 1.5;
     }
+
+    .section2TextBlock {
+      @include text-container-blur;
+      padding: 60px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .section2TextBlock2 {
+      @include text-container-blur;
+      padding: 40px 24px;
+    }
   }
 
   .section2VideoWrap {
-    width: 50%;
+    width: 35%;
     border-radius: 40px;
     overflow: hidden;
 
@@ -86,68 +97,27 @@
   }
 }
 
-// SECTION 3 — слайдер
+// SECTION 3 — 4 фото: 3 полностью + 4-е видно ~10%
 .section3 {
   width: 100%;
-  display: flex;
-  justify-content: center;
+  overflow: hidden;
 
-  .sliderContainer {
-    width: 100%;
+  .photosContainer {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
+    gap: 24px;
+    overflow-x: hidden;
 
-    .sliderViewport {
-      width: 100%;
+    .photo {
+      flex: 0 0 calc((100% - 72px) / 3.1);
+      min-width: 0;
       border-radius: 24px;
       overflow: hidden;
-      background: linear-gradient(180deg, #e8eaf0 0%, #dde0e8 100%);
-      position: relative;
-      height: clamp(320px, 52vw, 680px);
 
-      .sliderTrack {
-        display: flex;
-        height: 100%;
-        transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-
-        .slide {
-          position: relative;
-          flex: 0 0 100%;
-          height: 100%;
-          min-width: 100%;
-
-          .slideImage {
-            object-fit: cover;
-            object-position: center;
-          }
-        }
-      }
-    }
-
-    .dots {
-      display: flex;
-      gap: 14px;
-      align-items: center;
-      justify-content: center;
-
-      .dot {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        border: 2px solid #ac8eef;
-        background: transparent;
-        cursor: pointer;
-        transition: all 0.2s ease;
-
-        &:hover {
-          background: rgba(172, 142, 239, 0.25);
-        }
-      }
-
-      .active {
-        background: #ac8eef;
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        vertical-align: bottom;
       }
     }
   }
@@ -161,7 +131,7 @@
   gap: 24px;
 
   .section4ImgWrap {
-    width: 50%;
+    width: 35%;
     border-radius: 24px;
     overflow: hidden;
 
@@ -174,7 +144,7 @@
   }
 
   .section4Text {
-    width: 50%;
+    width: 65%;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -201,11 +171,11 @@
 .section5 {
   display: flex;
   flex-direction: row;
-  align-items: stretch;
+  align-items: center;
   gap: 24px;
 
   .section5Text {
-    width: 40%;
+    width: 30%;
 
     p {
       @include text-container-blur;
@@ -216,7 +186,7 @@
   }
 
   .section5Chart {
-    width: 60%;
+    width: 70%;
     display: flex;
     align-items: center;
     justify-content: center;
