@@ -28,7 +28,7 @@ $sany-accent: #fa4c19;
 }
 
 .sectionsWrapper {
-  margin-top: 80px;
+  margin: 80px 0 40px 0;
   display: flex;
   flex-direction: column;
   gap: 40px;
@@ -83,76 +83,69 @@ $sany-accent: #fa4c19;
   }
 }
 
-// SECTION 3 — слайдер + точки (активная заливка #FA4C19, неактивная только border)
 .section3 {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 24px;
-}
-
-.section3SliderWrap {
-  width: 100%;
-  position: relative;
-  border-radius: 24px;
-  overflow: hidden;
-  background: linear-gradient(180deg, #e8eaf0 0%, #dde0e8 100%);
-  @include section-height;
-
-  @include mobile-down {
-    @include section-height-mobile;
-  }
-}
-
-.section3Track {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  height: 100%;
-  transition: transform 0.35s ease-out;
-  will-change: transform;
-}
-
-.section3Slide {
-  position: relative;
-  flex: 0 0 100%;
-  width: 100%;
-  height: 100%;
-  min-width: 0;
-}
-
-.section3SlideImage {
-  object-fit: cover;
-  object-position: center;
-}
-
-.section3Dots {
-  display: flex;
-  flex-direction: row;
   justify-content: center;
-  align-items: center;
-  gap: 12px;
-  padding-top: 24px;
-}
 
-.section3Dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid $sany-accent;
-  background: transparent;
-  padding: 0;
-  cursor: pointer;
-  transition: background 0.2s ease;
+  .sliderContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 
-  &:hover {
-    background: rgba($sany-accent, 0.3);
+    .sliderViewport {
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #e8eaf0 0%, #dde0e8 100%);
+      position: relative;
+
+      height: clamp(320px, 52vw, 680px);
+
+      .sliderTrack {
+        display: flex;
+        height: 100%;
+        transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+
+        .slide {
+          position: relative;
+          flex: 0 0 100%;
+          height: 100%;
+
+          .slideImage {
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+      }
+    }
+
+    .dots {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+
+      .dot {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid #fa4c19;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: rgba(#fa4c19, 0.25);
+        }
+      }
+      .active {
+        background: #fa4c19;
+      }
+    }
   }
-}
-
-.section3DotActive {
-  background: $sany-accent;
 }
 
 // SECTION 4 — одна карточка по центру
@@ -226,7 +219,7 @@ $sany-accent: #fa4c19;
   margin-bottom: 0;
 
   .section6Text {
-    width: 50%;
+    width: 65%;
     @include text-container-blur;
     padding: 60px 32px;
     display: flex;
@@ -250,7 +243,7 @@ $sany-accent: #fa4c19;
   }
 
   .section6ImgWrap {
-    width: 50%;
+    width: 35%;
     border-radius: 24px;
     overflow: hidden;
 

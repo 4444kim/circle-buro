@@ -1,27 +1,42 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 
 import ChartDive from "@/app/components/ui/chart-dive/ChartDive";
 import styles from "./dive.module.scss";
 
-export default function SteppeCoffeeProject() {
+const SLIDER_SLIDES = [
+  { src: "/projects-pages/dive/section2/slide1.png", alt: "Dive — слайд 1" },
+  { src: "/projects-pages/dive/section2/slide2.png", alt: "Dive — слайд 2" },
+  { src: "/projects-pages/dive/section2/slide3.png", alt: "Dive — слайд 3" },
+  { src: "/projects-pages/dive/section2/slide4.png", alt: "Dive — слайд 4" },
+  { src: "/projects-pages/dive/section2/slide5.png", alt: "Dive — слайд 5" },
+  { src: "/projects-pages/dive/section2/slide6.png", alt: "Dive — слайд 6" },
+];
+
+export default function DiveProject() {
+  const [sliderIndex, setSliderIndex] = useState(0);
+
   return (
-    <main className={styles.steppeCoffeePage}>
+    <>
       {/* SECTION 1 – HERO */}
-      <section className={`${styles.section}`}>
+      <section className={styles.hero}>
         <div className={styles.heroInner}>
           <Image
-            src="/projects-pages/steppe-coffee/hero.png"
-            alt="Steppe Coffee hero"
+            src="/projects-pages/dive/hero.png"
+            alt="Dive hero"
             fill
-            className={styles.sectionBg}
             priority
+            className={styles.heroImage}
           />
         </div>
       </section>
 
-      <section className={styles.section2}>
-        <div>
-          <div>
+      <div className={styles.sectionsWrapper}>
+        {/* SECTION 2 – текст слева, видео справа */}
+        <section className={styles.section2}>
+          <div className={styles.section2Text}>
             <span>Dive</span>
             <p>
               Dive – бренд кассетных бескассетных жалюзи, для которого мы
@@ -30,8 +45,6 @@ export default function SteppeCoffeeProject() {
               заключалась в запуске аккаунта, формировании базовой аудитории и
               тестировании спроса через контент и рекламу.
             </p>
-          </div>
-          <div>
             <p>
               Мы сразу сделали ставку на простую и понятную подачу: объяснение
               продукта, живые лица, короткие форматы и фокус на пользе для
@@ -39,129 +52,135 @@ export default function SteppeCoffeeProject() {
               подписчиков без долгого подготовительного этапа.
             </p>
           </div>
-        </div>
-        <Image
-          src="/projects-pages/dive/dive-logo.png"
-          alt="Dive logo"
-          width={410}
-          height={740}
-          className={styles.sectionBg}
-        />
-      </section>
+          <div className={styles.section2VideoWrap}>
+            <video
+              src="/projects-pages/dive/section1.mp4"
+              playsInline
+              muted
+              loop
+              autoPlay
+              style={{ width: "100%", height: "100%" }}
+            />
+          </div>
+        </section>
 
-      <section className={styles.section3}>
-        <div>
-          <Image
-            src="/projects-pages/dive/dive-logo.png"
-            alt="Dive logo"
-            fill
-            className={styles.sectionBg}
-          />
-        </div>
-        <div>
-          <Image
-            src="/projects-pages/dive/dive-logo.png"
-            alt="Dive logo"
-            fill
-            className={styles.sectionBg}
-          />
-        </div>
-        <div>
-          <Image
-            src="/projects-pages/dive/dive-logo.png"
-            alt="Dive logo"
-            fill
-            className={styles.sectionBg}
-          />
-        </div>
-        <div>
-          <Image
-            src="/projects-pages/dive/dive-logo.png"
-            alt="Dive logo"
-            fill
-            className={styles.sectionBg}
-          />
-        </div>
-        <div>
-          <Image
-            src="/projects-pages/dive/dive-logo.png"
-            alt="Dive logo"
-            fill
-            className={styles.sectionBg}
-          />
-        </div>
-      </section>
+        {/* SECTION 3 – слайдер */}
+        <section className={styles.section3}>
+          <div className={styles.sliderContainer}>
+            <div className={styles.sliderViewport}>
+              <div
+                className={styles.sliderTrack}
+                style={{ transform: `translateX(-${sliderIndex * 100}%)` }}
+              >
+                {SLIDER_SLIDES.map((slide, index) => (
+                  <div key={index} className={styles.slide}>
+                    <Image
+                      src={slide.src}
+                      alt={slide.alt}
+                      fill
+                      sizes="(min-width: 1024px) 1200px, 100vw"
+                      className={styles.slideImage}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className={styles.dots}>
+              {SLIDER_SLIDES.map((_, index) => (
+                <button
+                  key={index}
+                  className={`${styles.dot} ${
+                    index === sliderIndex ? styles.active : ""
+                  }`}
+                  onClick={() => setSliderIndex(index)}
+                  aria-label={`slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
 
-      <section className={styles.section4}>
-        <Image
-          src="/projects-pages/dive/dive-logo.png"
-          alt="Dive logo"
-          fill
-          className={styles.sectionBg}
-        />
-        <div>
+        {/* SECTION 4 – изображение слева, текст справа */}
+        <section className={styles.section4}>
+          <div className={styles.section4ImgWrap}>
+            <Image
+              src="/projects-pages/dive/section3.png"
+              alt="Dive контент"
+              width={800}
+              height={600}
+              style={{ width: "100%", height: "auto" }}
+            />
+          </div>
+          <div className={styles.section4Text}>
+            <p>
+              Параллельно был выстроен сам фундамент аккаунта. Мы разработали
+              единую визуальную стилистику, оформили шапку профиля,
+              скорректировали название аккаунта под задачи продвижения и создали
+              хайлайты, которые закрывали основные вопросы клиента: ассортимент,
+              установка, причины выбрать бренд. В результате профиль стал
+              выглядеть как полноценный цифровой каталог и точка продаж.
+            </p>
+            <p>
+              В процессе работы мы выстроили регулярный контент и планирование
+              публикаций. Контент сочетал образовательные видео, презентацию
+              продукта и простые объяснения процесса заказа и установки. Это
+              позволило охватывать не только подписчиков, но и холодную аудиторию,
+              которая ранее не была знакома с брендом. Дополнительно была запущена
+              таргетированная реклама. Она дала не только рост показателей, но и
+              прямой отклик в виде входящих запросов и подписок из рекламных
+              объявлений.
+            </p>
+          </div>
+        </section>
+
+        {/* SECTION 5 – текст + чарт */}
+        <section className={styles.section5}>
+          <div className={styles.section5Text}>
+            <p>
+              Дополнительно была запущена таргетированная реклама. Она дала не
+              только рост показателей, но и прямой отклик в виде входящих
+              запросов и подписок из рекламных объявлений.
+            </p>
+          </div>
+          <div className={styles.section5Chart}>
+            <ChartDive
+              title="ПРОСМОТРЫ"
+              period="28 ноя - 27 дек"
+              total={12029}
+              subLabel="56,4% от рекламы"
+              percentMain={88.8}
+              percentSubscribers={11.2}
+              labelMain="Неподписчики"
+              labelSubscribers="Подписчики"
+            />
+          </div>
+        </section>
+
+        {/* SECTION 6 – полноширинное изображение */}
+        <section className={styles.section6}>
+          <div className={styles.section6ImgWrap}>
+            <Image
+              src="/projects-pages/dive/section2/slide6.png"
+              alt="Dive"
+              width={1200}
+              height={675}
+              style={{ width: "100%", height: "auto" }}
+            />
+          </div>
+        </section>
+
+        {/* SECTION 7 – итоги */}
+        <section className={styles.section7}>
+          <span>Итоги</span>
           <p>
-            Параллельно был выстроен сам фундамент аккаунта. Мы разработали
-            единую визуальную стилистику, оформили шапку профиля,
-            скорректировали название аккаунта под задачи продвижения и создали
-            хайлайты, которые закрывали основные вопросы клиента: ассортимент,
-            установка, причины выбрать бренд. В результате профиль стал
-            выглядеть как полноценный цифровой каталог и точка продаж.
+            Итог проекта Dive: За короткий срок был создан упакованный аккаунт,
+            выстроена логика контента, протестированы форматы и получены первые
+            подтверждения спроса через охваты, просмотры и рекламные отклики.
+            Проект заложил основу для дальнейшего масштабирования и превращения
+            соцсетей в стабильный канал лидогенерации.
           </p>
-          <p>
-            В процессе работы мы выстроили регулярный контент и планирование
-            публикаций. Контент сочетал образовательные видео, презентацию
-            продукта и простые объяснения процесса заказа и установки. Это
-            позволило охватывать не только подписчиков, но и холодную аудиторию,
-            которая ранее не была знакома с брендом. Дополнительно была запущена
-            таргетированная реклама. Она дала не только рост показателей, но и
-            прямой отклик в виде входящих запросов и подписок из рекламных
-            объявлений.
-          </p>
-        </div>
-      </section>
-
-      <section className={styles.section5}>
-        <p>
-          В процессе работы мы выстроили регулярный контент и планирование
-          публикаций. Контент сочетал образовательные видео, презентацию
-          продукта и простые объяснения процесса заказа и установки. Это
-          позволило охватывать не только подписчиков, но и холодную аудиторию,
-          которая ранее не была знакома с брендом. Дополнительно была запущена
-          таргетированная реклама. Она дала не только рост показателей, но и
-          прямой отклик в виде входящих запросов и подписок из рекламных
-          объявлений.
-        </p>
-        <ChartDive
-          title="ПРОСМОТРЫ"
-          period="28 ноя - 27 дек"
-          total={12029}
-          subLabel="56,4% от рекламы"
-          percentMain={88.8}
-          percentSubscribers={11.2}
-          labelMain="Неподписчики"
-          labelSubscribers="Подписчики"
-        />
-      </section>
-
-      <section className={styles.section6}>
-        <Image
-          src="/projects-pages/dive/dive-logo.png"
-          alt="Dive logo"
-          fill
-          className={styles.sectionBg}
-        />
-      </section>
-      <section className={styles.section7}>
-        <span>Итоги</span>
-        <p>
-          Итог проекта Dive: За короткий срок был создан упакованный аккаунт,
-          выстроена логика контента, протестированы форматы и получены первые
-          подтверждения спроса через охваты, просмотры и рекламные отклики.
-          Проект заложил основу для дальнейшего масштабирования и превращения
-          соцсетей в стабильный канал лидогенерации.
-        </p>
-      </section>
-    </main>
+        </section>
+      </div>
+    </>
   );
 }

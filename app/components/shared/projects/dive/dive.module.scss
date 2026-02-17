@@ -1,29 +1,276 @@
 @use "../../../../styles/shared/mixins" as *;
 
-.section {
+.hero {
   @include section-height;
   position: relative;
   width: 100%;
   overflow: hidden;
+
   @include mobile-down {
     height: 50vh;
     min-height: 300px;
     max-height: 400px;
   }
-}
 
-.heroInner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
+  .heroInner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
 
-.heroImage {
-  @include section-bg-image;
+  .heroImage {
+    object-fit: cover;
+    object-position: center;
+  }
 }
 
 .sectionsWrapper {
-  background-image: url("/projects-pages/steppe-coffee/bg-sections.png");
-  padding-top: 40px;
-  border-radius: 48px;
+  background-color: #f1f3ff;
+  margin-top: 40px;
+  padding: 40px 80px 80px;
+  border-radius: 48px 48px 0 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+
+  @include mobile-down {
+    padding: 24px 20px 40px;
+  }
+}
+
+// SECTION 2 — текст слева, видео справа
+.section2 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+
+  .section2Text {
+    width: 50%;
+    @include text-container-blur;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 60px 24px;
+
+    span {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+
+  .section2VideoWrap {
+    width: 50%;
+    border-radius: 40px;
+    overflow: hidden;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  @include mobile-down {
+    flex-direction: column;
+
+    .section2Text,
+    .section2VideoWrap {
+      width: 100%;
+    }
+  }
+}
+
+// SECTION 3 — слайдер
+.section3 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  .sliderContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    .sliderViewport {
+      width: 100%;
+      border-radius: 24px;
+      overflow: hidden;
+      background: linear-gradient(180deg, #e8eaf0 0%, #dde0e8 100%);
+      position: relative;
+      height: clamp(320px, 52vw, 680px);
+
+      .sliderTrack {
+        display: flex;
+        height: 100%;
+        transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+
+        .slide {
+          position: relative;
+          flex: 0 0 100%;
+          height: 100%;
+          min-width: 100%;
+
+          .slideImage {
+            object-fit: cover;
+            object-position: center;
+          }
+        }
+      }
+    }
+
+    .dots {
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+
+      .dot {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        border: 2px solid #ac8eef;
+        background: transparent;
+        cursor: pointer;
+        transition: all 0.2s ease;
+
+        &:hover {
+          background: rgba(172, 142, 239, 0.25);
+        }
+      }
+
+      .active {
+        background: #ac8eef;
+      }
+    }
+  }
+}
+
+// SECTION 4 — изображение слева, текст справа
+.section4 {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 24px;
+
+  .section4ImgWrap {
+    width: 50%;
+    border-radius: 24px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+  }
+
+  .section4Text {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    p {
+      @include text-container-blur;
+      padding: 40px 24px;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+
+  @include mobile-down {
+    flex-direction: column;
+
+    .section4ImgWrap,
+    .section4Text {
+      width: 100%;
+    }
+  }
+}
+
+// SECTION 5 — текст + чарт
+.section5 {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 24px;
+
+  .section5Text {
+    width: 40%;
+
+    p {
+      @include text-container-blur;
+      padding: 40px 24px;
+      font-size: 20px;
+      line-height: 1.5;
+    }
+  }
+
+  .section5Chart {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @include mobile-down {
+    flex-direction: column;
+
+    .section5Text,
+    .section5Chart {
+      width: 100%;
+    }
+  }
+}
+
+// SECTION 6 — полноширинное изображение
+.section6 {
+  width: 100%;
+
+  .section6ImgWrap {
+    width: 100%;
+    border-radius: 40px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+  }
+}
+
+// SECTION 7 — итоги
+.section7 {
+  @include text-container-blur;
+  margin: 0 15%;
+  padding: 60px 45px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  text-align: center;
+
+  span {
+    font-size: 40px;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.5;
+  }
+
+  @include mobile-down {
+    margin: 0 5%;
+  }
 }

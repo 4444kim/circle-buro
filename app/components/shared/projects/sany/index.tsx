@@ -55,33 +55,37 @@ export default function SanyProject() {
 
         {/* SECTION 3 – слайдер 3D / макеты + точки */}
         <section className={styles.section3}>
-          <div className={styles.section3SliderWrap}>
-            <div
-              className={styles.section3Track}
-              style={{ transform: `translateX(-${sliderIndex * 100}%)` }}
-            >
-              {SLIDER_SLIDES.map((slide, index) => (
-                <div key={index} className={styles.section3Slide}>
-                  <Image
-                    src={slide.src}
-                    alt={slide.alt}
-                    fill
-                    sizes="(min-width: 1024px) 1200px, 100vw"
-                    className={styles.section3SlideImage}
-                  />
-                </div>
-              ))}
+          <div className={styles.sliderContainer}>
+            {/* СЛАЙДЕР */}
+            <div className={styles.sliderViewport}>
+              <div
+                className={styles.sliderTrack}
+                style={{ transform: `translateX(-${sliderIndex * 100}%)` }}
+              >
+                {SLIDER_SLIDES.map((slide, index) => (
+                  <div key={index} className={styles.slide}>
+                    <Image
+                      src={slide.src}
+                      alt={slide.alt}
+                      fill
+                      sizes="(min-width: 1024px) 1200px, 100vw"
+                      className={styles.slideImage}
+                    />
+                  </div>
+                ))}
+              </div>
             </div>
-            <div className={styles.section3Dots}>
+
+            {/* ТОЧКИ */}
+            <div className={styles.dots}>
               {SLIDER_SLIDES.map((_, index) => (
                 <button
                   key={index}
-                  type="button"
-                  className={`${styles.section3Dot} ${
-                    index === sliderIndex ? styles.section3DotActive : ""
+                  className={`${styles.dot} ${
+                    index === sliderIndex ? styles.active : ""
                   }`}
-                  aria-label={`Слайд ${index + 1}`}
                   onClick={() => setSliderIndex(index)}
+                  aria-label={`slide ${index + 1}`}
                 />
               ))}
             </div>
@@ -97,8 +101,8 @@ export default function SanyProject() {
               логикой, визуальными акцентами и деталями оформления, обеспечивая
               функциональность помещений и соответствие корпоративному стилю
               бренда. Офисные и выставочные пространства рассматривались как
-              элементы единой визуальной системы, поддерживающей профессиональный
-              и технологичный образ компании.
+              элементы единой визуальной системы, поддерживающей
+              профессиональный и технологичный образ компании.
             </p>
           </div>
         </section>
@@ -117,8 +121,8 @@ export default function SanyProject() {
           <div className={styles.section5Text}>
             <p>
               Дополнительно Circle разработал печатные материалы для
-              офлайн-коммуникаций, включая постеры. В работе был сделан акцент на
-              чёткую структуру информации, визуальную сдержанность и
+              офлайн-коммуникаций, включая постеры. В работе был сделан акцент
+              на чёткую структуру информации, визуальную сдержанность и
               соответствие фирменному стилю. Печатные носители дополняли
               пространство и усиливали общее восприятие бренда.
             </p>
