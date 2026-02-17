@@ -25,6 +25,7 @@
   .heroImage {
     object-fit: cover;
     object-position: center;
+    border-radius: 0 0 40px 40px;
   }
 }
 
@@ -54,11 +55,12 @@
   gap: 24px;
 
   .section2Text {
+    width: 60%;
     @include text-container-blur;
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 4% 2%;
+    gap: 24px;
+    padding: 60px 24px;
 
     span {
       font-size: 40px;
@@ -66,19 +68,20 @@
 
     p {
       font-size: 20px;
-      line-height: 22px;
+      line-height: 1.5;
     }
   }
 
   .section2video {
-    min-width: 400px;
-    max-height: 670px;
+    width: 40%;
+    min-height: 400px;
     border-radius: 40px;
     overflow: hidden;
 
     video {
+      width: 100%;
+      height: 100%;
       border-radius: 40px;
-      border: 1px solid #fff;
       object-fit: cover;
       display: block;
     }
@@ -90,74 +93,102 @@
     .section2Text,
     .section2video {
       width: 100%;
-      min-width: unset;
-      max-height: unset;
     }
   }
 }
 
-// SECTION 3 — два видео (как steppe-coffee section3 с До/После)
+// SECTION 3 — видео слева, текст справа
 .section3 {
-  width: 100%;
   display: flex;
   flex-direction: row;
+  align-items: center;
   gap: 24px;
-  padding: 0 24px;
 
-  .section3container {
-    width: 50%;
+  .section3VideoWrap {
+    width: 40%;
+    min-height: 400px;
+    border-radius: 40px;
+    overflow: hidden;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 40px;
+    }
+  }
+
+  .section3Text {
+    width: 60%;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    gap: 20px;
 
-    .section3VideoWrap {
-      width: 100%;
+    p {
       @include text-container-blur;
-      display: flex;
-      border-radius: 40px;
-      overflow: hidden;
-      padding: 0;
-
-      video {
-        border-radius: 40px;
-        display: block;
-      }
+      padding: 40px 24px;
+      font-size: 20px;
+      line-height: 1.5;
     }
   }
 
   @include mobile-down {
     flex-direction: column;
-    padding: 0;
 
-    .section3container {
+    .section3VideoWrap,
+    .section3Text {
       width: 100%;
     }
   }
 }
 
-// SECTION 4 — итоги (как steppe-coffee section12)
+// SECTION 4 — итоги слева, видео справа
 .section4 {
-  @include text-container-blur;
-  margin: 40px 22% 0;
-  padding: 60px 45px;
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 16px;
-  text-align: center;
+  gap: 24px;
 
-  span {
-    font-size: 40px;
+  .section4Text {
+    width: 60%;
+    @include text-container-blur;
+    padding: 60px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    span {
+      font-size: 40px;
+    }
+
+    p {
+      font-size: 20px;
+      line-height: 1.5;
+    }
   }
 
-  p {
-    font-size: 20px;
-    line-height: 1.5;
+  .section4VideoWrap {
+    width: 40%;
+    min-height: 400px;
+    border-radius: 40px;
+    overflow: hidden;
+
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 40px;
+    }
   }
 
   @include mobile-down {
-    margin: 0 5%;
+    flex-direction: column;
+
+    .section4Text,
+    .section4VideoWrap {
+      width: 100%;
+    }
   }
 }
