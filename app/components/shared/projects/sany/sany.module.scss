@@ -57,7 +57,8 @@ $sany-accent: #fa4c19;
     padding: 60px 24px;
 
     span {
-      font-size: clamp(24px, 2.86vw, 40px);
+      font-family: "Gothic 60", sans-serif;
+      font-size: clamp(19px, 2.29vw, 32px);
     }
 
     p {
@@ -89,7 +90,8 @@ $sany-accent: #fa4c19;
     }
 
     .section2Text span {
-      font-size: clamp(18px, 2vw, 28px);
+      font-family: "Gothic 60", sans-serif;
+      font-size: clamp(14px, 1.6vw, 22px);
     }
 
     .section2Text p {
@@ -271,7 +273,8 @@ $sany-accent: #fa4c19;
     text-align: center;
 
     span {
-      font-size: clamp(24px, 2.86vw, 40px);
+      font-family: "Gothic 60", sans-serif;
+      font-size: clamp(19px, 2.29vw, 32px);
       font-weight: 700;
       color: #1a1a1a;
     }
@@ -307,7 +310,8 @@ $sany-accent: #fa4c19;
     }
 
     .section6Text span {
-      font-size: clamp(18px, 2vw, 28px);
+      font-family: "Gothic 60", sans-serif;
+      font-size: clamp(14px, 1.6vw, 22px);
     }
 
     .section6Text p {
