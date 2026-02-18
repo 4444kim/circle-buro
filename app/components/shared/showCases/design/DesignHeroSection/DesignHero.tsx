@@ -6,10 +6,9 @@ export default function DesignHero() {
       <video
         className={styles.video}
         autoPlay
-        muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
       >
         <source src="/show-cases/design/video-design.mp4" type="video/mp4" />
       </video>

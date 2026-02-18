@@ -22,7 +22,7 @@
   }
 
   span {
-    font-size: 20px;
+    font-size: clamp(14px, 1.43vw, 20px);
   }
 }
 
@@ -40,11 +40,11 @@
 }
 
 .totalSvg {
-  font-size: 40px;
+  font-size: clamp(24px, 2.86vw, 40px);
 }
 
 .labelSvg {
-  font-size: 18px;
+  font-size: clamp(14px, 1.29vw, 18px);
 }
 
 .legend {
@@ -79,7 +79,7 @@
   margin-top: auto;
 
   span {
-    font-size: 20px;
+    font-size: clamp(14px, 1.43vw, 20px);
   }
 
   .reach {
@@ -89,11 +89,11 @@
     gap: 5px;
 
     b {
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
     }
 
     span {
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
   }
 }

@@ -9,10 +9,10 @@
 }
 
 .title {
-  font-size: 48px;
+  font-size: clamp(24px, 3.43vw, 48px);
   font-weight: 400;
   text-align: center;
-  margin-bottom: 48px;
+  margin-bottom: clamp(24px, 3.43vw, 48px);
   letter-spacing: 0.02em;
 }
 
@@ -88,7 +88,7 @@
   border-radius: 999px;
   background: #f1f3ff;
   border: none;
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 14px);
   line-height: 1.2;
   cursor: default;
   pointer-events: auto;
@@ -117,7 +117,7 @@
   background: #f1f3ff;
   border: none;
   cursor: pointer;
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 14px);
   line-height: 1.2;
   color: #393939;
 }
@@ -147,10 +147,6 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .title {
-    font-size: 36px;
-    margin-bottom: 32px;
-  }
 }
 
 @include mobile-down {
@@ -160,11 +156,6 @@
 
   .grid {
     display: none;
-  }
-
-  .title {
-    font-size: 24px;
-    margin-bottom: 24px;
   }
 
   .slider {

@@ -23,7 +23,7 @@
   }
 
   span {
-    font-size: 20px;
+    font-size: clamp(14px, 1.43vw, 20px);
     opacity: 0.8;
   }
 }
@@ -44,13 +44,13 @@
 }
 
 .total {
-  font-size: 52px;
+  font-size: clamp(28px, 3.71vw, 52px);
   font-weight: 500;
   fill: #2d2d2d;
 }
 
 .subLabel {
-  font-size: 20px;
+  font-size: clamp(14px, 1.43vw, 20px);
   fill: #2d2d2d;
   opacity: 0.78;
 }
@@ -68,12 +68,12 @@
   gap: 14px;
 
   b {
-    font-size: 24px;
+    font-size: clamp(16px, 1.71vw, 24px);
     font-weight: 600;
   }
 
   span {
-    font-size: 18px;
+    font-size: clamp(14px, 1.29vw, 18px);
     opacity: 0.85;
   }
 }
@@ -110,12 +110,12 @@
   justify-content: space-between;
 
   span {
-    font-size: 28px;
+    font-size: clamp(18px, 2vw, 28px);
     font-weight: 500;
   }
 
   b {
-    font-size: 26px;
+    font-size: clamp(18px, 1.86vw, 26px);
     font-weight: 600;
   }
 }

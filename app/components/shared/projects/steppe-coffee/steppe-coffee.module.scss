@@ -50,11 +50,11 @@
     padding: 4% 2%;
 
     span {
-      font-size: 40px;
+      font-size: clamp(24px, 2.86vw, 40px);
     }
 
     p {
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 22px;
     }
   }
@@ -82,11 +82,11 @@
     }
 
     .section2Text span {
-      font-size: 28px;
+      font-size: clamp(18px, 2vw, 28px);
     }
 
     .section2Text p {
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
 
     .section2video video {
@@ -112,7 +112,7 @@
     gap: 20px;
 
     span {
-      font-size: 64px;
+      font-size: clamp(32px, 4.57vw, 64px);
     }
 
     .section3ImgWrap {
@@ -136,7 +136,7 @@
       width: 100%;
 
       span {
-        font-size: 36px;
+        font-size: clamp(22px, 2.57vw, 36px);
       }
 
       .section3ImgWrap {
@@ -175,7 +175,7 @@
     @include text-container-blur;
     border-radius: 16px;
     padding: 40px 24px;
-    font-size: 20px;
+    font-size: clamp(14px, 1.43vw, 20px);
     line-height: 1.5;
     color: #2d2d2d;
   }
@@ -201,7 +201,7 @@
 
     .section4TextBlock {
       padding: 24px 20px;
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
 
     .section4ImgWrap img {
@@ -275,7 +275,7 @@
     gap: 20px;
 
     .section7Text {
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 1.5;
       @include text-container-blur;
       padding: 40px 24px;
@@ -306,7 +306,7 @@
 
     .section7Card .section7Text {
       padding: 24px 20px;
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
 
     .section7PhoneWrap .phoneInner {
@@ -333,11 +333,11 @@
     gap: 20px;
 
     span {
-      font-size: 40px;
+      font-size: clamp(24px, 2.86vw, 40px);
     }
 
     p {
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
     }
   }
 
@@ -360,11 +360,11 @@
       padding: 32px 20px;
 
       span {
-        font-size: 28px;
+        font-size: clamp(18px, 2vw, 28px);
       }
 
       p {
-        font-size: 16px;
+        font-size: clamp(13px, 1.15vw, 16px);
       }
     }
   }
@@ -388,7 +388,7 @@
   .section9Text {
     @include text-container-blur;
     width: 65%;
-    font-size: 20px;
+    font-size: clamp(14px, 1.43vw, 20px);
     padding: 40px 24px;
   }
 
@@ -405,7 +405,7 @@
 
     .section9Text {
       padding: 24px 20px;
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
   }
 }
@@ -428,7 +428,7 @@
   .section10Text {
     @include text-container-blur;
     width: 60%;
-    font-size: 20px;
+    font-size: clamp(14px, 1.43vw, 20px);
     padding: 40px 24px;
   }
 
@@ -445,7 +445,7 @@
 
     .section10Text {
       padding: 24px 20px;
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
   }
 }
@@ -507,11 +507,11 @@
   text-align: center;
 
   span {
-    font-size: 40px;
+    font-size: clamp(24px, 2.86vw, 40px);
   }
 
   p {
-    font-size: 20px;
+    font-size: clamp(14px, 1.43vw, 20px);
   }
 
   @include mobile-down {
@@ -519,11 +519,11 @@
     padding: 32px 20px;
 
     span {
-      font-size: 28px;
+      font-size: clamp(18px, 2vw, 28px);
     }
 
     p {
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
   }
 }

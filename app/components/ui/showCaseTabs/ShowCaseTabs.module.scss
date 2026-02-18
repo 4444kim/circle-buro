@@ -45,7 +45,7 @@
   align-items: center;
   justify-content: center;
   padding: 16px 32px;
-  font-size: 18px;
+  font-size: clamp(12px, 1.29vw, 18px);
   font-weight: 400;
   color: #393939;
   text-decoration: none;
@@ -60,7 +60,6 @@
 
   @include mobile-down {
     padding: 10px 5px;
-    font-size: clamp(12px, 3.5vw, 18px);
   }
 }
 

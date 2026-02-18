@@ -6,10 +6,9 @@ export default function WebHero() {
       <video
         className={styles.video}
         autoPlay
-        muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
       >
         <source src="/show-cases/web/video-web.mp4" type="video/mp4" />
       </video>

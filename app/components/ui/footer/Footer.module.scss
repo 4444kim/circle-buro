@@ -4,7 +4,7 @@
   position: relative;
   width: 100%;
   background: #ac8eef;
-  padding: 120px 3%;
+  padding: 120px 10% 120px 5%;
   overflow: hidden;
 }
 
@@ -15,7 +15,6 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 60px;
 }
 
 .left {
@@ -29,8 +28,9 @@
 }
 
 .description {
-  font-size: 20px;
+  font-size: clamp(14px, 1.43vw, 20px);
   color: #000000;
+  line-height: 1.4;
 }
 
 .right {
@@ -38,9 +38,10 @@
 }
 
 .contactsTitle {
-  font-size: 20px;
-  font-weight: 600;
-  color: #1a1a1a;
+  font-size: clamp(24px, 2.29vw, 32px);
+  font-weight: 700;
+  line-height: 1.2;
+  color: #000000;
   margin-bottom: 20px;
 }
 
@@ -57,11 +58,12 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 14px;
-  color: #1a1a1a;
+  font-size: clamp(14px, 1.43vw, 20px);
+  color: #000000;
+  line-height: 1.35;
 
   a {
-    color: #1a1a1a;
+    color: #000000;
     text-decoration: none;
     transition: opacity 0.2s;
 
@@ -91,8 +93,12 @@
     padding: 40px 20px;
   }
 
-  .logoMain {
-    font-size: 28px;
+  .logo {
+    max-width: 140px;
+  }
+
+  .contactsTitle {
+    margin-bottom: 16px;
   }
 
   .inner {

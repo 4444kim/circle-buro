@@ -18,7 +18,7 @@
     height: auto;
     max-height: none;
     border-radius: 24px;
-    margin: 100px 0 12px 0;
+    margin: 80px 0 12px 0;
   }
 }
 
@@ -40,7 +40,7 @@
 }
 
 .title {
-  font-size: 48px;
+  font-size: clamp(24px, 3.43vw, 48px);
   font-weight: 400;
   text-align: center;
   letter-spacing: 0.02em;
@@ -49,7 +49,7 @@
 }
 
 .subtitle {
-  font-size: 16px;
+  font-size: clamp(13px, 1.15vw, 16px);
   text-align: center;
   color: #fff;
   line-height: 1.5;
@@ -71,7 +71,7 @@
 }
 
 .label {
-  font-size: 14px;
+  font-size: clamp(13px, 1vw, 14px);
   color: #ffffff;
   font-weight: 500;
 }
@@ -79,7 +79,7 @@
 .input {
   width: 100%;
   padding: 16px 20px;
-  font-size: 15px;
+  font-size: clamp(14px, 1.07vw, 15px);
   color: #393939;
   background: rgba(255, 255, 255, 0.25);
   border: 1px solid #ffffff;
@@ -125,7 +125,7 @@
   gap: 12px;
   width: 100%;
   padding: 20px 32px;
-  font-size: 24px;
+  font-size: clamp(16px, 1.71vw, 24px);
   font-weight: 500;
   color: #f1f3ff;
   background: rgba(255, 255, 255, 0.25);
@@ -155,15 +155,6 @@
   border-radius: 6px;
 }
 
-@include tablet-down {
-  .title {
-    font-size: 36px;
-  }
-
-  .subtitle {
-    font-size: 14px;
-  }
-}
 
 @include mobile-down {
   .contact {
@@ -183,12 +174,8 @@
     padding: 48px 16px;
   }
 
-  .title {
-    font-size: 24px;
-  }
-
-  .subtitle {
-    font-size: 13px;
+  .subtitle br {
+    display: none;
   }
 
   .form {
@@ -196,13 +183,8 @@
     margin-top: 8px;
   }
 
-  .label {
-    font-size: 13px;
-  }
-
   .input {
     padding: 14px 16px;
-    font-size: 14px;
   }
 
   .dateWrapper .input {
@@ -217,7 +199,6 @@
 
   .btn {
     padding: 16px 20px;
-    font-size: 16px;
     margin-top: 4px;
   }
 }

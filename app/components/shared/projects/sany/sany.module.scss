@@ -57,11 +57,11 @@ $sany-accent: #fa4c19;
     padding: 60px 24px;
 
     span {
-      font-size: 40px;
+      font-size: clamp(24px, 2.86vw, 40px);
     }
 
     p {
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 22px;
     }
   }
@@ -89,11 +89,11 @@ $sany-accent: #fa4c19;
     }
 
     .section2Text span {
-      font-size: 28px;
+      font-size: clamp(18px, 2vw, 28px);
     }
 
     .section2Text p {
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
   }
 }
@@ -190,7 +190,7 @@ $sany-accent: #fa4c19;
   padding: 48px 40px;
 
   p {
-    font-size: 20px;
+    font-size: clamp(14px, 1.43vw, 20px);
   }
 
   @include mobile-down {
@@ -198,7 +198,7 @@ $sany-accent: #fa4c19;
     padding: 24px 20px;
 
     p {
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
   }
 }
@@ -230,7 +230,7 @@ $sany-accent: #fa4c19;
     padding: 48px 32px;
 
     p {
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 1.6;
       color: #333333;
       margin: 0;
@@ -247,7 +247,7 @@ $sany-accent: #fa4c19;
 
     .section5Text p {
       padding: 24px 20px;
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
   }
 }
@@ -271,13 +271,13 @@ $sany-accent: #fa4c19;
     text-align: center;
 
     span {
-      font-size: 40px;
+      font-size: clamp(24px, 2.86vw, 40px);
       font-weight: 700;
       color: #1a1a1a;
     }
 
     p {
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 1.6;
       color: #333333;
       margin: 0;
@@ -307,11 +307,11 @@ $sany-accent: #fa4c19;
     }
 
     .section6Text span {
-      font-size: 28px;
+      font-size: clamp(18px, 2vw, 28px);
     }
 
     .section6Text p {
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
   }
 }

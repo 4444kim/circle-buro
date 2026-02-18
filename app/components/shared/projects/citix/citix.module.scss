@@ -65,11 +65,11 @@
     padding: 60px 24px;
 
     span {
-      font-size: 40px;
+      font-size: clamp(24px, 2.86vw, 40px);
     }
 
     p {
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 1.5;
     }
   }
@@ -102,11 +102,11 @@
     }
 
     .section2Text span {
-      font-size: 28px;
+      font-size: clamp(18px, 2vw, 28px);
     }
 
     .section2Text p {
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
 
     .section2video video {
@@ -146,7 +146,7 @@
     p {
       @include text-container-blur;
       padding: 40px 24px;
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 1.5;
     }
   }
@@ -169,7 +169,7 @@
 
     .section3Text p {
       padding: 24px 20px;
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
   }
 }
@@ -190,11 +190,11 @@
     gap: 16px;
 
     span {
-      font-size: 40px;
+      font-size: clamp(24px, 2.86vw, 40px);
     }
 
     p {
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 1.5;
     }
   }
@@ -231,11 +231,11 @@
     }
 
     .section4Text span {
-      font-size: 28px;
+      font-size: clamp(18px, 2vw, 28px);
     }
 
     .section4Text p {
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
   }
 }

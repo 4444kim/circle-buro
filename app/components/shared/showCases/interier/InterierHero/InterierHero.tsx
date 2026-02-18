@@ -6,10 +6,9 @@ export default function InterierHero() {
       <video
         className={styles.video}
         autoPlay
-        muted
         loop
         playsInline
-        preload="metadata"
+        preload="auto"
       >
         <source src="/show-cases/interier/video-interier.mp4" type="video/mp4" />
       </video>

@@ -46,7 +46,7 @@
 }
 
 .logoText {
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 14px);
   font-weight: 500;
   color: #393939;
   line-height: 1.2;
@@ -70,7 +70,7 @@
 }
 
 .navLink {
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 14px);
   color: #4b5563;
   text-decoration: none;
   transition: color 0.2s;
@@ -109,7 +109,7 @@
 .langSelect {
   display: none;
   padding: 5px 12px;
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 14px);
   color: #393939;
   background: #fff;
   border: 1px solid #393939;
@@ -124,8 +124,8 @@
 .ctaButton {
   display: flex;
   align-items: center;
-  padding: 7px 24px;
-  font-size: 16px;
+  padding: 8px 24px;
+  font-size: clamp(14px, 1.15vw, 16px);
   font-weight: 500;
   color: #fff;
   background: #fa4c19;
@@ -145,4 +145,3 @@
   }
 }
 
-/** mobile menu styles moved to app/components/ui/mobileBar/MobileMenu.module.scss */

@@ -11,6 +11,8 @@
 }
 
 .bgImage {
+  position: absolute;
+  inset: 0;
   @include section-bg-image;
   z-index: 0;
 }

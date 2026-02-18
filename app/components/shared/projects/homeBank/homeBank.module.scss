@@ -26,8 +26,7 @@
 
 .sectionsWrapper {
   background-color: #f1f3ff;
-  margin-top: 40px;
-  padding: 40px 80px 80px;
+  margin: 40px 0px;
   border-radius: 48px 48px 0 0;
   display: flex;
   flex-direction: column;
@@ -67,11 +66,11 @@
     padding: 60px 24px;
 
     span {
-      font-size: 40px;
+      font-size: clamp(24px, 2.86vw, 40px);
     }
 
     p {
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 1.5;
     }
   }
@@ -85,11 +84,11 @@
     }
 
     .section2Text span {
-      font-size: 28px;
+      font-size: clamp(18px, 2vw, 28px);
     }
 
     .section2Text p {
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
 
     .section2ImgWrap img {
@@ -143,7 +142,7 @@
     p {
       @include text-container-blur;
       padding: 40px 24px;
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 1.5;
     }
   }
@@ -171,7 +170,7 @@
 
     .section4Text p {
       padding: 24px 20px;
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
 
     .section4ImgWrap img {
@@ -206,7 +205,7 @@
     p {
       @include text-container-blur;
       padding: 40px 24px;
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 1.5;
     }
   }
@@ -221,7 +220,7 @@
 
     .section5Text p {
       padding: 24px 20px;
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
 
     .section5ImgWrap img {
@@ -243,7 +242,7 @@
     p {
       @include text-container-blur;
       padding: 40px 24px;
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 1.5;
     }
   }
@@ -271,7 +270,7 @@
 
     .section6Text p {
       padding: 24px 20px;
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
 
     .section6ImgWrap img {
@@ -306,7 +305,7 @@
     p {
       @include text-container-blur;
       padding: 40px 24px;
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 1.5;
     }
   }
@@ -321,7 +320,7 @@
 
     .section7Text p {
       padding: 24px 20px;
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
 
     .section7ImgWrap img {
@@ -343,7 +342,7 @@
     p {
       @include text-container-blur;
       padding: 40px 24px;
-      font-size: 20px;
+      font-size: clamp(14px, 1.43vw, 20px);
       line-height: 1.5;
     }
   }
@@ -371,7 +370,7 @@
 
     .section8Text p {
       padding: 24px 20px;
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
 
     .section8ImgWrap img {
@@ -429,11 +428,11 @@
   text-align: center;
 
   span {
-    font-size: 40px;
+    font-size: clamp(24px, 2.86vw, 40px);
   }
 
   p {
-    font-size: 20px;
+    font-size: clamp(14px, 1.43vw, 20px);
     line-height: 1.5;
   }
 
@@ -442,11 +441,11 @@
     padding: 32px 20px;
 
     span {
-      font-size: 28px;
+      font-size: clamp(18px, 2vw, 28px);
     }
 
     p {
-      font-size: 16px;
+      font-size: clamp(13px, 1.15vw, 16px);
     }
   }
 }
