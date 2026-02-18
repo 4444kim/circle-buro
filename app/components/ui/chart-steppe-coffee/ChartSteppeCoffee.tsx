@@ -1,7 +1,17 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import styles from "./chartSteppeCofee.module.scss";
+
+const getLocaleForFormatting = (locale: string): string => {
+  const localeMap: Record<string, string> = {
+    ru: "ru-RU",
+    en: "en-US",
+    kz: "kk-KZ",
+    zh: "zh-CN",
+  };
+  return localeMap[locale] || "ru-RU";
+};
 
 type Props = {
   title: string;
@@ -19,12 +29,14 @@ type Props = {
   reachChange: number;
 };
 
-const format = (n: number) => n.toLocaleString("ru-RU");
-const percent = (n: number) =>
-  n.toLocaleString("ru-RU", { maximumFractionDigits: 1 });
-
 export default function ChartSteppeCoffee(props: Props) {
   const t = useTranslations("projects");
+  const locale = useLocale();
+  const formatLocale = getLocaleForFormatting(locale);
+  
+  const format = (n: number) => n.toLocaleString(formatLocale);
+  const percent = (n: number) =>
+    n.toLocaleString(formatLocale, { maximumFractionDigits: 1 });
   const size = 260;
   const stroke = 18;
   const radius = (size - stroke) / 2;

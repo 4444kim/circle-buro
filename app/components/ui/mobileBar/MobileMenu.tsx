@@ -11,6 +11,8 @@ import styles from "./MobileMenu.module.scss";
 const LOCALE_OPTIONS = [
   { value: "ru", label: "РУС" },
   { value: "en", label: "ENG" },
+  { value: "kz", label: "ҚАЗ" },
+  { value: "zh", label: "中文" },
 ] as const;
 
 const overlayTransition = { duration: 0.25, ease: "easeOut" as const };
@@ -43,7 +45,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   ];
 
   const handleLocaleChange = (value: string) => {
-    router.replace(pathname, { locale: value as "ru" | "en" });
+    router.replace(pathname, { locale: value as "ru" | "en" | "kz" | "zh" });
     onClose();
   };
 

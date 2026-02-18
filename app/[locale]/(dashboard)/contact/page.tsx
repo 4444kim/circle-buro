@@ -2,12 +2,23 @@
 
 import Image from "next/image";
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import styles from "./contact.module.scss";
 import Calendar from "@/app/components/ui/calendar/calendar";
 
+const getLocaleForFormatting = (locale: string): string => {
+  const localeMap: Record<string, string> = {
+    ru: "ru-RU",
+    en: "en-US",
+    kz: "kk-KZ",
+    zh: "zh-CN",
+  };
+  return localeMap[locale] || "ru-RU";
+};
+
 export default function ContactPage() {
   const t = useTranslations("contactPage");
+  const locale = useLocale();
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -22,7 +33,7 @@ export default function ContactPage() {
   };
 
   const handleDateSelect = (date: Date, time: string) => {
-    const formattedDate = date.toLocaleDateString("ru-RU", {
+    const formattedDate = date.toLocaleDateString(getLocaleForFormatting(locale), {
       day: "2-digit",
       month: "2-digit",
       year: "numeric",

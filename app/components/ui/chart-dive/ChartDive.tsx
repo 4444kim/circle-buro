@@ -1,7 +1,17 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import styles from "./Dive.module.scss";
+
+const getLocaleForFormatting = (locale: string): string => {
+  const localeMap: Record<string, string> = {
+    ru: "ru-RU",
+    en: "en-US",
+    kz: "kk-KZ",
+    zh: "zh-CN",
+  };
+  return localeMap[locale] || "ru-RU";
+};
 
 type Props = {
   title: string;
@@ -28,11 +38,13 @@ type Props = {
 const formatDots = (n: number) =>
   n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
-const percentRU = (n: number) =>
-  n.toLocaleString("ru-RU", { maximumFractionDigits: 1 });
-
 export default function ChartDive(props: Props) {
   const t = useTranslations("projects");
+  const locale = useLocale();
+  const formatLocale = getLocaleForFormatting(locale);
+  
+  const percentRU = (n: number) =>
+    n.toLocaleString(formatLocale, { maximumFractionDigits: 1 });
   const size = 300;
   const stroke = 18;
   const radius = (size - stroke) / 2;

@@ -13,6 +13,8 @@ import ShowCaseTabs from "../showCaseTabs/ShowCaseTabs";
 const LOCALE_OPTIONS = [
   { value: "ru", label: "РУС" },
   { value: "en", label: "ENG" },
+  { value: "kz", label: "ҚАЗ" },
+  { value: "zh", label: "中文" },
 ] as const;
 
 export default function Header() {
@@ -23,7 +25,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleLocaleChange = (value: string) => {
-    router.replace(pathname, { locale: value as "ru" | "en" });
+    router.replace(pathname, { locale: value as "ru" | "en" | "kz" | "zh" });
   };
 
   return (
