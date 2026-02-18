@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Select from "../select/Select";
 import styles from "./MobileMenu.module.scss";
 
 type MobileMenuProps = {
@@ -28,13 +29,18 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           </Link>
 
           <div className={styles.menuTopRight}>
-            <select
-              className={styles.menuLangSelect}
+            <Select
+              options={[
+                { value: "ru", label: "РУС" },
+                { value: "kz", label: "КАЗ" },
+                { value: "en", label: "ENG" },
+                { value: "cn", label: "中文" },
+              ]}
               defaultValue="ru"
+              variant="compact"
+              className={styles.menuLangSelect}
               aria-label="Язык"
-            >
-              <option value="ru">РУС</option>
-            </select>
+            />
             <button
               type="button"
               className={styles.menuCloseButton}

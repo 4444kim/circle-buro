@@ -51,16 +51,18 @@ export default function Header() {
           </nav>
 
           <div className={styles.actions}>
-            <Select
-              options={[
-                { value: "ru", label: "РУС" },
-                { value: "kz", label: "КАЗ" },
-                { value: "en", label: "ENG" },
-                { value: "cn", label: "中文" },
-              ]}
-              defaultValue="ru"
-              aria-label="Язык"
-            />
+            <div className={styles.langSelectWrap}>
+              <Select
+                options={[
+                  { value: "ru", label: "РУС" },
+                  { value: "kz", label: "КАЗ" },
+                  { value: "en", label: "ENG" },
+                  { value: "cn", label: "中文" },
+                ]}
+                defaultValue="ru"
+                aria-label="Язык"
+              />
+            </div>
             <Link href="/contact" className={styles.ctaButton}>
               Связаться с нами
             </Link>

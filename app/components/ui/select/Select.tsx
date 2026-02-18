@@ -16,6 +16,7 @@ type SelectProps = {
   onChange?: (value: string) => void;
   placeholder?: string;
   disabled?: boolean;
+  variant?: "default" | "compact";
   className?: string;
   "aria-label"?: string;
 };
@@ -27,6 +28,7 @@ export default function Select({
   onChange,
   placeholder = "Выберите",
   disabled = false,
+  variant = "default",
   className,
   "aria-label": ariaLabel = "Выбор",
 }: SelectProps) {
@@ -83,6 +85,7 @@ export default function Select({
       className={`${styles.root} ${className ?? ""}`.trim()}
       data-open={isOpen}
       data-disabled={disabled}
+      data-variant={variant}
     >
       <button
         type="button"
