@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
 import styles from "./Project.module.scss";
@@ -12,6 +13,11 @@ type Project = {
   label: string;
   src: string;
   isVideo: boolean;
+};
+
+const sectionVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0 },
 };
 
 export default function ProjectSection({
@@ -35,8 +41,17 @@ export default function ProjectSection({
 
   return (
     <section className={styles.projects} id="projects">
-      <div className={styles.inner}>
-        <h2 className={styles.title}>наши проекты</h2>
+      <motion.div
+        className={styles.inner}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.3 }}
+        variants={sectionVariants}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+      >
+        <motion.h2 className={styles.title} variants={sectionVariants}>
+          наши проекты
+        </motion.h2>
 
         <div className={styles.grid}>
           {PROJECTS.map((project) => (
@@ -64,6 +79,7 @@ export default function ProjectSection({
                     alt={project.name}
                     fill
                     sizes="(max-width: 1023px) 50vw, 25vw"
+                    quality={85}
                     className={styles.cardMediaContent}
                   />
                 )}
@@ -131,6 +147,7 @@ export default function ProjectSection({
                   alt={PROJECTS[currentSlide].name}
                   fill
                   sizes="(max-width: 767px) 100vw, 220px"
+                  quality={85}
                   className={styles.image}
                 />
               )}
@@ -156,7 +173,7 @@ export default function ProjectSection({
             />
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

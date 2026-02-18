@@ -13,6 +13,8 @@ export default function SteppeCoffeeProject() {
             src="/projects-pages/steppe-coffee/hero.png"
             alt="Steppe Coffee hero"
             fill
+            sizes="100vw"
+            quality={85}
             priority
           />
         </div>
@@ -179,6 +181,8 @@ export default function SteppeCoffeeProject() {
                 src="/projects-pages/steppe-coffee/section7.png"
                 alt="Steppe Coffee section 7"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                quality={85}
                 style={{ objectFit: "contain" }}
               />
             </div>

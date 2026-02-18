@@ -201,6 +201,8 @@ export default function Package() {
         src="/services/package-bg.png"
         alt=""
         fill
+        sizes="100vw"
+        quality={80}
         className={styles.bgImage}
       />
       <div className={styles.container}>
@@ -235,6 +237,8 @@ export default function Package() {
                     src={pkg.image}
                     alt={pkg.title}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    quality={85}
                     className={styles.packageImage}
                   />
                   <div className={styles.priceBlock}>

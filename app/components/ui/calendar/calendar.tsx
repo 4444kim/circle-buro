@@ -156,6 +156,8 @@ export default function Calendar({ isOpen, onClose, onConfirm }: CalendarProps) 
           src="/calendar/calendar-bg.png"
           alt=""
           fill
+          sizes="(max-width: 768px) 90vw, 600px"
+          quality={85}
           className={styles.modalBg}
         />
         

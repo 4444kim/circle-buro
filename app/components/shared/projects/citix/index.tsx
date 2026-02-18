@@ -12,6 +12,8 @@ export default function CitixProject() {
             src="/projects-pages/citix/hero.png"
             alt="Citix hero"
             fill
+            sizes="100vw"
+            quality={85}
             priority
             className={styles.heroImage}
           />

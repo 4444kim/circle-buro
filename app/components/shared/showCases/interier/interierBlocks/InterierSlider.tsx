@@ -56,6 +56,7 @@ export default function InterierSlider() {
                   alt={slide.alt}
                   fill
                   sizes="(min-width: 1024px) 1440px, 100vw"
+                  quality={85}
                   className={styles.slideImage}
                 />
               </div>

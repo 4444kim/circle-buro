@@ -9,8 +9,10 @@ export default function AboutHero() {
           src="/about/about-hero.png"
           alt="О нас — CIRCLE Creative Buro"
           fill
-          className={styles.heroImage}
+          sizes="100vw"
+          quality={85}
           priority
+          className={styles.heroImage}
         />
         <div className={styles.content}>
           <h1 className={styles.title}>

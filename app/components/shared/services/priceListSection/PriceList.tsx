@@ -56,6 +56,8 @@ export default function PriceList() {
         src="/services/priceList-bg.png"
         alt=""
         fill
+        sizes="100vw"
+        quality={80}
         className={styles.bgImage}
       />
       <div className={styles.container}>

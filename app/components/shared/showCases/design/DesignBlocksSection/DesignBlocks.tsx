@@ -11,6 +11,7 @@ export default function DesignBlocks() {
           className={styles.image}
           fill
           sizes="(min-width: 1024px) 33vw, 100vw"
+          quality={85}
         />
       </div>
 

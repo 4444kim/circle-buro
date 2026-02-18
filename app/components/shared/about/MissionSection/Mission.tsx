@@ -9,6 +9,8 @@ export default function Mission() {
           src="/about/mission.png"
           alt="Наша миссия"
           fill
+          sizes="100vw"
+          quality={80}
           className={styles.bgImage}
         />
         <div className={styles.card}>

@@ -13,6 +13,8 @@ export default function HomeBankProject() {
             src="/projects-pages/homeBank/hero.png"
             alt="Home Bank hero"
             fill
+            sizes="100vw"
+            quality={85}
             priority
             className={styles.heroImage}
           />

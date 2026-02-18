@@ -9,6 +9,7 @@ export default function BrandMark() {
         autoPlay
         loop
         playsInline
+        preload="metadata"
       />
     </section>
   );

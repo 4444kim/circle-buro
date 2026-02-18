@@ -20,6 +20,8 @@ export default function DiveProject() {
             src="/projects-pages/dive/hero.png"
             alt="Dive hero"
             fill
+            sizes="100vw"
+            quality={85}
             priority
             className={styles.heroImage}
           />

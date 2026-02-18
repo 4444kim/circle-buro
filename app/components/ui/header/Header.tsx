@@ -21,6 +21,7 @@ export default function Header() {
               alt="CIRCLE creative buro"
               width={110}
               height={50}
+              priority
               className={styles.logoImage}
             />
           </Link>

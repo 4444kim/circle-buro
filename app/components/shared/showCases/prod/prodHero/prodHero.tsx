@@ -8,7 +8,7 @@ export default function ProdHero() {
         autoPlay
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
       >
         <source src="/show-cases/prod/prod-hero.mp4" type="video/mp4" />
       </video>

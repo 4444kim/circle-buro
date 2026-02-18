@@ -8,7 +8,7 @@ export default function DesignHero() {
         autoPlay
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
       >
         <source src="/show-cases/design/video-design.mp4" type="video/mp4" />
       </video>

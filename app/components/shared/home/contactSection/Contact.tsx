@@ -44,6 +44,8 @@ export default function ContactSection() {
         src="/home/contact.png"
         alt="Contact background"
         fill
+        sizes="100vw"
+        quality={80}
         className={styles.bgImage}
       />
 

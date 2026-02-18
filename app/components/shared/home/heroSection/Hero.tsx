@@ -10,7 +10,7 @@ export default function Hero() {
           autoPlay
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
         />
       </div>
     </section>

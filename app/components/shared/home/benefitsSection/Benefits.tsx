@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
 import styles from "./Benefits.module.scss";
 
@@ -18,6 +21,22 @@ const BENEFITS = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.08,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 16 },
+  visible: { opacity: 1, y: 0 },
+};
+
 export default function Benefits() {
   return (
     <section className={styles.benefits}>
@@ -25,21 +44,35 @@ export default function Benefits() {
         src="/home/benefits.png"
         alt="Benefits background"
         fill
+        sizes="100vw"
+        quality={80}
         className={styles.bgImage}
       />
 
-      <div className={styles.inner}>
-        <h2 className={styles.title}>ПОЧЕМУ МЫ?</h2>
+      <motion.div
+        className={styles.inner}
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ amount: 0.4 }}
+      >
+        <motion.h2 className={styles.title} variants={itemVariants}>
+          ПОЧЕМУ МЫ?
+        </motion.h2>
 
         <div className={styles.container}>
           {BENEFITS.map((benefit) => (
-            <article key={benefit.title} className={styles.card}>
+            <motion.article
+              key={benefit.title}
+              className={styles.card}
+              variants={itemVariants}
+            >
               <h3 className={styles.cardTitle}>{benefit.title}</h3>
               <p className={styles.cardText}>{benefit.description}</p>
-            </article>
+            </motion.article>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }

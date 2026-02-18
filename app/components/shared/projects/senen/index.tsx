@@ -12,6 +12,8 @@ export default function SenenProject() {
             src="/projects-pages/senen/hero.png"
             alt="Senen hero"
             fill
+            sizes="100vw"
+            quality={85}
             priority
             className={styles.heroImage}
           />

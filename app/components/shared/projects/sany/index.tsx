@@ -24,6 +24,8 @@ export default function SanyProject() {
             src="/projects-pages/sany/hero.png"
             alt="Sany hero — Quality changes the world"
             fill
+            sizes="100vw"
+            quality={85}
             priority
             className={styles.heroImage}
           />
@@ -69,6 +71,7 @@ export default function SanyProject() {
                       alt={slide.alt}
                       fill
                       sizes="(min-width: 1024px) 1200px, 100vw"
+                      quality={85}
                       className={styles.slideImage}
                     />
                   </div>

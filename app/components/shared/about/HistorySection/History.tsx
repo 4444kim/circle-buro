@@ -8,6 +8,8 @@ export default function History() {
         src="/about/about-history-bg.png"
         alt=""
         fill
+        sizes="100vw"
+        quality={80}
         className={styles.bgImage}
       />
       <div className={styles.content}>
@@ -16,6 +18,8 @@ export default function History() {
             src="/about/about-hands.jpg"
             alt="Наша команда"
             fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            quality={85}
             className={styles.handsImage}
           />
         </div>

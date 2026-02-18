@@ -8,7 +8,7 @@ export default function InterierHero() {
         autoPlay
         loop
         playsInline
-        preload="auto"
+        preload="metadata"
       >
         <source src="/show-cases/interier/video-interier.mp4" type="video/mp4" />
       </video>

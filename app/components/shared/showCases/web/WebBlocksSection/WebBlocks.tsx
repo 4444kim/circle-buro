@@ -38,6 +38,7 @@ export default function WebBlocks() {
               className={styles.image}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
+              quality={85}
             />
           </div>
         ))}
@@ -51,6 +52,7 @@ export default function WebBlocks() {
               className={styles.image}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
+              quality={85}
             />
           </div>
         ))}

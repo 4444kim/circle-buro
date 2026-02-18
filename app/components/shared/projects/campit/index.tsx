@@ -12,6 +12,8 @@ export default function Campit() {
             src="/projects-pages/campit/hero.png"
             alt="Campit hero"
             fill
+            sizes="100vw"
+            quality={85}
             className={styles.sectionBg}
             priority
           />

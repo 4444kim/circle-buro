@@ -42,6 +42,8 @@ export default function SuccessCalendar({ isOpen, onClose }: SuccessCalendarProp
           src="/calendar/success-calendar-bg.png"
           alt=""
           fill
+          sizes="(max-width: 768px) 90vw, 500px"
+          quality={85}
           className={styles.bgImage}
         />
         <button className={styles.closeBtn} onClick={onClose}>
