@@ -41,6 +41,7 @@ export default function InterierSlider() {
             width={21}
             height={43}
             className={styles.arrowIcon}
+            unoptimized
           />
         </button>
 
@@ -56,7 +57,7 @@ export default function InterierSlider() {
                   alt={slide.alt}
                   fill
                   sizes="(min-width: 1024px) 1440px, 100vw"
-                  quality={85}
+                  quality={75}
                   className={styles.slideImage}
                 />
               </div>
@@ -90,6 +91,7 @@ export default function InterierSlider() {
             width={21}
             height={43}
             className={styles.arrowIcon}
+            unoptimized
           />
         </button>
       </div>

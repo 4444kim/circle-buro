@@ -14,8 +14,7 @@ export default function HomeBankProject() {
             alt="Home Bank hero"
             fill
             sizes="100vw"
-            quality={85}
-            priority
+            quality={80}
             className={styles.heroImage}
           />
         </div>

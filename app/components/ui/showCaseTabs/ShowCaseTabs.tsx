@@ -1,17 +1,18 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { Link, usePathname } from "@/i18n/navigation";
 import styles from "./ShowCaseTabs.module.scss";
 
-const TABS = [
-  { href: "/show-cases/design", label: "Дизайн" },
-  { href: "/show-cases/web", label: "Веб-разработка" },
-  { href: "/show-cases/interier", label: "Интерьер" },
-  { href: "/show-cases/prod", label: "Продакшн" },
+const TAB_KEYS = [
+  { href: "/show-cases/design" as const, key: "design" },
+  { href: "/show-cases/web" as const, key: "web" },
+  { href: "/show-cases/interier" as const, key: "interior" },
+  { href: "/show-cases/prod" as const, key: "production" },
 ] as const;
 
 export default function ShowCaseTabs() {
+  const t = useTranslations("showCaseTabs");
   const pathname = usePathname();
 
   if (!pathname.startsWith("/show-cases")) return null;
@@ -20,7 +21,7 @@ export default function ShowCaseTabs() {
     <div className={styles.tabsBar}>
       <nav className={styles.tabsNav}>
         <ul className={styles.tabsList}>
-          {TABS.map((tab) => {
+          {TAB_KEYS.map((tab) => {
             const isActive = pathname === tab.href;
             return (
               <li key={tab.href}>
@@ -30,7 +31,7 @@ export default function ShowCaseTabs() {
                     isActive ? styles.tabLinkActive : ""
                   }`}
                 >
-                  {tab.label}
+                  {t(tab.key)}
                 </Link>
               </li>
             );

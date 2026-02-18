@@ -14,8 +14,7 @@ export default function SteppeCoffeeProject() {
             alt="Steppe Coffee hero"
             fill
             sizes="100vw"
-            quality={85}
-            priority
+            quality={80}
           />
         </div>
       </section>

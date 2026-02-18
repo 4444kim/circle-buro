@@ -102,6 +102,7 @@ export default function Select({
         <span className={styles.icon} aria-hidden>
           <Image
             src="/arrow-down.svg"
+            unoptimized
             alt=""
             width={8}
             height={5}

@@ -2,10 +2,12 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { useTranslations } from "next-intl";
 import styles from "./Contact.module.scss";
 import Calendar from "@/app/components/ui/calendar/calendar";
 
 export default function ContactSection() {
+  const t = useTranslations("home");
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -42,28 +44,24 @@ export default function ContactSection() {
     <section className={styles.contact} id="contact">
       <Image
         src="/home/contact.png"
-        alt="Contact background"
+        alt={t("contactAltBackground")}
         fill
         sizes="100vw"
-        quality={80}
+        quality={75}
         className={styles.bgImage}
       />
 
       <div className={styles.inner}>
-        <h2 className={styles.title}>свяжитесь с нами</h2>
-        <p className={styles.subtitle}>
-          Запишитесь на консультацию к нашему эксперту, чтобы обсудить
-          требования
-          <br />к вашему проекту и получить индивидуальные рекомендации
-        </p>
+        <h2 className={styles.title}>{t("contactTitle")}</h2>
+        <p className={styles.subtitle}>{t("contactSubtitle")}</p>
 
         <form className={styles.form} onSubmit={handleSubmit}>
           <div className={styles.field}>
-            <label className={styles.label}>Ваше имя</label>
+            <label className={styles.label}>{t("contactLabelName")}</label>
             <input
               type="text"
               name="name"
-              placeholder="Введите Ваше имя"
+              placeholder={t("contactPlaceholderName")}
               value={formData.name}
               onChange={handleChange}
               className={styles.input}
@@ -72,11 +70,11 @@ export default function ContactSection() {
           </div>
 
           <div className={styles.field}>
-            <label className={styles.label}>Номер телефона</label>
+            <label className={styles.label}>{t("contactLabelPhone")}</label>
             <input
               type="tel"
               name="phone"
-              placeholder="Введите Номер телефона"
+              placeholder={t("contactPlaceholderPhone")}
               value={formData.phone}
               onChange={handleChange}
               className={styles.input}
@@ -85,11 +83,12 @@ export default function ContactSection() {
           </div>
 
           <div className={styles.field}>
-            <label className={styles.label}>Выберите дату</label>
+            <label className={styles.label}>{t("contactLabelDate")}</label>
             <div className={styles.dateWrapper} onClick={openCalendar}>
               <Image
                 src="/Calendar.svg"
-                alt="Calendar"
+                unoptimized
+                alt={t("contactAltCalendar")}
                 width={20}
                 height={20}
                 className={styles.calendarIcon}
@@ -97,7 +96,7 @@ export default function ContactSection() {
               <input
                 type="text"
                 name="date"
-                placeholder="Выберите дату"
+                placeholder={t("contactPlaceholderDate")}
                 value={formData.date ? `${formData.date} ${formData.time}` : ""}
                 className={styles.input}
                 readOnly
@@ -108,9 +107,9 @@ export default function ContactSection() {
 
           <button type="submit" className={styles.btn}>
             <span className={styles.checkIcon}>
-              <Image src="/Check.svg" alt="Check" width={14} height={14} />
+              <Image src="/Check.svg" alt={t("contactAltCheck")} width={14} height={14} unoptimized />
             </span>
-            записаться на консультацию
+            {t("contactSubmit")}
           </button>
         </form>
       </div>

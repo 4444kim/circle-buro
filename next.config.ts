@@ -1,14 +1,15 @@
 import type { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const withNextIntl = createNextIntlPlugin("./i18n/request.ts");
 
 const nextConfig: NextConfig = {
-  // Image optimization
   images: {
-    formats: ["image/avif", "image/webp"],
-    deviceSizes: [640, 750, 828, 1080, 1200, 1440, 1920],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ["image/webp"],
+    deviceSizes: [640, 1080, 1920],
+    imageSizes: [16, 64, 128, 256],
+    minimumCacheTTL: 60 * 60 * 24,
   },
-
-  // Enable compression
   compress: true,
 
   // Strict mode for better debugging
@@ -20,4 +21,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+export default withNextIntl(nextConfig);

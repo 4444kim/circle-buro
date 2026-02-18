@@ -2,24 +2,14 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import styles from "./Benefits.module.scss";
 
-const BENEFITS = [
-  {
-    title: "комплексный подход",
-    description:
-      "Полностью берем на себя маркетинг, чтобы вы сосредоточились на своем деле",
-  },
-  {
-    title: "честность и надежность",
-    description: "Не продаем иллюзии, даем честный результат",
-  },
-  {
-    title: "отсутствие шаблонов",
-    description:
-      "Креативная команда которая создаёт уникальные идеи и использует тренды из разных сфер",
-  },
-];
+const BENEFIT_KEYS = [
+  { title: "benefitsApproach", desc: "benefitsApproachDesc" },
+  { title: "benefitsHonesty", desc: "benefitsHonestyDesc" },
+  { title: "benefitsNoTemplates", desc: "benefitsNoTemplatesDesc" },
+] as const;
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -38,6 +28,8 @@ const itemVariants = {
 };
 
 export default function Benefits() {
+  const t = useTranslations("home");
+
   return (
     <section className={styles.benefits}>
       <Image
@@ -45,7 +37,7 @@ export default function Benefits() {
         alt="Benefits background"
         fill
         sizes="100vw"
-        quality={80}
+        quality={75}
         className={styles.bgImage}
       />
 
@@ -57,18 +49,18 @@ export default function Benefits() {
         viewport={{ amount: 0.4 }}
       >
         <motion.h2 className={styles.title} variants={itemVariants}>
-          ПОЧЕМУ МЫ?
+          {t("benefitsTitle")}
         </motion.h2>
 
         <div className={styles.container}>
-          {BENEFITS.map((benefit) => (
+          {BENEFIT_KEYS.map((key) => (
             <motion.article
-              key={benefit.title}
+              key={key.title}
               className={styles.card}
               variants={itemVariants}
             >
-              <h3 className={styles.cardTitle}>{benefit.title}</h3>
-              <p className={styles.cardText}>{benefit.description}</p>
+              <h3 className={styles.cardTitle}>{t(key.title)}</h3>
+              <p className={styles.cardText}>{t(key.desc)}</p>
             </motion.article>
           ))}
         </div>

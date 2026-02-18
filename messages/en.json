@@ -1,0 +1,157 @@
+{
+  "common": {
+    "navAbout": "About us",
+    "navServices": "Services",
+    "navProjects": "Projects",
+    "navShowCases": "Show cases",
+    "navContacts": "Contacts",
+    "navWorks": "Works",
+    "cta": "Contact us",
+    "langAria": "Language",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "logoAlt": "CIRCLE creative buro",
+    "next": "Next",
+    "prevSlide": "Previous",
+    "nextSlide": "Next",
+    "goToProject": "Go to project",
+    "goToSlide": "Go to slide"
+  },
+  "home": {
+    "manifestTitle1": "CIRCLE",
+    "manifestTitle2": " is about people.",
+    "manifestTitle3": "People who know how to create.",
+    "manifestTitle4": "Feel. See further.",
+    "manifestSubtitle": "A full-cycle creative agency where marketing and design unlock the creative and conceptual potential of brands, closing it in a continuous circle.",
+    "servicesTitle": "our services",
+    "servicesMore": "LEARN MORE",
+    "benefitsTitle": "WHY US?",
+    "projectsTitle": "our projects",
+    "contactTitle": "contact us",
+    "contactSubtitle": "Book a consultation with our expert to discuss your project requirements and get tailored recommendations",
+    "contactLabelName": "Your name",
+    "contactPlaceholderName": "Enter your name",
+    "contactLabelPhone": "Phone number",
+    "contactPlaceholderPhone": "Enter phone number",
+    "contactLabelDate": "Choose date",
+    "contactPlaceholderDate": "Choose date",
+    "contactSubmit": "book a consultation",
+    "contactAltBackground": "Contact background",
+    "contactAltCalendar": "Calendar",
+    "contactAltCheck": "Check",
+    "servicesMotion": "MOTION",
+    "servicesMotionDesc": "design discipline focused on creating animated motion graphics",
+    "servicesWeb": "WEB DEVELOPMENT",
+    "servicesWebDesc": "website creation and technical support",
+    "servicesSmm": "SMM",
+    "servicesSmmDesc": "unique content creation and social media promotion",
+    "servicesMarketing": "MARKETING",
+    "servicesMarketingDesc": "market trends analysis, promotion strategy and traffic channels development",
+    "servicesDesign": "GRAPHIC DESIGN",
+    "servicesDesignDesc": "brand visual communication with consumers",
+    "servicesInterior": "INTERIOR DESIGN",
+    "servicesInteriorDesc": "creating environments that strengthen the brand and shape customer experience",
+    "benefitsApproach": "integrated approach",
+    "benefitsApproachDesc": "We take on marketing entirely so you can focus on your business",
+    "benefitsHonesty": "honesty and reliability",
+    "benefitsHonestyDesc": "We don't sell illusions, we deliver honest results",
+    "benefitsNoTemplates": "no templates",
+    "benefitsNoTemplatesDesc": "A creative team that creates unique ideas and draws on trends from different fields"
+  },
+  "about": {
+    "heroTitle1": "About",
+    "heroTitle2": " us",
+    "heroAlt": "About us — CIRCLE Creative Buro",
+    "heroDescription": "It all started with a small coffee shop where people's potential began to unfold. Five people turned chaos into a single rhythm. Different people, but equally driven, each adding their point to the circle. The points began to connect. Design. Marketing. Strategy. Meaning. Drive.",
+    "missionTitle": "our mission",
+    "missionAlt": "Our mission",
+    "missionDescription": "To create unique solutions through teamwork and a creative approach, uniting talents and ideas to achieve outstanding results. We believe that collaboration inspires, and together we can overcome any boundaries, turning bold ideas into vivid and impactful projects.",
+    "historyTitle": "our history",
+    "historyTeamAlt": "Our team",
+    "historyDescription": "Starting with a small team, we founded our agency in August 2025 and keep growing. We started with the Steppe Coffee project, which showed us the real scale of our capabilities. One successful case led to the next, and we grew into a full-fledged agency. We now have several departments and ambitious plans for the future, but the goal remains the same: to do great projects and keep growing."
+  },
+  "footer": {
+    "logoAlt": "CIRCLE creative buro",
+    "description": "Circle Creative Buro – a full-cycle creative and advertising agency in Almaty. We develop brands in digital space and beyond: strategy, creative, web, motion, turnkey interiors.",
+    "contactsTitle": "Contacts",
+    "phoneAlt": "Phone",
+    "locationAlt": "Address",
+    "emailAlt": "Email",
+    "address": "280 Baizakov St, Almaty"
+  },
+  "contactPage": {
+    "title": "contact us",
+    "subtitle": "Book a consultation with our expert to discuss your project requirements and get tailored recommendations",
+    "labelName": "Your name",
+    "placeholderName": "Enter your name",
+    "labelPhone": "Phone number",
+    "placeholderPhone": "Enter phone number",
+    "labelDate": "Choose date",
+    "placeholderDate": "Choose date",
+    "submit": "book a consultation",
+    "altBackground": "Contact background",
+    "altCalendar": "Calendar",
+    "altCheck": "Check"
+  },
+  "showCaseTabs": {
+    "design": "Design",
+    "web": "Web development",
+    "interior": "Interior",
+    "production": "Production"
+  },
+  "services": {
+    "pricesTitle": "semisircle prices",
+    "individualPrice": "Individual price",
+    "packagesTitle": "packages",
+    "consultBtn": "Book a consultation",
+    "categories": {
+      "marketing": "MARKETING",
+      "design": "DESIGN",
+      "smm": "SMM",
+      "production": "PRODUCTION"
+    },
+    "priceList": {
+      "marketing": {
+        "concept": "Concept / visualization",
+        "miniEvents": "Mini-events",
+        "audit": "Audit and analysis"
+      },
+      "design": {
+        "miniguide": "Mini guidebook (6 pages)",
+        "presentation": "Presentation (1 page)",
+        "packaging": "Packaging and branding (1 item)",
+        "animation2d": "2D animation (1 sec.)",
+        "animation3d": "3D animation (1 sec.)",
+        "visual3d": "3D concept visualization (1 sec.)",
+        "posters": "Posters, banners, illustrations (1 item)",
+        "smmDesign": "Social media design",
+        "websiteReact": "Website development (React) / Pro",
+        "websiteTilda": "Website development (Tilda) / Business",
+        "support": "Website support",
+        "interiorPerSqm": "Interior design (1 m²)",
+        "interiorTurnkey": "Turnkey interior design (1 m²)"
+      },
+      "smm": {
+        "contentPlan": "Content plan",
+        "profile": "Profile design (10 posts)",
+        "reels": "Reels / TikTok shooting (12 pcs.)",
+        "stories": "Stories (20 pcs.)",
+        "targeting": "Targeted advertising"
+      },
+      "production": {
+        "videoEdit": "Video editing (1 video)",
+        "videoProd": "Video production (1 hour)",
+        "photo": "Photo shoot (1 hour)"
+      }
+    },
+    "packages": {
+      "base": "Product foundation",
+      "branding360": "Branding 360",
+      "bridge": "Bridge to market",
+      "circle": "circle package",
+      "consulting": "Creative consulting",
+      "durationDays": "Duration {days} business days",
+      "individualPrice": "Individual price"
+    }
+  }
+}

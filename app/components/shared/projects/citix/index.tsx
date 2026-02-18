@@ -13,8 +13,7 @@ export default function CitixProject() {
             alt="Citix hero"
             fill
             sizes="100vw"
-            quality={85}
-            priority
+            quality={80}
             className={styles.heroImage}
           />
         </div>

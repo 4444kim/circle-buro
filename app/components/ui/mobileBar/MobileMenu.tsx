@@ -1,18 +1,17 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import { useRouter, usePathname, Link } from "@/i18n/navigation";
+import { useLocale } from "next-intl";
 import Select from "../select/Select";
 import styles from "./MobileMenu.module.scss";
 
-const NAV_LINKS = [
-  { href: "/services", label: "Услуги" },
-  { href: "/about", label: "О нас" },
-  { href: "/projects", label: "Работы" },
-  { href: "/show-cases", label: "Шоу кейсы" },
-  { href: "/contact", label: "Контакты" },
-];
+const LOCALE_OPTIONS = [
+  { value: "ru", label: "РУС" },
+  { value: "en", label: "ENG" },
+] as const;
 
 const overlayTransition = { duration: 0.25, ease: "easeOut" as const };
 const panelTransition = { duration: 0.35, ease: "easeOut" as const };
@@ -30,6 +29,24 @@ type MobileMenuProps = {
 };
 
 export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
+  const t = useTranslations("common");
+  const locale = useLocale();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const navLinks = [
+    { href: "/services" as const, label: t("navServices") },
+    { href: "/about" as const, label: t("navAbout") },
+    { href: "/projects" as const, label: t("navWorks") },
+    { href: "/show-cases" as const, label: t("navShowCases") },
+    { href: "/contact" as const, label: t("navContacts") },
+  ];
+
+  const handleLocaleChange = (value: string) => {
+    router.replace(pathname, { locale: value as "ru" | "en" });
+    onClose();
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -71,7 +88,8 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                 <Link href="/" onClick={onClose}>
                   <Image
                     src="/Logo.svg"
-                    alt="CIRCLE creative buro"
+                    unoptimized
+                    alt={t("logoAlt")}
                     width={40}
                     height={40}
                     className={styles.menuLogo}
@@ -81,21 +99,17 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
               <motion.div className={styles.menuTopRight} variants={itemVariants}>
                 <Select
-                  options={[
-                    { value: "ru", label: "РУС" },
-                    { value: "kz", label: "КАЗ" },
-                    { value: "en", label: "ENG" },
-                    { value: "cn", label: "中文" },
-                  ]}
-                  defaultValue="ru"
+                  options={LOCALE_OPTIONS.map((o) => ({ value: o.value, label: o.label }))}
+                  value={locale}
+                  onChange={handleLocaleChange}
                   variant="compact"
                   className={styles.menuLangSelect}
-                  aria-label="Язык"
+                  aria-label={t("langAria")}
                 />
                 <button
                   type="button"
                   className={styles.menuCloseButton}
-                  aria-label="Закрыть меню"
+                  aria-label={t("closeMenu")}
                   onClick={onClose}
                 >
                   ✕
@@ -114,7 +128,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               exit="exit"
             >
               <ul className={styles.menuNavList}>
-                {NAV_LINKS.map((link) => (
+                {navLinks.map((link) => (
                   <motion.li key={link.href} variants={itemVariants}>
                     <Link
                       href={link.href}
@@ -144,7 +158,7 @@ export function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                   onClick={onClose}
                   className={styles.menuContactButton}
                 >
-                  Связаться с нами
+                  {t("cta")}
                 </Link>
               </motion.div>
             </motion.div>

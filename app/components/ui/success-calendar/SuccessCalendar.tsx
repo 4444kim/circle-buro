@@ -43,7 +43,7 @@ export default function SuccessCalendar({ isOpen, onClose }: SuccessCalendarProp
           alt=""
           fill
           sizes="(max-width: 768px) 90vw, 500px"
-          quality={85}
+          quality={75}
           className={styles.bgImage}
         />
         <button className={styles.closeBtn} onClick={onClose}>
@@ -52,7 +52,7 @@ export default function SuccessCalendar({ isOpen, onClose }: SuccessCalendarProp
         <div className={styles.content}>
           <h2 className={styles.title}>вы записаны!</h2>
           <div className={styles.icon}>
-            <Image src="/calendar/Check 02.31.42.svg" alt="Success" width={36} height={36} />
+            <Image src="/calendar/Check 02.31.42.svg" alt="Success" width={36} height={36} unoptimized />
           </div>
         </div>
       </div>

@@ -57,7 +57,7 @@ export default function PriceList() {
         alt=""
         fill
         sizes="100vw"
-        quality={80}
+        quality={75}
         className={styles.bgImage}
       />
       <div className={styles.container}>

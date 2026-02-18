@@ -3,8 +3,9 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import styles from "./Project.module.scss";
-import Link from "next/link";
 import { PROJECTS as PROJECTS_DATA } from "@/app/lib/constants";
 
 type Project = {
@@ -25,6 +26,8 @@ export default function ProjectSection({
 }: {
   PROJECTS?: Project[];
 }) {
+  const t = useTranslations("common");
+  const tHome = useTranslations("home");
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   const prevSlide = () => {
@@ -50,7 +53,7 @@ export default function ProjectSection({
         transition={{ duration: 0.4, ease: "easeOut" }}
       >
         <motion.h2 className={styles.title} variants={sectionVariants}>
-          наши проекты
+          {tHome("projectsTitle")}
         </motion.h2>
 
         <div className={styles.grid}>
@@ -59,7 +62,7 @@ export default function ProjectSection({
               key={project.slug}
               href={`/projects/${project.slug}`}
               className={styles.card}
-              aria-label={`Перейти к проекту ${project.name}`}
+              aria-label={`${t("goToProject")} ${project.name}`}
             >
               <div className={styles.cardMedia}>
                 {project.isVideo ? (
@@ -79,7 +82,7 @@ export default function ProjectSection({
                     alt={project.name}
                     fill
                     sizes="(max-width: 1023px) 50vw, 25vw"
-                    quality={85}
+                    quality={75}
                     className={styles.cardMediaContent}
                   />
                 )}
@@ -90,10 +93,11 @@ export default function ProjectSection({
                     <button
                       type="button"
                       className={styles.cardIconBtn}
-                      aria-label={`Перейти к проекту ${project.name}`}
+                      aria-label={`${t("goToProject")} ${project.name}`}
                     >
                       <Image
                         src="/projects-video/icons/arrow-up-right-video.svg"
+                        unoptimized
                         alt=""
                         width={8}
                         height={8}
@@ -103,9 +107,10 @@ export default function ProjectSection({
 
                   <div className={styles.cardFooter}>
                     <span className={styles.nextButton}>
-                      <span>Next</span>
+                      <span>{t("next")}</span>
                       <Image
                         src="/projects-video/icons/arrow-right-video.svg"
+                        unoptimized
                         alt=""
                         width={16}
                         height={16}
@@ -123,9 +128,9 @@ export default function ProjectSection({
           <button
             className={styles.arrowBtn}
             onClick={prevSlide}
-            aria-label="Previous"
+            aria-label={t("prevSlide")}
           >
-            <Image src="/calendar/Left 2.svg" alt="" width={24} height={24} />
+            <Image src="/calendar/Left 2.svg" alt="" width={24} height={24} unoptimized />
           </button>
 
           <div className={styles.slideWrapper}>
@@ -147,7 +152,7 @@ export default function ProjectSection({
                   alt={PROJECTS[currentSlide].name}
                   fill
                   sizes="(max-width: 767px) 100vw, 220px"
-                  quality={85}
+                  quality={75}
                   className={styles.image}
                 />
               )}
@@ -157,9 +162,9 @@ export default function ProjectSection({
           <button
             className={styles.arrowBtn}
             onClick={nextSlide}
-            aria-label="Next"
+            aria-label={t("nextSlide")}
           >
-            <Image src="/calendar/Right 2.svg" alt="" width={24} height={24} />
+            <Image src="/calendar/Right 2.svg" alt="" width={24} height={24} unoptimized />
           </button>
         </div>
 
@@ -169,7 +174,7 @@ export default function ProjectSection({
               key={index}
               className={`${styles.dot} ${index === currentSlide ? styles.dotActive : ""}`}
               onClick={() => goToSlide(index)}
-              aria-label={`Go to slide ${index + 1}`}
+              aria-label={`${t("goToSlide")} ${index + 1}`}
             />
           ))}
         </div>

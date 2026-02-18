@@ -2,9 +2,12 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import styles from "./Manifest.module.scss";
 
 export default function Manifest() {
+  const t = useTranslations("home");
+
   return (
     <section className={styles.manifest}>
       <div className={styles.manifestInner}>
@@ -13,8 +16,7 @@ export default function Manifest() {
           alt="Manifest background"
           fill
           sizes="100vw"
-          quality={85}
-          priority
+          quality={75}
           className={styles.bgImage}
         />
 
@@ -26,18 +28,15 @@ export default function Manifest() {
           transition={{ duration: 0.5, ease: "easeOut" }}
         >
           <h2 className={styles.title}>
-            <span className={styles.brand}>CIRCLE</span> - это про людей.
+            <span className={styles.brand}>{t("manifestTitle1")}</span>
+            {t("manifestTitle2")}
             <br />
-            людей, которые умеют создавать.
+            {t("manifestTitle3")}
             <br />
-            чувствовать. видеть дальше.
+            {t("manifestTitle4")}
           </h2>
 
-          <p className={styles.subtitle}>
-            Креативное агентство полного цикла, где маркетинг, дизайн раскрывает
-            креативный <br /> и концептуальный потенциал брендов, замыкая его в
-            непрерывный круг..
-          </p>
+          <p className={styles.subtitle}>{t("manifestSubtitle")}</p>
         </motion.div>
       </div>
     </section>

@@ -2,39 +2,18 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import styles from "./Services.module.scss";
-import Link from "next/link";
 
-const SERVICES = [
-  {
-    title: "МОУШН",
-    description:
-      "направление дизайна, специализирующееся на создании анимированных динамических изображений",
-  },
-  {
-    title: "ВЕБ-РАЗРАБОТКА",
-    description: "создание и техническая поддержка сайта",
-  },
-  {
-    title: "SMM",
-    description:
-      "создание уникального контента и продвижение в социальных сетях",
-  },
-  {
-    title: "МАРКЕТИНГ",
-    description:
-      "изучения рыночных тенденций, разработка стратегии продвижения и каналов траффика",
-  },
-  {
-    title: "ГРАФИЧЕСКИЙ ДИЗАЙН",
-    description: "создание визуальной коммуникации бренда с потребителями",
-  },
-  {
-    title: "ИНТЕРЬЕРНЫЙ ДИЗАЙН",
-    description:
-      "создание среды, которая усиливает бренд и формирует клиентский опыт",
-  },
-];
+const SERVICE_KEYS = [
+  { title: "servicesMotion", desc: "servicesMotionDesc" },
+  { title: "servicesWeb", desc: "servicesWebDesc" },
+  { title: "servicesSmm", desc: "servicesSmmDesc" },
+  { title: "servicesMarketing", desc: "servicesMarketingDesc" },
+  { title: "servicesDesign", desc: "servicesDesignDesc" },
+  { title: "servicesInterior", desc: "servicesInteriorDesc" },
+] as const;
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -53,6 +32,8 @@ const itemVariants = {
 };
 
 export default function Services() {
+  const t = useTranslations("home");
+
   return (
     <section className={styles.services} id="services">
       <Image
@@ -60,7 +41,7 @@ export default function Services() {
         alt="Services background"
         fill
         sizes="100vw"
-        quality={80}
+        quality={75}
         className={styles.bgImage}
       />
 
@@ -72,25 +53,25 @@ export default function Services() {
         viewport={{ amount: 0.4 }}
       >
         <motion.h2 className={styles.title} variants={itemVariants}>
-          наши услуги
+          {t("servicesTitle")}
         </motion.h2>
 
         <div className={styles.grid}>
-          {SERVICES.map((service) => (
+          {SERVICE_KEYS.map((key) => (
             <motion.article
-              key={service.title}
+              key={key.title}
               className={styles.card}
               variants={itemVariants}
             >
-              <h3 className={styles.cardTitle}>{service.title}</h3>
-              <p className={styles.cardText}>{service.description}</p>
+              <h3 className={styles.cardTitle}>{t(key.title)}</h3>
+              <p className={styles.cardText}>{t(key.desc)}</p>
             </motion.article>
           ))}
         </div>
 
         <motion.div variants={itemVariants}>
           <Link href="/services" className={styles.btn}>
-            ПОДРОБНЕЕ <span className={styles.arrow}>→</span>
+            {t("servicesMore")} <span className={styles.arrow}>→</span>
           </Link>
         </motion.div>
       </motion.div>

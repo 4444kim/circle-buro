@@ -1,33 +1,27 @@
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import styles from "./AboutHero.module.scss";
 
-export default function AboutHero() {
+export default async function AboutHero() {
+  const t = await getTranslations("about");
+
   return (
     <section className={styles.hero}>
       <div className={styles.heroInner}>
         <Image
           src="/about/about-hero.png"
-          alt="О нас — CIRCLE Creative Buro"
+          alt={t("heroAlt")}
           fill
           sizes="100vw"
-          quality={85}
-          priority
+          quality={80}
           className={styles.heroImage}
         />
         <div className={styles.content}>
           <h1 className={styles.title}>
-            <span className={styles.titleLight}>О</span>
-            <span className={styles.titleAccent}> нас</span>
+            <span className={styles.titleLight}>{t("heroTitle1")}</span>
+            <span className={styles.titleAccent}>{t("heroTitle2")}</span>
           </h1>
-          <p className={styles.description}>
-            Всё начиналось с небольшой кофейни, где начал раскрываться потенциал людей.
-            <br />
-            Пять людей собирали хаос в единый ритм. Разные люди, но одинаково горящие
-            <br />
-            и каждый добавил в круг свою точку. Точки начали соединяться.
-            <br />
-            Дизайн. Маркетинг. Стратегия. Смысл. Драйв.
-          </p>
+          <p className={styles.description}>{t("heroDescription")}</p>
         </div>
       </div>
     </section>

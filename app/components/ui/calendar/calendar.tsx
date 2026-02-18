@@ -157,14 +157,14 @@ export default function Calendar({ isOpen, onClose, onConfirm }: CalendarProps) 
           alt=""
           fill
           sizes="(max-width: 768px) 90vw, 600px"
-          quality={85}
+          quality={75}
           className={styles.modalBg}
         />
         
         <div className={styles.modalContent}>
           <div className={styles.header}>
             <div className={styles.headerTitle}>
-              <Image src="/calendar/Calendar 02.31.42.svg" alt="" width={24} height={24} />
+              <Image src="/calendar/Calendar 02.31.42.svg" alt="" width={24} height={24} unoptimized />
               <span>выберите дату и время</span>
             </div>
             <button className={styles.closeBtn} onClick={onClose}>
@@ -177,13 +177,13 @@ export default function Calendar({ isOpen, onClose, onConfirm }: CalendarProps) 
               <div className={styles.calendarCard}>
                 <div className={styles.monthNav}>
                   <button className={styles.navBtn} onClick={prevMonth}>
-                    <Image src="/calendar/Left 2.svg" alt="Previous" width={24} height={24} />
+                    <Image src="/calendar/Left 2.svg" alt="Previous" width={24} height={24} unoptimized />
                   </button>
                   <span className={styles.monthYear}>
                     {MONTHS[month]} {year}
                   </span>
                   <button className={styles.navBtn} onClick={nextMonth}>
-                    <Image src="/calendar/Right 2.svg" alt="Next" width={24} height={24} />
+                    <Image src="/calendar/Right 2.svg" alt="Next" width={24} height={24} unoptimized />
                   </button>
                 </div>
 
@@ -217,7 +217,7 @@ export default function Calendar({ isOpen, onClose, onConfirm }: CalendarProps) 
             <div className={styles.timeSection}>
               <div className={styles.timeCard}>
                 <div className={styles.timeHeader}>
-                  <Image src="/calendar/Time Circle.svg" alt="" width={20} height={20} />
+                  <Image src="/calendar/Time Circle.svg" alt="" width={20} height={20} unoptimized />
                   <span>доступное время:</span>
                 </div>
                 <div className={styles.timeGrid}>
@@ -241,7 +241,7 @@ export default function Calendar({ isOpen, onClose, onConfirm }: CalendarProps) 
             disabled={!selectedDate || !selectedTime}
           >
             <span className={styles.confirmIcon}>
-              <Image src="/calendar/Check 02.31.42.svg" alt="" width={16} height={16} />
+              <Image src="/calendar/Check 02.31.42.svg" alt="" width={16} height={16} unoptimized />
             </span>
             подтвердить
           </button>

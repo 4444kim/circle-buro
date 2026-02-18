@@ -21,8 +21,7 @@ export default function DiveProject() {
             alt="Dive hero"
             fill
             sizes="100vw"
-            quality={85}
-            priority
+            quality={80}
             className={styles.heroImage}
           />
         </div>

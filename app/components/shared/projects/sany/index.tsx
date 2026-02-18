@@ -25,8 +25,7 @@ export default function SanyProject() {
             alt="Sany hero — Quality changes the world"
             fill
             sizes="100vw"
-            quality={85}
-            priority
+            quality={80}
             className={styles.heroImage}
           />
         </div>

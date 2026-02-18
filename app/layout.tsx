@@ -1,14 +1,13 @@
-import { Footer, Header } from "@/app/components";
 import type { Metadata, Viewport } from "next";
 import "./styles/base/globals.scss";
 
 export const metadata: Metadata = {
   title: {
-    default: "CIRCLE — Креативное агентство полного цикла",
+    default: "CIRCLE — Creative full-cycle agency",
     template: "%s | CIRCLE",
   },
   description:
-    "Креативное агентство полного цикла, где маркетинг, дизайн раскрывает креативный и концептуальный потенциал брендов.",
+    "Creative full-cycle agency where marketing and design unlock the creative and conceptual potential of brands.",
 };
 
 export const viewport: Viewport = {
@@ -24,12 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ru">
-      <body>
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </body>
+    <html suppressHydrationWarning>
+      <body>{children}</body>
     </html>
   );
 }

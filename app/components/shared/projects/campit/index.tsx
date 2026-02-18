@@ -13,9 +13,8 @@ export default function Campit() {
             alt="Campit hero"
             fill
             sizes="100vw"
-            quality={85}
+            quality={80}
             className={styles.sectionBg}
-            priority
           />
         </div>
       </section>

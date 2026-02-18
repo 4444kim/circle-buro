@@ -1,6 +1,6 @@
 import type { ComponentType } from "react";
 import { notFound } from "next/navigation";
-
+import { setRequestLocale } from "next-intl/server";
 import GalereyaProject from "@/app/components/shared/projects/galereya";
 import CampitProject from "@/app/components/shared/projects/campit";
 import SteppeCoffeeProject from "@/app/components/shared/projects/steppe-coffee";
@@ -23,12 +23,13 @@ const PROJECT_COMPONENTS: Record<string, ComponentType> = {
 
 type ProjectSlug = keyof typeof PROJECT_COMPONENTS;
 
-export default async function Page({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
-  const { slug } = await params;
+type Props = {
+  params: Promise<{ locale: string; slug: string }>;
+};
+
+export default async function Page({ params }: Props) {
+  const { locale, slug } = await params;
+  setRequestLocale(locale);
 
   const ProjectComponent = PROJECT_COMPONENTS[slug as ProjectSlug];
 
