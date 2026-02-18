@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import styles from "./Select.module.scss";
 
 export type SelectOption = {
@@ -26,12 +27,15 @@ export default function Select({
   value: controlledValue,
   defaultValue,
   onChange,
-  placeholder = "Выберите",
+  placeholder,
   disabled = false,
   variant = "default",
   className,
-  "aria-label": ariaLabel = "Выбор",
+  "aria-label": ariaLabelProp,
 }: SelectProps) {
+  const t = useTranslations("select");
+  const placeholderResolved = placeholder ?? t("placeholder");
+  const ariaLabel = ariaLabelProp ?? t("ariaLabel");
   const [isOpen, setIsOpen] = useState(false);
   const [internalValue, setInternalValue] = useState(defaultValue ?? "");
   const rootRef = useRef<HTMLDivElement>(null);
@@ -40,7 +44,7 @@ export default function Select({
   const value = isControlled ? controlledValue : internalValue;
 
   const selectedOption = options.find((o) => o.value === value);
-  const displayLabel = selectedOption?.label ?? placeholder;
+  const displayLabel = selectedOption?.label ?? placeholderResolved;
 
   useEffect(() => {
     if (!isOpen) return;

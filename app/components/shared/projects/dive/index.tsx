@@ -1,5 +1,5 @@
 import Image from "next/image";
-
+import { getTranslations } from "next-intl/server";
 import ChartDive from "@/app/components/ui/chart-dive/ChartDive";
 import styles from "./dive.module.scss";
 
@@ -10,7 +10,8 @@ const SECTION3_PHOTOS = [
   { src: "/projects-pages/dive/section2/slide4.png", alt: "Dive — фото 4" },
 ];
 
-export default function DiveProject() {
+export default async function DiveProject() {
+  const t = await getTranslations("projects");
   return (
     <>
       {/* SECTION 1 – HERO */}
@@ -32,20 +33,11 @@ export default function DiveProject() {
         <section className={styles.section2}>
           <div className={styles.section2Text}>
             <div className={styles.section2TextBlock}>
-              <span>Dive</span>
-              <p>
-                Dive – бренд кассетных бескассетных жалюзи, для которого мы
-                выстраивали присутствие в социальных сетях с нуля. Проект
-                стартовал в конце декабря, и ключевая задача на первом этапе
-                заключалась в запуске аккаунта, формировании базовой аудитории и
-                тестировании спроса через контент и рекламу.
-              </p>
+              <span>{t("dive.title")}</span>
+              <p>{t("dive.description")}</p>
             </div>
             <p className={styles.section2TextBlock2}>
-              Мы сразу сделали ставку на простую и понятную подачу: объяснение
-              продукта, живые лица, короткие форматы и фокус на пользе для
-              клиента. Это позволило начать набор просмотров и первых
-              подписчиков без долгого подготовительного этапа.
+              {t("dive.description2")}
             </p>
           </div>
           <div className={styles.section2VideoWrap}>
@@ -90,49 +82,26 @@ export default function DiveProject() {
             />
           </div>
           <div className={styles.section4Text}>
-            <p>
-              Параллельно был выстроен сам фундамент аккаунта. Мы разработали
-              единую визуальную стилистику, оформили шапку профиля,
-              скорректировали название аккаунта под задачи продвижения и создали
-              хайлайты, которые закрывали основные вопросы клиента: ассортимент,
-              установка, причины выбрать бренд. В результате профиль стал
-              выглядеть как полноценный цифровой каталог и точка продаж.
-            </p>
-            <p>
-              В процессе работы мы выстроили регулярный контент и планирование
-              публикаций. Контент сочетал образовательные видео, презентацию
-              продукта и простые объяснения процесса заказа и установки. Это
-              позволило охватывать не только подписчиков, но и холодную
-              аудиторию, которая ранее не была знакома с брендом. Дополнительно
-              была запущена таргетированная реклама. Она дала не только рост
-              показателей, но и прямой отклик в виде входящих запросов и
-              подписок из рекламных объявлений.
-            </p>
+            <p>{t("dive.section4p1")}</p>
+            <p>{t("dive.section4p2")}</p>
           </div>
         </section>
 
         {/* SECTION 5 – текст + чарт */}
         <section className={styles.section5}>
           <div className={styles.section5Text}>
-            <p>
-              К моменту завершения этапа работ аккаунт показал измеримый
-              результат. За последние 30 дней профиль набрал 12 029 просмотров,
-              при этом около 89% аудитории составили непoдписчики, что говорит о
-              сильной работе на охват. Охваченные аккаунты превысили 5 600, а
-              основная доля просмотров пришлась именно на Reels, что подтвердило
-              корректность выбранной контент-стратегии .
-            </p>
+            <p>{t("dive.section5")}</p>
           </div>
           <div className={styles.section5Chart}>
             <ChartDive
-              title="Просмотры"
-              period="28 ноя - 27 дек"
+              title={t("views")}
+              period={t("dive.period")}
               total={12029}
               adsPercent={56.4}
               subscribersPercent={11.2}
-              labelNonSubscribers="Неподписчики"
+              labelNonSubscribers={t("nonSubscribers")}
               percentNonSubscribers={88.8}
-              labelSubscribers="Подписчики"
+              labelSubscribers={t("subscribers")}
               percentSubscribers={11.2}
               reelsPercent={60.8}
               storiesPercent={39.2}
@@ -158,14 +127,8 @@ export default function DiveProject() {
 
         {/* SECTION 7 – итоги */}
         <section className={styles.section7}>
-          <span>Итоги</span>
-          <p>
-            Итог проекта Dive: За короткий срок был создан упакованный аккаунт,
-            выстроена логика контента, протестированы форматы и получены первые
-            подтверждения спроса через охваты, просмотры и рекламные отклики.
-            Проект заложил основу для дальнейшего масштабирования и превращения
-            соцсетей в стабильный канал лидогенерации.
-          </p>
+          <span>{t("results")}</span>
+          <p>{t("dive.resultsText")}</p>
         </section>
       </div>
     </>

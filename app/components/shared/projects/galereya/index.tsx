@@ -1,8 +1,9 @@
 import Image from "next/image";
-
+import { getTranslations } from "next-intl/server";
 import styles from "./galereya.module.scss";
 
-export default function Galereya() {
+export default async function Galereya() {
+  const t = await getTranslations("projects");
   return (
     <>
       {/* SECTION 1 – HERO */}
@@ -22,14 +23,8 @@ export default function Galereya() {
         {/* SECTION 2 */}
         <section className={styles.section2}>
           <div className={styles.section2Text}>
-            <span>GALERIYA</span>
-            <p>
-              GALERIYA – культурное пространство, где пересекаются искусство,
-              идеи и люди. Проект задумывался как открытая платформа для
-              художников, коллекционеров и зрителей, в которой искусство
-              становится понятным, доступным и органично встроенным в городской
-              контекст.
-            </p>
+            <span>{t("galereya.title")}</span>
+            <p>{t("galereya.description")}</p>
           </div>
           <div className={styles.section2ImgWrap}>
             <Image
@@ -55,20 +50,8 @@ export default function Galereya() {
             />
           </div>
           <div className={styles.section3Text}>
-            <p>
-              Circle подключился к проекту на этапе подготовки к открытию, когда
-              формировались само пространство и ключевые точки взаимодействия с
-              аудиторией. Основной задачей было запустить галерею с нуля,
-              выстроив логичную офлайн-среду и создав digital-платформу, которая
-              станет главным инструментом презентации проекта.
-            </p>
-
-            <p>
-              В рамках сотрудничества Circle выступал как креативный и
-              стратегический партнёр. Мы участвовали в организации пространства
-              галереи и полностью взяли на себя разработку сайта GALERIYA,
-              закладывая фундамент для дальнейшего развития бренда.
-            </p>
+            <p>{t("galereya.section3p1")}</p>
+            <p>{t("galereya.section3p2")}</p>
           </div>
         </section>
 
@@ -84,14 +67,7 @@ export default function Galereya() {
         </section>
 
         <section className={styles.section5}>
-          <p>
-            Сайт был спроектирован как ключевая точка контакта с аудиторией. Мы
-            выстроили структуру и визуальную логику платформы так, чтобы работы
-            художников были представлены последовательно и корректно, а
-            пользовательский путь оставался понятным и легким. Основной акцент
-            был сделан на навигации, визуальной подаче и отсутствии лишних
-            барьеров.
-          </p>
+          <p>{t("galereya.section5")}</p>
         </section>
 
         {/* SECTION 5 */}
@@ -136,13 +112,7 @@ export default function Galereya() {
 
         {/* SECTION 6 */}
         <section className={styles.section7}>
-          <p>
-            Работа с физическим пространством галереи была направлена на
-            создание комфортной и открытой среды для знакомства с искусством.
-            Circle участвовал в организации пространства, чтобы офлайн-опыт
-            посетителя соответствовал ценностям проекта и образу, транслируемому
-            через digital-каналы.
-          </p>
+          <p>{t("galereya.section7")}</p>
         </section>
 
         <section className={styles.section8}>
@@ -158,12 +128,8 @@ export default function Galereya() {
         {/* SECTION 8 */}
         <section className={styles.section9}>
           <div className={styles.section9Text}>
-            <span>Итоги</span>
-            <p>
-              В результате GALERIYA получила структурированное пространство и
-              полноценную digital-платформу, готовую к дальнейшей работе с
-              аудиторией и развитию проекта.
-            </p>
+            <span>{t("results")}</span>
+            <p>{t("galereya.resultsText")}</p>
           </div>
           <div className={styles.section9ImgWrap}>
             <Image

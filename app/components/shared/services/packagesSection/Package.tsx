@@ -1,200 +1,58 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import styles from "./Package.module.scss";
 
-const packagesData = [
+const PACKAGE_KEYS = [
   {
     id: 1,
-    title: "Основа продукта",
+    titleKey: "base" as const,
     price: "1 500 000 тнг",
-    duration: "Срок 45 рабочих дней",
+    durationKey: "duration45" as const,
     image: "/services/1.png",
-    services: [
-      {
-        num: "01",
-        title: "Дизайн упаковки",
-        desc: "Дизайн первичной упаковки, Разработка макета этикетки и регуляторной информации, Подготовка мокапов, Внесение правок",
-      },
-      {
-        num: "02",
-        title: "Мини кит визуальной идентичности",
-        desc: "Логотип (основной и дополнительный), Цветовая палитра, Типографика, Система верстки, Применение, Мини VI-бук",
-      },
-      {
-        num: "03",
-        title: "Одностраничный сайт",
-        desc: "Каркас UX, Дизайн интерфейса, Разработка, Адаптация под мобильные устройства, Аналитика",
-      },
-      {
-        num: "04",
-        title: "Коммерческая презентация",
-        desc: "Презентация продукта (Pitch Deck)",
-      },
-      {
-        num: "05",
-        title: "Контент для соцсетей",
-        desc: "Статичные посты, Короткие видео, Истории",
-      },
-    ],
+    serviceCount: 5,
   },
   {
     id: 2,
-    title: "Брендинг 360",
+    titleKey: "branding360" as const,
     price: "3 000 000 тнг",
-    duration: "Срок 45 рабочих дней",
+    durationKey: "duration45" as const,
     image: "/services/2.png",
-    services: [
-      {
-        num: "01",
-        title: "Стратегия бренда",
-        desc: "Воркшопы по изучению бренда, Документ стратегии бренда",
-      },
-      {
-        num: "02",
-        title: "Брендбук",
-        desc: "Полные правила бренд-айдентики",
-      },
-      {
-        num: "03",
-        title: "Полная система визуальной идентичности",
-        desc: "Система логотипов, Цветовая палитра, Система типографики, Иконография, Фото- и арт-направление, Применение, Правки",
-      },
-      {
-        num: "04",
-        title: "Система упаковки (МУЛЬТИ-SKU)",
-        desc: "Мастер-шаблон дизайна, Адаптация под SKU, Мокапы",
-      },
-      {
-        num: "05",
-        title: "Корпоративный сайт",
-        desc: "Каркасы UX, Дизайн интерфейса, Разработка, Основы SEO, Многоязычность",
-      },
-      {
-        num: "06",
-        title: "Дистрибьюторский пакет",
-        desc: "Полная коммерческая презентация",
-      },
-    ],
+    serviceCount: 6,
   },
   {
     id: 3,
-    title: "Мост на рынок",
+    titleKey: "bridge" as const,
     price: "2 000 000 тнг",
-    duration: "Срок 23 рабочих дня",
+    durationKey: "duration23" as const,
     image: "/services/3.png",
-    services: [
-      {
-        num: "01",
-        title: "Локализация на рынок",
-        desc: "Культурные особенности Казахстана, Адаптация под поведение потребителей, Анализ конкурентов, Рекомендации по коммуникации",
-      },
-      {
-        num: "02",
-        title: "SMM полное производство контента",
-        desc: "Контент-стратегия, Ежемесячный календарь, Истории, Reels/Видео, Видеосъёмка, Обложки, Подписи к постам",
-      },
-      {
-        num: "03",
-        title: "Настройка и оптимизация аккаунтов в соцсетях",
-        desc: "Профилирование профиля, План сетки (Grid layout), Кластеры хештегов/тем",
-      },
-      {
-        num: "04",
-        title: "Аналитика и отчетность",
-        desc: "Отчёт о результатах за один месяц",
-      },
-    ],
+    serviceCount: 4,
   },
   {
     id: 4,
-    title: "пакет circle",
+    titleKey: "circle" as const,
     price: "5 000 000 тнг",
-    duration: "Срок 45 рабочих дней",
+    durationKey: "duration45" as const,
     image: "/services/4.png",
-    services: [
-      {
-        num: "01",
-        title: "Стратегия бренда и бизнеса",
-        desc: "Позиционирование бренда и ключевая ценностная рамка, Сводка по портретам потребителей, Обзор конкурентной среды",
-      },
-      {
-        num: "02",
-        title: "Создание идентичности бренда",
-        desc: "Логотип и система визуальной идентичности, Руководство по бренду (стандартное), Бизнес- и бренд-активы",
-      },
-      {
-        num: "03",
-        title: "Дизайн продукта и упаковки",
-        desc: "Дизайн упаковки для продукта(ов), Визуальная система продуктовой линейки, Локализация упаковки (при необходимости)",
-      },
-      {
-        num: "04",
-        title: "Веб-сайт и цифровое присутствие",
-        desc: "Лендинг / Полноценный сайт, Каркасы UX/UI, Копирайтинг для сайта",
-      },
-      {
-        num: "05",
-        title: "Выход на рынок и локальная адаптация",
-        desc: "Стратегия локализации бренда, Культурный аудит",
-      },
-      {
-        num: "06",
-        title: "SMM стратегия и креативное исполнение",
-        desc: "Контент-стратегия, Дизайн историй, Создание контента для Reels, Профессиональная видеосъёмка, Копирайтинг для SMM, Система визуальных обложек/миниатюр, Анализ результатов и оптимизация",
-      },
-      {
-        num: "07",
-        title: "Коммерческая презентация и материалы для инвесторов",
-        desc: "Корпоративная/инвесторская презентация, Демонстрационное видео продукта",
-      },
-    ],
+    serviceCount: 7,
   },
   {
     id: 5,
-    title: "Креативный консалтинг",
-    price: "Индивидуальная цена",
-    isIndividual: true,
+    titleKey: "consulting" as const,
+    price: "",
+    durationKey: null,
     image: "/services/5.png",
-    services: [
-      {
-        num: "01",
-        title: "Консалтинг стратегии бренда",
-        desc: "Воркшоп по позиционированию бренда, Разработка системы ключевых ценностей бренда, Анализ конкурентной среды, Картирование портретов потребителей, Консалтинг по архитектуре бренда",
-      },
-      {
-        num: "02",
-        title: "Рекламный и креативный консалтинг",
-        desc: "Система креативного направления, Разработка концепции кампании, Дизайн концепции наружной рекламы (OOH), Стратегия контентных направлений, Аудит визуальной коммуникации",
-      },
-      {
-        num: "03",
-        title: "Консалтинг продукта и упаковки",
-        desc: "Оценка соответствия продукта рынку, Аудит удобства использования и эстетики упаковки, Стратегия расширения продуктовой линейки",
-      },
-      {
-        num: "04",
-        title: "Стратегия роста и выхода на рынок",
-        desc: "Дорожная карта выхода на рынок, Стратегия ценообразования и каналов продаж, Стратегия локализации бренда, Оптимизация воронки продаж",
-      },
-      {
-        num: "05",
-        title: "B2B и тендерная поддержка",
-        desc: "Информационная и дизайнерская поддержка тендерной документации, Руководство по медиа-партнёрствам, Предложения по локальным партнёрствам и кобрендингу, Стратегия промо-микса",
-      },
-      {
-        num: "06",
-        title: "E-commerce стратегия (Kaspi | Wildberries | Flip.kz)",
-        desc: "Настройка магазина на маркетплейсе, SEO и оптимизация карточек товаров, Оптимизация фото/видео продуктов, Анализ продаж",
-      },
-      {
-        num: "07",
-        title: "Консалтинг по данным и аналитике",
-        desc: "Анализ рыночных данных, Изучение цифровой активности конкурентов, Аналитика поведения клиентов, Диагностика эффективности рекламы, Настройка дашборда (по желанию)",
-      },
-    ],
+    serviceCount: 7,
+    isIndividual: true,
   },
-];
+] as const;
 
 export default function Package() {
+  const t = useTranslations("services");
+  const tPackages = useTranslations("services.packages");
+  const tContent = useTranslations("packageContent");
+
   return (
     <section className={styles.packages}>
       <Image
@@ -206,11 +64,16 @@ export default function Package() {
         className={styles.bgImage}
       />
       <div className={styles.container}>
-        <h1 className={styles.mainTitle}>пакеты</h1>
+        <h1 className={styles.mainTitle}>{t("packagesTitle")}</h1>
 
         <div className={styles.packagesList}>
-          {packagesData.map((pkg) => {
+          {PACKAGE_KEYS.map((pkg) => {
             const isReversed = pkg.id % 2 === 0;
+            const title = tPackages(pkg.titleKey);
+            const duration = pkg.durationKey
+              ? tPackages(pkg.durationKey)
+              : null;
+            const price = pkg.price === "" ? t("individualPrice") : pkg.price;
 
             return (
               <div
@@ -218,14 +81,20 @@ export default function Package() {
                 className={`${styles.packageCard} ${isReversed ? styles.reversed : ""}`}
               >
                 <div className={styles.textBlock}>
-                  <h2 className={styles.packageTitle}>{pkg.title}</h2>
+                  <h2 className={styles.packageTitle}>{title}</h2>
                   <div className={styles.servicesList}>
-                    {pkg.services.map((service, idx) => (
+                    {Array.from({ length: pkg.serviceCount }).map((_, idx) => (
                       <div key={idx} className={styles.serviceItem}>
-                        <span className={styles.serviceNum}>{service.num}</span>
+                        <span className={styles.serviceNum}>
+                          {String(idx + 1).padStart(2, "0")}
+                        </span>
                         <div className={styles.serviceInfo}>
-                          <h3 className={styles.serviceTitle}>{service.title}</h3>
-                          <p className={styles.serviceDesc}>{service.desc}</p>
+                          <h3 className={styles.serviceTitle}>
+                            {tContent(`${pkg.titleKey}.s${idx}Title`)}
+                          </h3>
+                          <p className={styles.serviceDesc}>
+                            {tContent(`${pkg.titleKey}.s${idx}Desc`)}
+                          </p>
                         </div>
                       </div>
                     ))}
@@ -235,7 +104,7 @@ export default function Package() {
                 <div className={styles.imageBlock}>
                   <Image
                     src={pkg.image}
-                    alt={pkg.title}
+                    alt={title}
                     fill
                     sizes="(max-width: 1024px) 100vw, 50vw"
                     quality={75}
@@ -243,13 +112,13 @@ export default function Package() {
                   />
                   <div className={styles.priceBlock}>
                     <div className={styles.priceInfo}>
-                      <span className={styles.price}>{pkg.price}</span>
-                      {pkg.duration && (
-                        <span className={styles.duration}>{pkg.duration}</span>
+                      <span className={styles.price}>{price}</span>
+                      {duration && (
+                        <span className={styles.duration}>{duration}</span>
                       )}
                     </div>
                     <button className={styles.consultBtn}>
-                      Записаться на консультацию
+                      {t("consultBtn")}
                     </button>
                   </div>
                 </div>

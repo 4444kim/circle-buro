@@ -2,20 +2,16 @@
 
 import React, { useCallback, useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import styles from "./InterierSlider.module.scss";
 
-const SLIDES = [
-  { id: 1, src: "/show-cases/interier/block-1.png", alt: "Интерьер — слайд 1" },
-  { id: 2, src: "/show-cases/interier/block-1.png", alt: "Интерьер — слайд 2" },
-  { id: 3, src: "/show-cases/interier/block-1.png", alt: "Интерьер — слайд 3" },
-  { id: 4, src: "/show-cases/interier/block-1.png", alt: "Интерьер — слайд 4" },
-  { id: 5, src: "/show-cases/interier/block-1.png", alt: "Интерьер — слайд 5" },
-  { id: 6, src: "/show-cases/interier/block-1.png", alt: "Интерьер — слайд 6" },
-  { id: 7, src: "/show-cases/interier/block-1.png", alt: "Интерьер — слайд 7" },
-  { id: 8, src: "/show-cases/interier/block-1.png", alt: "Интерьер — слайд 8" },
-];
+const SLIDES = Array.from({ length: 8 }, (_, i) => ({
+  id: i + 1,
+  src: "/show-cases/interier/block-1.png",
+}));
 
 export default function InterierSlider() {
+  const t = useTranslations("showCaseInterior");
   const [current, setCurrent] = useState(0);
 
   const goPrev = useCallback(() => {
@@ -33,7 +29,7 @@ export default function InterierSlider() {
           type="button"
           className={`${styles.arrowButton} ${styles.left}`}
           onClick={goPrev}
-          aria-label="Предыдущий слайд"
+          aria-label={t("prevSlide")}
         >
           <Image
             src="/show-cases/interier/left.svg"
@@ -54,7 +50,7 @@ export default function InterierSlider() {
               <div key={slide.id} className={styles.slideItem}>
                 <Image
                   src={slide.src}
-                  alt={slide.alt}
+                  alt={t("slideAlt", { n: slide.id })}
                   fill
                   sizes="(min-width: 1024px) 1440px, 100vw"
                   quality={75}
@@ -83,7 +79,7 @@ export default function InterierSlider() {
           type="button"
           className={`${styles.arrowButton} ${styles.right}`}
           onClick={goNext}
-          aria-label="Следующий слайд"
+          aria-label={t("nextSlide")}
         >
           <Image
             src="/show-cases/interier/right.svg"

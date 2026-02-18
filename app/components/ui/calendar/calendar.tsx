@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useTranslations } from "next-intl";
 import styles from "./calendar.module.scss";
 import SuccessCalendar from "../success-calendar/SuccessCalendar";
 
@@ -10,12 +11,6 @@ interface CalendarProps {
   onClose: () => void;
   onConfirm: (date: Date, time: string) => void;
 }
-
-const WEEKDAYS = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
-const MONTHS = [
-  "январь", "февраль", "март", "апрель", "май", "июнь",
-  "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"
-];
 
 const AVAILABLE_TIMES = [
   "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00"
@@ -34,11 +29,14 @@ const isDateUnavailable = (date: Date): boolean => {
 };
 
 export default function Calendar({ isOpen, onClose, onConfirm }: CalendarProps) {
+  const t = useTranslations("calendar");
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedTime, setSelectedTime] = useState<string | null>(null);
   const [showSuccess, setShowSuccess] = useState(false);
 
+  const weekdays = [0, 1, 2, 3, 4, 5, 6].map((i) => t(`weekday${i}`));
+  const months = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map((i) => t(`month${i}`));
   const year = currentDate.getFullYear();
   const month = currentDate.getMonth();
 
@@ -165,7 +163,7 @@ export default function Calendar({ isOpen, onClose, onConfirm }: CalendarProps) 
           <div className={styles.header}>
             <div className={styles.headerTitle}>
               <Image src="/calendar/Calendar 02.31.42.svg" alt="" width={24} height={24} unoptimized />
-              <span>выберите дату и время</span>
+              <span>{t("chooseDateAndTime")}</span>
             </div>
             <button className={styles.closeBtn} onClick={onClose}>
               <span>×</span>
@@ -180,7 +178,7 @@ export default function Calendar({ isOpen, onClose, onConfirm }: CalendarProps) 
                     <Image src="/calendar/Left 2.svg" alt="Previous" width={24} height={24} unoptimized />
                   </button>
                   <span className={styles.monthYear}>
-                    {MONTHS[month]} {year}
+                    {months[month]} {year}
                   </span>
                   <button className={styles.navBtn} onClick={nextMonth}>
                     <Image src="/calendar/Right 2.svg" alt="Next" width={24} height={24} unoptimized />
@@ -188,7 +186,7 @@ export default function Calendar({ isOpen, onClose, onConfirm }: CalendarProps) 
                 </div>
 
                 <div className={styles.weekdays}>
-                  {WEEKDAYS.map((day) => (
+                  {weekdays.map((day) => (
                     <span key={day} className={styles.weekday}>{day}</span>
                   ))}
                 </div>
@@ -200,15 +198,15 @@ export default function Calendar({ isOpen, onClose, onConfirm }: CalendarProps) 
                 <div className={styles.legend}>
                   <div className={styles.legendItem}>
                     <span className={`${styles.legendDot} ${styles.selectedDot}`} />
-                    <span>Выбрано</span>
+                    <span>{t("selected")}</span>
                   </div>
                   <div className={styles.legendItem}>
                     <span className={`${styles.legendDot} ${styles.availableDot}`} />
-                    <span>Доступно</span>
+                    <span>{t("available")}</span>
                   </div>
                   <div className={styles.legendItem}>
                     <span className={`${styles.legendDot} ${styles.unavailableDot}`} />
-                    <span>Недоступно</span>
+                    <span>{t("unavailable")}</span>
                   </div>
                 </div>
               </div>
@@ -218,7 +216,7 @@ export default function Calendar({ isOpen, onClose, onConfirm }: CalendarProps) 
               <div className={styles.timeCard}>
                 <div className={styles.timeHeader}>
                   <Image src="/calendar/Time Circle.svg" alt="" width={20} height={20} unoptimized />
-                  <span>доступное время:</span>
+                  <span>{t("availableTime")}</span>
                 </div>
                 <div className={styles.timeGrid}>
                   {AVAILABLE_TIMES.map((time, idx) => (
@@ -243,7 +241,7 @@ export default function Calendar({ isOpen, onClose, onConfirm }: CalendarProps) 
             <span className={styles.confirmIcon}>
               <Image src="/calendar/Check 02.31.42.svg" alt="" width={16} height={16} unoptimized />
             </span>
-            подтвердить
+            {t("confirm")}
           </button>
         </div>
       </div>

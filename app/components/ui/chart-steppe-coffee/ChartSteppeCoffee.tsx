@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import styles from "./chartSteppeCofee.module.scss";
 
 type Props = {
@@ -21,6 +24,7 @@ const percent = (n: number) =>
   n.toLocaleString("ru-RU", { maximumFractionDigits: 1 });
 
 export default function ChartSteppeCoffee(props: Props) {
+  const t = useTranslations("projects");
   const size = 260;
   const stroke = 18;
   const radius = (size - stroke) / 2;
@@ -112,7 +116,7 @@ export default function ChartSteppeCoffee(props: Props) {
       </div>
 
       <div className={styles.footer}>
-        <span>Охваченные аккаунты</span>
+        <span>{t("reachedAccounts")}</span>
         <div className={styles.reach}>
           <b>{format(props.reach)}</b>
           <span className={props.reachChange < 0 ? styles.neg : styles.pos}>

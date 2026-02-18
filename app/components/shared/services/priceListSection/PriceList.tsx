@@ -1,55 +1,65 @@
+"use client";
+
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import styles from "./PriceList.module.scss";
 
-const priceData = [
+const priceDataStructure = [
   {
-    category: "МАРКЕТИНГ",
+    categoryKey: "marketing" as const,
+    showIndividualPrice: false,
     services: [
-      { name: "Концепция / визуализация", price: "250 000" },
-      { name: "Мини-ивенты", price: "Индивидуальная цена" },
-      { name: "Аудит и анализ", price: "250 000" },
+      { nameKey: "concept" as const, price: "250 000" },
+      { nameKey: "miniEvents" as const, price: "individual" },
+      { nameKey: "audit" as const, price: "250 000" },
     ],
   },
   {
-    category: "ДИЗАЙН",
+    categoryKey: "design" as const,
+    showIndividualPrice: false,
     services: [
-      { name: "Мини-гайдбук (6 страниц)", price: "500 000" },
-      { name: "Презентация (1 страница)", price: "10 000" },
-      { name: "Упаковка и брендинг (1 шт.)", price: "Индивидуальная цена" },
-      { name: "2D-анимация (1 сек.)", price: "10 000" },
-      { name: "3D-анимация (1 сек.)", price: "20 000" },
-      { name: "3D-визуализация концепции (1 сек.)", price: "35 000" },
-      { name: "Постеры, баннеры, иллюстрации (1 шт.)", price: "20 000" },
-      { name: "Дизайн для социальных сетей", price: "10 000" },
-      { name: "Разработка сайта (React) / Pro", price: "2,500,000-5,000,000" },
-      { name: "Разработка сайта (Tilda) / Business", price: "1 000 000" },
-      { name: "Поддержка сайта", price: "150 000" },
-      { name: "Дизайн интерьера (1 м²)", price: "30 000" },
-      { name: "Дизайн интерьера «под ключ» (1 м²)", price: "50 000" },
+      { nameKey: "miniguide" as const, price: "500 000" },
+      { nameKey: "presentation" as const, price: "10 000" },
+      { nameKey: "packaging" as const, price: "individual" },
+      { nameKey: "animation2d" as const, price: "10 000" },
+      { nameKey: "animation3d" as const, price: "20 000" },
+      { nameKey: "visual3d" as const, price: "35 000" },
+      { nameKey: "posters" as const, price: "20 000" },
+      { nameKey: "smmDesign" as const, price: "10 000" },
+      { nameKey: "websiteReact" as const, price: "2,500,000-5,000,000" },
+      { nameKey: "websiteTilda" as const, price: "1 000 000" },
+      { nameKey: "support" as const, price: "150 000" },
+      { nameKey: "interiorPerSqm" as const, price: "30 000" },
+      { nameKey: "interiorTurnkey" as const, price: "50 000" },
     ],
   },
   {
-    category: "SMM",
+    categoryKey: "smm" as const,
     showIndividualPrice: true,
     services: [
-      { name: "Контент-план", price: "" },
-      { name: "Оформление профиля (10 постов)", price: "" },
-      { name: "Съёмка Reels / TikTok (12 шт.)", price: "" },
-      { name: "Stories (20 шт.)", price: "" },
-      { name: "Таргетированная реклама", price: "" },
+      { nameKey: "contentPlan" as const, price: "" },
+      { nameKey: "profile" as const, price: "" },
+      { nameKey: "reels" as const, price: "" },
+      { nameKey: "stories" as const, price: "" },
+      { nameKey: "targeting" as const, price: "" },
     ],
   },
   {
-    category: "ПРОДАКШН",
+    categoryKey: "production" as const,
+    showIndividualPrice: false,
     services: [
-      { name: "Видеомонтаж (1 ролик)", price: "100 000" },
-      { name: "Видеопроизводство (1 час)", price: "50 000" },
-      { name: "Фотосъёмка (1 час)", price: "35 000" },
+      { nameKey: "videoEdit" as const, price: "100 000" },
+      { nameKey: "videoProd" as const, price: "50 000" },
+      { nameKey: "photo" as const, price: "35 000" },
     ],
   },
 ];
 
 export default function PriceList() {
+  const t = useTranslations("services");
+  const tCategories = useTranslations("services.categories");
+  const tPriceList = useTranslations("services.priceList");
+
   return (
     <section className={styles.priceList}>
       <Image
@@ -61,25 +71,37 @@ export default function PriceList() {
         className={styles.bgImage}
       />
       <div className={styles.container}>
-        <h1 className={styles.mainTitle}>цены semisircle</h1>
+        <h1 className={styles.mainTitle}>{t("pricesTitle")}</h1>
 
         <div className={styles.categories}>
-          {priceData.map((category, idx) => (
+          {priceDataStructure.map((category, idx) => (
             <div key={idx} className={styles.card}>
               <div className={styles.cardHeader}>
-                <h2 className={styles.categoryTitle}>{category.category}</h2>
+                <h2 className={styles.categoryTitle}>
+                  {tCategories(category.categoryKey)}
+                </h2>
                 {category.showIndividualPrice && (
-                  <span className={styles.individualNote}>Индивидуальная цена</span>
+                  <span className={styles.individualNote}>
+                    {t("individualPrice")}
+                  </span>
                 )}
               </div>
               <ul className={styles.servicesList}>
                 {category.services.map((service, serviceIdx) => (
                   <li key={serviceIdx} className={styles.serviceItem}>
-                    <span className={styles.serviceName}>{service.name}</span>
+                    <span className={styles.serviceName}>
+                      {tPriceList(
+                        `${category.categoryKey}.${service.nameKey}` as "marketing.concept"
+                      )}
+                    </span>
                     <span className={styles.dots}></span>
-                    {service.price && (
-                      <span className={styles.servicePrice}>{service.price}</span>
-                    )}
+                    {(service.price || service.price === "individual" || (category.showIndividualPrice && service.price === "")) ? (
+                      <span className={styles.servicePrice}>
+                        {service.price === "individual" || (category.showIndividualPrice && service.price === "")
+                          ? t("individualPrice")
+                          : service.price}
+                      </span>
+                    ) : null}
                   </li>
                 ))}
               </ul>
@@ -90,4 +112,3 @@ export default function PriceList() {
     </section>
   );
 }
-

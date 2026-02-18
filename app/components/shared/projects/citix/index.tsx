@@ -1,8 +1,9 @@
 import Image from "next/image";
-
+import { getTranslations } from "next-intl/server";
 import styles from "./citix.module.scss";
 
-export default function CitixProject() {
+export default async function CitixProject() {
+  const t = await getTranslations("projects");
   return (
     <div className={styles.citix}>
       {/* SECTION 1 – HERO */}
@@ -23,13 +24,8 @@ export default function CitixProject() {
         {/* SECTION 2 – текст слева, видео справа */}
         <section className={styles.section2}>
           <div className={styles.section2Text}>
-            <span>Citix</span>
-            <p>
-              Circle работал с Citix в рамках разработки моушн-дизайна для
-              маркетинговых и коммуникационных задач бренда. Проект был
-              направлен на визуализацию ключевых идей и технологических решений
-              компании через динамичные анимационные форматы.
-            </p>
+            <span>{t("citix.title")}</span>
+            <p>{t("citix.description")}</p>
           </div>
 
           <div className={styles.section2video}>
@@ -57,28 +53,16 @@ export default function CitixProject() {
             />
           </div>
           <div className={styles.section3Text}>
-            <p>
-              В работе использовался современный визуальный язык, сочетающий
-              графику, движение и ритм, соответствующие характеру бренда.
-            </p>
-            <p>
-              Все анимационные решения создавались с учетом специфики аудитории
-              и каналов коммуникации, чтобы визуальные материалы оставались
-              понятными, выразительными и функциональными в маркетинговом
-              контексте.
-            </p>
+            <p>{t("citix.section3p1")}</p>
+            <p>{t("citix.section3p2")}</p>
           </div>
         </section>
 
         {/* SECTION 4 – итоги слева, видео справа */}
         <section className={styles.section4}>
           <div className={styles.section4Text}>
-            <span>Итоги</span>
-            <p>
-              В результате Citix получил моушн-контент, который органично
-              встроился в коммуникационную стратегию бренда и усилил визуальное
-              представление его технологических решений.
-            </p>
+            <span>{t("results")}</span>
+            <p>{t("citix.resultsText")}</p>
           </div>
           <div className={styles.section4VideoWrap}>
             <video

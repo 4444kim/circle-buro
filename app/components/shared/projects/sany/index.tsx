@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-
+import { useTranslations } from "next-intl";
 import styles from "./sany.module.scss";
 
 const SLIDER_SLIDES = [
@@ -13,6 +13,7 @@ const SLIDER_SLIDES = [
 ];
 
 export default function SanyProject() {
+  const t = useTranslations("projects");
   const [sliderIndex, setSliderIndex] = useState(0);
 
   return (
@@ -35,13 +36,8 @@ export default function SanyProject() {
         {/* SECTION 2 – текст слева, фото интерьера справа */}
         <section className={styles.section2}>
           <div className={styles.section2Text}>
-            <span>sany</span>
-            <p>
-              Circle подключился к проекту Sany с задачей систематизировать и
-              усилить визуальную среду бренда в офлайн-пространстве. Работа была
-              направлена на формирование единого и последовательно выстроенного
-              визуального подхода в корпоративных и выставочных помещениях.
-            </p>
+            <span>{t("sany.title")}</span>
+            <p>{t("sany.description")}</p>
           </div>
           <div className={styles.section2ImgWrap}>
             <Image
@@ -97,15 +93,7 @@ export default function SanyProject() {
         {/* SECTION 4 – один текст в белой карточке по центру */}
         <section className={styles.section4}>
           <div className={styles.section4Card}>
-            <p>
-              В рамках проекта Circle занимался разработкой интерьерных решений
-              для различных зон компании. Мы работали с пространственной
-              логикой, визуальными акцентами и деталями оформления, обеспечивая
-              функциональность помещений и соответствие корпоративному стилю
-              бренда. Офисные и выставочные пространства рассматривались как
-              элементы единой визуальной системы, поддерживающей
-              профессиональный и технологичный образ компании.
-            </p>
+            <p>{t("sany.section4")}</p>
           </div>
         </section>
 
@@ -121,26 +109,15 @@ export default function SanyProject() {
             />
           </div>
           <div className={styles.section5Text}>
-            <p>
-              Дополнительно Circle разработал печатные материалы для
-              офлайн-коммуникаций, включая постеры. В работе был сделан акцент
-              на чёткую структуру информации, визуальную сдержанность и
-              соответствие фирменному стилю. Печатные носители дополняли
-              пространство и усиливали общее восприятие бренда.
-            </p>
+            <p>{t("sany.section5")}</p>
           </div>
         </section>
 
         {/* SECTION 6 – итоги слева, приглашение справа */}
         <section className={styles.section6}>
           <div className={styles.section6Text}>
-            <span>итоги</span>
-            <p>
-              Сотрудничество с Sany носит долгосрочный характер и продолжается.
-              Circle выступает визуальным партнером бренда, обеспечивая
-              последовательное развитие оффлайн-среды и поддержку целостного
-              образа компании в пространстве и коммуникациях.
-            </p>
+            <span>{t("results")}</span>
+            <p>{t("sany.resultsText")}</p>
           </div>
           <div className={styles.section6ImgWrap}>
             <Image

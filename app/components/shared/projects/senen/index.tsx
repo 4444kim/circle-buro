@@ -1,8 +1,9 @@
 import Image from "next/image";
-
+import { getTranslations } from "next-intl/server";
 import styles from "./senen.module.scss";
 
-export default function SenenProject() {
+export default async function SenenProject() {
+  const t = await getTranslations("projects");
   return (
     <>
       {/* SECTION 1 – HERO */}
@@ -23,16 +24,8 @@ export default function SenenProject() {
         {/* SECTION 2 – текст слева, изображение справа */}
         <section className={styles.section2}>
           <div className={styles.section2Text}>
-            <span>Senen</span>
-            <p>
-              Senen – компания, специализирующаяся на производстве корпоративных
-              подарочных боксов и персонализированных подарочных решений для
-              бизнеса. Circle подключился к проекту с задачей системно оформить
-              визуальную часть продукта и сопутствующие материалы, которые
-              используются в работе с корпоративными клиентами. Важно было
-              сохранить характер бренда и одновременно сделать коммуникацию
-              более понятной и структурированной.
-            </p>
+            <span>{t("senen.title")}</span>
+            <p>{t("senen.description")}</p>
           </div>
           <div className={styles.section2ImgWrap}>
             <Image
@@ -60,17 +53,8 @@ export default function SenenProject() {
 
         {/* SECTION 4 – текст по центру */}
         <section className={styles.section4}>
-          <p>
-            В рамках сотрудничества Circle разработал мини-гайдбук, который
-            помогает клиентам ориентироваться в ассортименте подарочных боксов и
-            вариантах их наполнения. Материал был спроектирован как практичный
-            инструмент, поддерживающий процесс выбора и персонализации подарков.
-          </p>
-          <p>
-            Следующим этапом стала разработка дизайна коммерческого предложения.
-            Документ был выстроен так, чтобы четко и последовательно доносить
-            ценность продукта, отражая стиль и позиционирование бренда.
-          </p>
+          <p>{t("senen.section4p1")}</p>
+          <p>{t("senen.section4p2")}</p>
         </section>
 
         {/* SECTION 5 – изображение слева, текст справа */}
@@ -85,13 +69,7 @@ export default function SenenProject() {
             />
           </div>
           <div className={styles.section5Text}>
-            <p>
-              Дополнительно Circle разработал визуальные решения для элементов
-              упаковки. В проект вошли открытки, обертки, а также этикетки для
-              чая и шоколада. Все элементы были выполнены в едином визуальном
-              ключе и согласованы между собой, чтобы упаковка воспринималась как
-              цельный продукт.
-            </p>
+            <p>{t("senen.section5")}</p>
           </div>
         </section>
 
@@ -110,12 +88,8 @@ export default function SenenProject() {
 
         {/* SECTION 7 – итоги */}
         <section className={styles.section7}>
-          <span>Итоги</span>
-          <p>
-            В результате Senen получил структурированный набор визуальных и
-            печатных материалов, усиливающих продукт и поддерживающих бренд на
-            всех этапах взаимодействия с корпоративными клиентами.
-          </p>
+          <span>{t("results")}</span>
+          <p>{t("senen.resultsText")}</p>
         </section>
       </div>
     </>

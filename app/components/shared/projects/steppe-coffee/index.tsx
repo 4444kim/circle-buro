@@ -1,9 +1,10 @@
 import Image from "next/image";
-
+import { getTranslations } from "next-intl/server";
 import ChartSteppeCoffee from "@/app/components/ui/chart-steppe-coffee/ChartSteppeCoffee";
 import styles from "./steppe-coffee.module.scss";
 
-export default function SteppeCoffeeProject() {
+export default async function SteppeCoffeeProject() {
+  const t = await getTranslations("projects");
   return (
     <>
       {/* SECTION 1 – HERO */}
@@ -23,15 +24,8 @@ export default function SteppeCoffeeProject() {
         {/* SECTION 2 */}
         <section className={styles.section2}>
           <div className={styles.section2Text}>
-            <span>STEPPE COFFEE</span>
-            <p>
-              Steppe Coffee – городской кофейный проект с сильным
-              комьюнити-потенциалом и фокусом на живое общение. В рамках первого
-              этапа мы пересобрали визуальный язык бренда, усилили характер и
-              атмосферу Steppe Coffee, а также заложили единую логику для
-              дальнейшего развития контента и коммуникаций. Это позволило бренду
-              выглядеть цельно и узнаваемо во всех точках контакта с аудиторией.
-            </p>
+            <span>{t("steppeCoffee.title")}</span>
+            <p>{t("steppeCoffee.description")}</p>
           </div>
 
           <div className={styles.section2video}>
@@ -49,7 +43,7 @@ export default function SteppeCoffeeProject() {
         {/* SECTION 3 */}
         <section className={styles.section3}>
           <div className={styles.section3container}>
-            <span>До</span>
+            <span>{t("before")}</span>
             <div className={styles.section3ImgWrap}>
               <Image
                 src="/projects-pages/steppe-coffee/section-3.png"
@@ -61,7 +55,7 @@ export default function SteppeCoffeeProject() {
             </div>
           </div>
           <div className={styles.section3container}>
-            <span>После</span>
+            <span>{t("after")}</span>
             <div className={styles.section3ImgWrap}>
               <Image
                 src="/projects-pages/steppe-coffee/section-3-second.png"
@@ -87,17 +81,10 @@ export default function SteppeCoffeeProject() {
           </div>
           <div className={styles.section4Right}>
             <div className={styles.section4TextBlock}>
-              После завершения этого этапа клиент перешел на пакет Cycle –
-              формат ежемесячного сопровождения, в рамках которого мы продолжаем
-              развивать проект, усиливать комьюнити и последовательно
-              масштабировать коммуникацию на базе обновленного визуального и
-              смыслового фундамента.
+              {t("steppeCoffee.section4p1")}
             </div>
             <div className={styles.section4TextBlock}>
-              Мы взяли на себя работу с контентом, визуальной подачей, печатными
-              материалами и офлайн-активностями, а также участвовали в
-              оформлении интерьера кофейни, чтобы пространство и коммуникация
-              работали как единое целое.
+              {t("steppeCoffee.section4p2")}
             </div>
             <div className={styles.section4ImgWrap}>
               <Image
@@ -150,25 +137,18 @@ export default function SteppeCoffeeProject() {
         <section className={styles.section7}>
           <div className={styles.section7Card}>
             <div className={styles.section7Text}>
-              В рамках SMM мы выстроили регулярное присутствие бренда в
-              Instagram и TikTok, переработали подачу контента и сделали акцент
-              на живые форматы. В сентябре, несмотря на просадку охватов
-              относительно предыдущего периода, нам удалось сохранить активность
-              аудитории и зафиксировать рост подписчиков на 9% по сравнению с
-              августом. Этот этап стал диагностическим: мы протестировали
-              форматы и выявили, что наибольшую вовлеченность дают визуальные
-              посты и контент с офлайн-жизнью кофейни.
+              {t("steppeCoffee.section7")}
             </div>
             <div className={styles.section7Chart}>
               <ChartSteppeCoffee
-                title="ПРОСМОТРЫ"
-                period="1 сен - 30 сен"
+                title={t("views").toUpperCase()}
+                period={t("steppeCoffee.periodSep")}
                 total={35.647}
-                label="Просмотры"
+                label={t("views")}
                 percentA={55.8}
-                labelA="Неподписчики"
+                labelA={t("nonSubscribers")}
                 percentB={44.2}
-                labelB="Подписчики"
+                labelB={t("subscribers")}
                 reach={2190}
                 reachChange={-65.5}
               />
@@ -191,27 +171,19 @@ export default function SteppeCoffeeProject() {
         {/* SECTION 8 */}
         <section className={styles.section8}>
           <div className={styles.section8Text}>
-            <span>В ОКТЯБРЕ</span>
-            <p>
-              Мы усилили стратегию и сместили фокус в сторону Reels и сторис, а
-              также более плотной связки онлайна и офлайна. Результат – резкий
-              рост ключевых метрик: охваты аккаунта выросли на 125,3%, действия
-              в профиле – на 6,3%, посещения профиля – на 8,4%. Прирост
-              подписчиков за месяц составил почти 12% по сравнению с концом
-              сентября. Это подтвердило, что выбранная модель контента и темп
-              публикаций начали работать системно .
-            </p>
+            <span>{t("inOctober")}</span>
+            <p>{t("steppeCoffee.section8")}</p>
           </div>
           <div className={styles.section8Chart}>
             <ChartSteppeCoffee
-              title="ПРОСМОТРЫ"
-              period="1 окт - 31 окт"
+              title={t("views").toUpperCase()}
+              period={t("steppeCoffee.periodOct")}
               total={41.982}
-              label="Просмотры"
+              label={t("views")}
               percentA={54.0}
-              labelA="Неподписчики"
+              labelA={t("nonSubscribers")}
               percentB={46.0}
-              labelB="Подписчики"
+              labelB={t("subscribers")}
               reach={4935}
               reachChange={+125.3}
             />
@@ -230,25 +202,14 @@ export default function SteppeCoffeeProject() {
             />
           </div>
           <div className={styles.section9Text}>
-            Отдельным направлением стала работа с комьюнити. Мы не просто
-            анонсировали мероприятия, а выстраивали вокруг Steppe Coffee точки
-            притяжения. За период сотрудничества были восстановлены связи с уже
-            существующими сообществами и привлечены новые – SpacED, Language
-            Mixer, Bookclub Almaty. В кофейне прошёл арт-мастер-класс, который
-            усилил офлайн-трафик и стал контентной опорой для социальных сетей.
-            Такой формат позволил бренду выйти за рамки «кофейни» и закрепиться
-            как городское пространство для встреч и идей.
+            {t("steppeCoffee.section9")}
           </div>
         </section>
 
         {/* SECTION 10 */}
         <section className={styles.section10}>
           <div className={styles.section10Text}>
-            Дополнительно мы занимались дизайном печатных материалов и
-            оформлением интерьера, чтобы визуальный язык бренда был
-            последовательно представлен и в цифровой среде, и в физическом
-            пространстве. Это усилило узнаваемость и связало коммуникацию в
-            соцсетях с реальным опытом гостей.
+            {t("steppeCoffee.section10")}
           </div>
           <div className={styles.section10ImgWrap}>
             <Image
@@ -285,14 +246,8 @@ export default function SteppeCoffeeProject() {
         </section>
 
         <section className={styles.section12}>
-          <span>Итоги</span>
-          <p>
-            Итог работы с Steppe Coffee: Социальные сети стали отражением жизни
-            кофейни, офлайн-мероприятия начали работать как инструмент
-            привлечения и удержания аудитории, а бренд получил понятную и
-            устойчивую коммуникационную модель, которую можно масштабировать
-            дальше.
-          </p>
+          <span>{t("results")}</span>
+          <p>{t("steppeCoffee.resultsText")}</p>
         </section>
 
         {/* SECTION 12 */}

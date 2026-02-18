@@ -1,8 +1,9 @@
 import Image from "next/image";
-
+import { getTranslations } from "next-intl/server";
 import styles from "./campit.module.scss";
 
-export default function Campit() {
+export default async function Campit() {
+  const t = await getTranslations("projects");
   return (
     <div className={styles.campit}>
       {/* SECTION 1 – HERO */}
@@ -23,13 +24,8 @@ export default function Campit() {
         {/* SECTION 2 */}
         <section className={styles.section2}>
           <div className={styles.section2Text}>
-            <span>Campit</span>
-            <p>
-              Campit – проект авторских туров с продуманной концепцией и
-              вниманием к деталям. Бренд работает с аудиторией, для которой
-              важны не массовые маршруты, а впечатления, атмосфера и ощущение
-              вовлеченности в путешествие.
-            </p>
+            <span>{t("campit.title")}</span>
+            <p>{t("campit.description")}</p>
           </div>
           <div className={styles.section2VideoWrap}>
             <video
@@ -57,19 +53,10 @@ export default function Campit() {
           </div>
           <div className={styles.section3Text}>
             <div className={styles.section3TextBlock}>
-              Campit обратились в Circle с задачей усилить присутствие в
-              digital-среде и системно выстроить коммуникацию в Instagram.
-              Отдельным запросом клиента было создание креативных идей для
-              контента, которые органично и качественно интегрировались бы в уже
-              существующую стратегию бренда, не нарушая ее логику и тональность.
+              {t("campit.section3p1")}
             </div>
             <div className={styles.section3TextBlock}>
-              В рамках сотрудничества Circle взял на себя полное ведение
-              Instagram-страницы Campit. Мы работали с визуальным стилем,
-              структурой контента и подачей туров, разрабатывали креативные
-              концепции для публикаций и выстраивали контент-план таким образом,
-              чтобы авторский формат путешествий, маршруты и ценность опыта
-              считывались понятно и привлекательно с первых касаний.
+              {t("campit.section3p2")}
             </div>
           </div>
         </section>
@@ -77,10 +64,7 @@ export default function Campit() {
         {/* SECTION 4 */}
         <section className={styles.section4}>
           <div className={styles.section4Text}>
-            Отдельным направлением стала разработка дизайна для таргетированной
-            рекламы. Circle подготовил визуальные решения, адаптированные под
-            рекламные форматы, с акцентом на ясное сообщение, атмосферу
-            путешествий и визуальную целостность бренда.
+            {t("campit.section4")}
           </div>
           <div className={styles.section4ImgWrap}>
             <Image
@@ -108,14 +92,8 @@ export default function Campit() {
 
         {/* SECTION 6 */}
         <section className={styles.section6}>
-          <span>Итоги</span>
-          <p>
-            Сотрудничество носило проектный характер и длилось две недели. В
-            результате Campit получил структурированную Instagram-страницу,
-            креативные идеи для контента, встроенные в существующую стратегию,
-            готовый контент-план, смонтированный видеоконтент и визуальные
-            материалы для дальнейшего продвижения в digital-каналах.
-          </p>
+          <span>{t("results")}</span>
+          <p>{t("campit.resultsText")}</p>
         </section>
       </div>
     </div>

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect } from "react";
+import { useTranslations } from "next-intl";
 import styles from "./SuccessCalendar.module.scss";
 
 interface SuccessCalendarProps {
@@ -10,6 +11,7 @@ interface SuccessCalendarProps {
 }
 
 export default function SuccessCalendar({ isOpen, onClose }: SuccessCalendarProps) {
+  const t = useTranslations("successCalendar");
   // Lock body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -50,7 +52,7 @@ export default function SuccessCalendar({ isOpen, onClose }: SuccessCalendarProp
           <span>×</span>
         </button>
         <div className={styles.content}>
-          <h2 className={styles.title}>вы записаны!</h2>
+          <h2 className={styles.title}>{t("title")}</h2>
           <div className={styles.icon}>
             <Image src="/calendar/Check 02.31.42.svg" alt="Success" width={36} height={36} unoptimized />
           </div>

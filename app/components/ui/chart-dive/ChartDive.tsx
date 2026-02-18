@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import styles from "./Dive.module.scss";
 
 type Props = {
@@ -29,6 +32,7 @@ const percentRU = (n: number) =>
   n.toLocaleString("ru-RU", { maximumFractionDigits: 1 });
 
 export default function ChartDive(props: Props) {
+  const t = useTranslations("projects");
   const size = 300;
   const stroke = 18;
   const radius = (size - stroke) / 2;
@@ -137,7 +141,7 @@ export default function ChartDive(props: Props) {
               dominantBaseline="middle"
               className={styles.subLabel}
             >
-              {percentRU(props.adsPercent)}% от рекламы
+              {percentRU(props.adsPercent)}% {t("fromAds")}
             </text>
           </svg>
         </div>
@@ -166,7 +170,7 @@ export default function ChartDive(props: Props) {
       <div className={styles.bars}>
         <div className={styles.barRow}>
           <div className={styles.barHead}>
-            <span>Видео Reels</span>
+            <span>{t("videoReels")}</span>
             <b>{percentRU(props.reelsPercent)}%</b>
           </div>
 
@@ -189,7 +193,7 @@ export default function ChartDive(props: Props) {
 
         <div className={styles.barRow}>
           <div className={styles.barHead}>
-            <span>Истории</span>
+            <span>{t("stories")}</span>
             <b>{percentRU(props.storiesPercent)}%</b>
           </div>
 
@@ -214,7 +218,7 @@ export default function ChartDive(props: Props) {
       {/* bottom stats */}
       <div className={styles.stats}>
         <div className={styles.statRow}>
-          <span>Охваченные аккаунты</span>
+          <span>{t("reachedAccounts")}</span>
           <div className={styles.statRight}>
             <b>{formatDots(props.reached)}</b>
             <em className={props.reachedChange < 0 ? styles.neg : styles.pos}>
@@ -225,7 +229,7 @@ export default function ChartDive(props: Props) {
         </div>
 
         <div className={styles.statRow}>
-          <span>Взаимодействия</span>
+          <span>{t("interactions")}</span>
           <div className={styles.statRight}>
             <b>{formatDots(props.interactions)}</b>
           </div>
