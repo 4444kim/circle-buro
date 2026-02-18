@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 import styles from "./Header.module.scss";
 import { MobileMenu } from "../mobileBar/MobileMenu";
+import Select from "../select/Select";
 import ShowCaseTabs from "../showCaseTabs/ShowCaseTabs";
 
 export default function Header() {
@@ -50,13 +51,16 @@ export default function Header() {
           </nav>
 
           <div className={styles.actions}>
-            <select
-              className={styles.langSelect}
+            <Select
+              options={[
+                { value: "ru", label: "РУС" },
+                { value: "kz", label: "КАЗ" },
+                { value: "en", label: "ENG" },
+                { value: "cn", label: "中文" },
+              ]}
               defaultValue="ru"
               aria-label="Язык"
-            >
-              <option value="ru">РУС</option>
-            </select>
+            />
             <Link href="/contact" className={styles.ctaButton}>
               Связаться с нами
             </Link>

@@ -18,5 +18,7 @@
 }
 
 .heroImage {
+  position: absolute;
+  inset: 0;
   @include section-bg-image;
 }

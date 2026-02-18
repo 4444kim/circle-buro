@@ -1,16 +1,16 @@
-import Image from "next/image";
 import styles from "./Hero.module.scss";
 
 export default function Hero() {
   return (
     <section className={styles.hero}>
       <div className={styles.heroInner}>
-        <Image
-          src="/home/hero-main-section.png"
-          alt="CIRCLE — визуальный герой"
-          fill
+        <video
+          src="/home/hero-main-video.mp4"
           className={styles.heroImage}
-          priority
+          autoPlay
+          loop
+          playsInline
+          preload="auto"
         />
       </div>
     </section>
