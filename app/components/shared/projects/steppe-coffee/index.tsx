@@ -46,7 +46,7 @@ export default async function SteppeCoffeeProject() {
             <span>{t("before")}</span>
             <div className={styles.section3ImgWrap}>
               <Image
-                src="/projects-pages/steppe-coffee/section-3.png"
+                src="/projects-pages/steppe-coffee/section-3-second.png"
                 alt="Steppe Coffee До"
                 width={800}
                 height={600}
@@ -58,7 +58,7 @@ export default async function SteppeCoffeeProject() {
             <span>{t("after")}</span>
             <div className={styles.section3ImgWrap}>
               <Image
-                src="/projects-pages/steppe-coffee/section-3-second.png"
+                src="/projects-pages/steppe-coffee/section-3.png"
                 alt="Steppe Coffee После"
                 width={800}
                 height={600}
@@ -71,12 +71,13 @@ export default async function SteppeCoffeeProject() {
         {/* SECTION 4 */}
         <section className={styles.section4}>
           <div className={styles.section4PhoneWrap}>
-            <Image
-              src="/projects-pages/steppe-coffee/section4.png"
-              alt="Steppe Coffee section 4"
-              width={519}
-              height={792}
-              style={{ width: "100%", height: "auto" }}
+            <video
+              src="/projects-pages/steppe-coffee/section4-video.mp4"
+              playsInline
+              muted
+              loop
+              autoPlay
+              style={{ width: "100%", height: "100%", objectFit: "contain" }}
             />
           </div>
           <div className={styles.section4Right}>
@@ -156,13 +157,13 @@ export default async function SteppeCoffeeProject() {
           </div>
           <div className={styles.section7PhoneWrap}>
             <div className={styles.phoneInner}>
-              <Image
-                src="/projects-pages/steppe-coffee/section7.png"
-                alt="Steppe Coffee section 7"
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                quality={85}
-                style={{ objectFit: "contain" }}
+              <video
+                src="/projects-pages/steppe-coffee/section7-video.mp4"
+                playsInline
+                muted
+                loop
+                autoPlay
+                style={{ width: "100%", height: "100%", objectFit: "contain" }}
               />
             </div>
           </div>
