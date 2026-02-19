@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations, useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import styles from "./Dive.module.scss";
 
 const getLocaleForFormatting = (locale: string): string => {
@@ -42,7 +42,7 @@ export default function ChartDive(props: Props) {
   const t = useTranslations("projects");
   const locale = useLocale();
   const formatLocale = getLocaleForFormatting(locale);
-  
+
   const percentRU = (n: number) =>
     n.toLocaleString(formatLocale, { maximumFractionDigits: 1 });
   const size = 300;
@@ -64,20 +64,29 @@ export default function ChartDive(props: Props) {
 
   // Прогресс-бары: заполнение = reels/stories,
   // внутри заполнения делаем 2 сегмента (фиолетовый/оранжевый) по долям подписчиков/неподписчиков.
+  // На первом баре фиолетовый в 1.5 раза больше, на втором в 2 раза больше
   const subsRatio =
     props.percentSubscribers /
     Math.max(1e-6, props.percentSubscribers + props.percentNonSubscribers);
   const nonSubsRatio = 1 - subsRatio;
 
-  const splitFill = (value: number) => {
+  const splitFill = (value: number, purpleMultiplier: number = 1) => {
     const filled = Math.max(0, Math.min(100, value));
-    const purple = filled * subsRatio;
-    const orange = filled * nonSubsRatio;
+    let purple = filled * subsRatio * purpleMultiplier;
+    let orange = filled * nonSubsRatio;
+
+    // Нормализуем так, чтобы сумма не превышала 100%
+    const total = purple + orange;
+    if (total > 100) {
+      purple = (purple / total) * 100;
+      orange = (orange / total) * 100;
+    }
+
     return { filled, purple, orange };
   };
 
-  const reels = splitFill(props.reelsPercent);
-  const stories = splitFill(props.storiesPercent);
+  const reels = splitFill(props.reelsPercent, 2);
+  const stories = splitFill(props.storiesPercent, 3.5);
 
   return (
     <div className={styles.card}>
@@ -105,20 +114,6 @@ export default function ChartDive(props: Props) {
               stroke="#AC8EEF4D"
               strokeWidth={stroke}
               fill="none"
-            />
-
-            {/* подписчики — маленький фиолетовый */}
-            <circle
-              cx={size / 2}
-              cy={size / 2}
-              r={radius}
-              stroke="#AC8EEF"
-              strokeWidth={stroke}
-              fill="none"
-              strokeLinecap="round"
-              strokeDasharray={`${subsLen} ${c}`}
-              strokeDashoffset={0}
-              transform={`rotate(${startRotation} ${size / 2} ${size / 2})`}
             />
 
             {/* реклама — оранжевый сегмент (как на скрине) */}
@@ -181,49 +176,53 @@ export default function ChartDive(props: Props) {
       {/* bars */}
       <div className={styles.bars}>
         <div className={styles.barRow}>
-          <div className={styles.barHead}>
-            <span>{t("videoReels")}</span>
-            <b>{percentRU(props.reelsPercent)}%</b>
-          </div>
-
-          <div className={styles.barTrack}>
-            <div
-              className={styles.barFill}
-              style={{ width: `${reels.filled}%` }}
-            >
+          <div className={styles.barContainer}>
+            <div className={styles.barLabel}>
+              <span>{t("videoReels")}</span>
+            </div>
+            <div className={styles.barTrack}>
               <div
-                className={styles.barPurple}
-                style={{ width: `${reels.purple}%` }}
-              />
-              <div
-                className={styles.barOrange}
-                style={{ width: `${reels.orange}%` }}
-              />
+                className={styles.barFill}
+                style={{ width: `${reels.filled}%` }}
+              >
+                <div
+                  className={styles.barPurple}
+                  style={{ width: `${reels.purple}%` }}
+                />
+                <div
+                  className={styles.barOrange}
+                  style={{ width: `${reels.orange}%` }}
+                />
+              </div>
             </div>
           </div>
+          <b className={styles.barPercent}>{percentRU(props.reelsPercent)}%</b>
         </div>
 
         <div className={styles.barRow}>
-          <div className={styles.barHead}>
-            <span>{t("stories")}</span>
-            <b>{percentRU(props.storiesPercent)}%</b>
-          </div>
-
-          <div className={styles.barTrack}>
-            <div
-              className={styles.barFill}
-              style={{ width: `${stories.filled}%` }}
-            >
+          <div className={styles.barContainer}>
+            <div className={styles.barLabel}>
+              <span>{t("stories")}</span>
+            </div>
+            <div className={styles.barTrack}>
               <div
-                className={styles.barPurple}
-                style={{ width: `${stories.purple}%` }}
-              />
-              <div
-                className={styles.barOrange}
-                style={{ width: `${stories.orange}%` }}
-              />
+                className={styles.barFill}
+                style={{ width: `${stories.filled}%` }}
+              >
+                <div
+                  className={styles.barPurple}
+                  style={{ width: `${stories.purple}%` }}
+                />
+                <div
+                  className={styles.barOrange}
+                  style={{ width: `${stories.orange}%` }}
+                />
+              </div>
             </div>
           </div>
+          <b className={styles.barPercent}>
+            {percentRU(props.storiesPercent)}%
+          </b>
         </div>
       </div>
 

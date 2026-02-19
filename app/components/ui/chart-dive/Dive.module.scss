@@ -58,23 +58,32 @@
 .legend {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  min-width: 220px;
+  gap: 16px;
+  min-width: auto;
 }
 
 .item {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  align-items: flex-start;
+  gap: 10px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
 
   b {
-    font-size: clamp(16px, 1.71vw, 24px);
+    font-size: 16px;
     font-weight: 600;
+    line-height: 1;
   }
 
   span {
-    font-size: clamp(14px, 1.29vw, 18px);
-    opacity: 0.85;
+    font-size: 16px;
+    opacity: 0.75;
+    line-height: 1;
+    font-weight: 500;
   }
 }
 
@@ -100,24 +109,35 @@
 
 .barRow {
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 16px;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.barHead {
+.barContainer {
+  flex: 0 1 75%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.barLabel {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
 
   span {
     font-size: clamp(18px, 2vw, 28px);
     font-weight: 500;
   }
+}
 
-  b {
-    font-size: clamp(18px, 1.86vw, 26px);
-    font-weight: 600;
-  }
+.barPercent {
+  font-size: clamp(18px, 1.86vw, 26px);
+  font-weight: 600;
+  white-space: nowrap;
+  text-align: center;
+  min-width: 60px;
 }
 
 .barTrack {
@@ -181,7 +201,7 @@
 }
 
 .pos {
-  color: #2aa96b;
+  color: #929292;
 }
 
 .neg {

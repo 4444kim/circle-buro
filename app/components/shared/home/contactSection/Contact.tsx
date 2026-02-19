@@ -54,7 +54,7 @@ export default function ContactSection() {
   return (
     <section className={styles.contact} id="contact">
       <Image
-        src="/home/contact.png"
+        src="/home/4.png"
         alt={t("contactAltBackground")}
         fill
         sizes="100vw"

@@ -33,7 +33,7 @@ export default function Benefits() {
   return (
     <section className={styles.benefits}>
       <Image
-        src="/home/benefits.png"
+        src="/home/2.png"
         alt="Benefits background"
         fill
         sizes="100vw"

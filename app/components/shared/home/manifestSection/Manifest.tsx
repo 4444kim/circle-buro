@@ -12,7 +12,7 @@ export default function Manifest() {
     <section className={styles.manifest}>
       <div className={styles.manifestInner}>
         <Image
-          src="/home/manifest.png"
+          src="/home/manifest1.png"
           alt="Manifest background"
           fill
           sizes="100vw"

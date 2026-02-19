@@ -56,7 +56,7 @@ export default function Package() {
   return (
     <section className={styles.packages}>
       <Image
-        src="/services/package-bg.png"
+        src="/services/bg2.png"
         alt=""
         fill
         sizes="100vw"

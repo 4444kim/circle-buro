@@ -9,7 +9,7 @@ export default async function AboutHero() {
     <section className={styles.hero}>
       <div className={styles.heroInner}>
         <Image
-          src="/about/about-hero.png"
+          src="/about/1.png"
           alt={t("heroAlt")}
           fill
           sizes="100vw"

@@ -9,7 +9,7 @@ export default async function Mission() {
     <section className={styles.mission}>
       <div className={styles.missionInner}>
         <Image
-          src="/about/mission.png"
+          src="/about/2.png"
           alt={t("missionAlt")}
           fill
           sizes="100vw"

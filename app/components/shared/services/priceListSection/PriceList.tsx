@@ -63,7 +63,7 @@ export default function PriceList() {
   return (
     <section className={styles.priceList}>
       <Image
-        src="/services/priceList-bg.png"
+        src="/services/bg1.png"
         alt=""
         fill
         sizes="100vw"

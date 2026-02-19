@@ -8,7 +8,7 @@ export default async function History() {
   return (
     <section className={styles.history}>
       <Image
-        src="/about/about-history-bg.png"
+        src="/about/3.png"
         alt=""
         fill
         sizes="100vw"
@@ -18,7 +18,7 @@ export default async function History() {
       <div className={styles.content}>
         <div className={styles.imageBlock}>
           <Image
-            src="/about/about-hands.jpg"
+            src="/about/4.jpg"
             alt={t("historyTeamAlt")}
             fill
             sizes="(max-width: 1024px) 100vw, 50vw"

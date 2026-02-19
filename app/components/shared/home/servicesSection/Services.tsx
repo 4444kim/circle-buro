@@ -37,7 +37,7 @@ export default function Services() {
   return (
     <section className={styles.services} id="services">
       <Image
-        src="/home/services.png"
+        src="/home/3.png"
         alt="Services background"
         fill
         sizes="100vw"
