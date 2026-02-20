@@ -1,6 +1,6 @@
-import Image from "next/image";
+import ChartSteppeCoffee from "@/components/ui/chart-steppe-coffee/ChartSteppeCoffee";
 import { getTranslations } from "next-intl/server";
-import ChartSteppeCoffee from "@/app/components/ui/chart-steppe-coffee/ChartSteppeCoffee";
+import Image from "next/image";
 import styles from "./steppe-coffee.module.scss";
 
 export default async function SteppeCoffeeProject() {

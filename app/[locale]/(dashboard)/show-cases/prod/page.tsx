@@ -1,6 +1,6 @@
+import ProdBlocks from "@/components/shared/showCases/prod/prodBlocks/prodBlocks";
+import ProdHero from "@/components/shared/showCases/prod/prodHero/prodHero";
 import { setRequestLocale } from "next-intl/server";
-import ProdHero from "@/app/components/shared/showCases/prod/prodHero/prodHero";
-import ProdBlocks from "@/app/components/shared/showCases/prod/prodBlocks/prodBlocks";
 
 type Props = { params: Promise<{ locale: string }> };
 

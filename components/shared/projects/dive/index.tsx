@@ -1,6 +1,6 @@
-import Image from "next/image";
+import ChartDive from "@/components/ui/chart-dive/ChartDive";
 import { getTranslations } from "next-intl/server";
-import ChartDive from "@/app/components/ui/chart-dive/ChartDive";
+import Image from "next/image";
 import styles from "./dive.module.scss";
 
 const SECTION3_PHOTOS = [

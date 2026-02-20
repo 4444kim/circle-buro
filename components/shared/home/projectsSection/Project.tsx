@@ -1,12 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useState } from "react";
-import Image from "next/image";
-import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/navigation";
+import { PROJECTS as PROJECTS_DATA } from "@/lib/constants";
+import { motion } from "framer-motion";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import { useState } from "react";
 import styles from "./Project.module.scss";
-import { PROJECTS as PROJECTS_DATA } from "@/app/lib/constants";
 
 type Project = {
   slug: string;
@@ -130,7 +130,13 @@ export default function ProjectSection({
             onClick={prevSlide}
             aria-label={t("prevSlide")}
           >
-            <Image src="/calendar/Left 2.svg" alt="" width={24} height={24} unoptimized />
+            <Image
+              src="/calendar/Left 2.svg"
+              alt=""
+              width={24}
+              height={24}
+              unoptimized
+            />
           </button>
 
           <div className={styles.slideWrapper}>
@@ -164,7 +170,13 @@ export default function ProjectSection({
             onClick={nextSlide}
             aria-label={t("nextSlide")}
           >
-            <Image src="/calendar/Right 2.svg" alt="" width={24} height={24} unoptimized />
+            <Image
+              src="/calendar/Right 2.svg"
+              alt=""
+              width={24}
+              height={24}
+              unoptimized
+            />
           </button>
         </div>
 

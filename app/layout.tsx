@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import "./styles/base/globals.scss";
+import "../styles/base/globals.scss";
 
 export const metadata: Metadata = {
   title: {

@@ -1,14 +1,14 @@
-import type { ComponentType } from "react";
-import { notFound } from "next/navigation";
+import CampitProject from "@/components/shared/projects/campit";
+import CitixProject from "@/components/shared/projects/citix";
+import DiveProject from "@/components/shared/projects/dive";
+import GalereyaProject from "@/components/shared/projects/galereya";
+import HomeBankProject from "@/components/shared/projects/homeBank";
+import SanyProject from "@/components/shared/projects/sany";
+import SenenProject from "@/components/shared/projects/senen";
+import SteppeCoffeeProject from "@/components/shared/projects/steppe-coffee";
 import { setRequestLocale } from "next-intl/server";
-import GalereyaProject from "@/app/components/shared/projects/galereya";
-import CampitProject from "@/app/components/shared/projects/campit";
-import SteppeCoffeeProject from "@/app/components/shared/projects/steppe-coffee";
-import SenenProject from "@/app/components/shared/projects/senen";
-import SanyProject from "@/app/components/shared/projects/sany";
-import DiveProject from "@/app/components/shared/projects/dive";
-import CitixProject from "@/app/components/shared/projects/citix";
-import HomeBankProject from "@/app/components/shared/projects/homeBank";
+import { notFound } from "next/navigation";
+import type { ComponentType } from "react";
 
 const PROJECT_COMPONENTS: Record<string, ComponentType> = {
   "steppe-coffee": SteppeCoffeeProject,

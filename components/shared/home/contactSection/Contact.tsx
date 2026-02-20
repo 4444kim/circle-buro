@@ -1,10 +1,10 @@
 "use client";
 
+import Calendar from "@/components/ui/calendar/calendar";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
-import { useTranslations, useLocale } from "next-intl";
 import styles from "./Contact.module.scss";
-import Calendar from "@/app/components/ui/calendar/calendar";
 
 const getLocaleForFormatting = (locale: string): string => {
   const localeMap: Record<string, string> = {
@@ -33,11 +33,14 @@ export default function ContactSection() {
   };
 
   const handleDateSelect = (date: Date, time: string) => {
-    const formattedDate = date.toLocaleDateString(getLocaleForFormatting(locale), {
-      day: "2-digit",
-      month: "2-digit",
-      year: "numeric",
-    });
+    const formattedDate = date.toLocaleDateString(
+      getLocaleForFormatting(locale),
+      {
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+      },
+    );
     setFormData((prev) => ({ ...prev, date: formattedDate, time }));
   };
 
@@ -118,7 +121,13 @@ export default function ContactSection() {
 
           <button type="submit" className={styles.btn}>
             <span className={styles.checkIcon}>
-              <Image src="/Check.svg" alt={t("contactAltCheck")} width={14} height={14} unoptimized />
+              <Image
+                src="/Check.svg"
+                alt={t("contactAltCheck")}
+                width={14}
+                height={14}
+                unoptimized
+              />
             </span>
             {t("contactSubmit")}
           </button>

@@ -1,6 +1,6 @@
+import DesignBlocks from "@/components/shared/showCases/design/DesignBlocksSection/DesignBlocks";
+import DesignHero from "@/components/shared/showCases/design/DesignHeroSection/DesignHero";
 import { setRequestLocale } from "next-intl/server";
-import DesignHero from "@/app/components/shared/showCases/design/DesignHeroSection/DesignHero";
-import DesignBlocks from "@/app/components/shared/showCases/design/DesignBlocksSection/DesignBlocks";
 
 type Props = { params: Promise<{ locale: string }> };
 

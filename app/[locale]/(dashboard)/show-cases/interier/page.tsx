@@ -1,6 +1,6 @@
+import InterierHero from "@/components/shared/showCases/interier/InterierHero/InterierHero";
+import InterierSlider from "@/components/shared/showCases/interier/interierBlocks/InterierSlider";
 import { setRequestLocale } from "next-intl/server";
-import InterierHero from "@/app/components/shared/showCases/interier/InterierHero/InterierHero";
-import InterierSlider from "@/app/components/shared/showCases/interier/interierBlocks/InterierSlider";
 
 type Props = { params: Promise<{ locale: string }> };
 

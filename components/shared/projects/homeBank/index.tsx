@@ -1,6 +1,6 @@
-import Image from "next/image";
+import InterierSlider from "@/components/shared/showCases/interier/interierBlocks/InterierSlider";
 import { getTranslations } from "next-intl/server";
-import InterierSlider from "@/app/components/shared/showCases/interier/interierBlocks/InterierSlider";
+import Image from "next/image";
 import styles from "./homeBank.module.scss";
 
 export default async function HomeBankProject() {
